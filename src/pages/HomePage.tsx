@@ -1,11 +1,14 @@
-import LogOut from "../components/LogOut/LogOut";
+import Navbar from "../components/Navigation/Navbar";
+import HomeSection from '../components/HomePage/HomeSection'
+import FooterSection from "../components/Footer/FooterSection";
 
 function HomePage() {
   return (
-    <div>
-      <LogOut />
-      HomePage
-    </div>
+    <>
+      <Navbar />
+      <HomeSection />
+      <FooterSection />
+    </>
   );
 }
 

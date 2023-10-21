@@ -3,6 +3,11 @@ import { FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import EmailLabel from "../components/LoginRegister/EmailLabel";
+import PasswordLabel from "../components/LoginRegister/PasswordLabel";
+import ButtonCustom from "../components/Buttons/ButtonCustom";
+import Formh1 from "../components/LoginRegister/Formh1";
+import {IoCreate} from 'react-icons/io5';
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -27,19 +32,14 @@ function LoginPage() {
   };
 
   const handleRegisterClick = () => {
-    navigate("/register");
+    navigate("/registration");
   };
   return (
-    <div className="flex justify-center w-full">
-      <form onSubmit={signIn} className="text-black flex flex-col items-center">
-        <h1>Log In</h1>
-        <Label
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <Formh1 onSubmit={signIn} h1="Login">
+      <EmailLabel>
+        <Label type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      </EmailLabel>
+      <PasswordLabel>
         <Label
           type="password"
           placeholder="Password"
@@ -47,10 +47,14 @@ function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Log In</button>
-      </form>
-      <button onClick={handleRegisterClick}>Register Now</button>
-    </div>
+      </PasswordLabel>
+      <button type="button" onClick={handleRegisterClick} className="flex items-center gap-1 self-end mt-1 mb-5">
+        Register Now <IoCreate />
+      </button>
+      <ButtonCustom type="submit" className="w-28 h-12">
+        Login
+      </ButtonCustom>
+    </Formh1>
   );
 }
 

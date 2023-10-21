@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { auth } from "../../config/firebase";
+import { auth } from "../../../config/firebase";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { BiLogOut } from "react-icons/bi";
 
-function LogOut() {
+interface LogOutProps {
+  title?: string;
+}
+
+function LogOut({ title }: LogOutProps) {
   const [authUser, setAuthUser] = useState<User | null>(null);
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -24,8 +29,8 @@ function LogOut() {
     signOut(auth)
       .then(() => {
         console.log("sign out succes");
-        localStorage.removeItem('user')
-        navigate('/')
+        localStorage.removeItem("user");
+        navigate("/login/");
       })
       .catch((error) => console.log(error));
   };
@@ -33,11 +38,16 @@ function LogOut() {
     <div>
       {authUser ? (
         <>
-          <p>{`Signed In as ${authUser.email}`}</p>
-          <button onClick={userSignOut}>Sign Out</button>
+          {/* <p>{`Signed In as ${authUser.email}`}</p> */}
+          <button className="flex gap-4 items-center" onClick={userSignOut}>
+            <BiLogOut size={25} />
+            {title}
+          </button>
         </>
       ) : (
-        <p>Signed Out</p>
+        <p>
+          <BiLogOut size={25} />
+        </p>
       )}
     </div>
   );

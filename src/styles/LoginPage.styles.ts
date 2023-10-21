@@ -1,4 +1,4 @@
 import tw from "tailwind-styled-components";
 
-export const Label = tw.input`border-2 border-black my-2 `;
+export const Label = tw.input`w-full h-8 pl-2 `;
 

@@ -3,6 +3,11 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { Label } from "../styles/LoginPage.styles";
+import EmailLabel from "../components/LoginRegister/EmailLabel";
+import PasswordLabel from "../components/LoginRegister/PasswordLabel";
+import Formh1 from "../components/LoginRegister/Formh1";
+import ButtonCustom from "../components/Buttons/ButtonCustom";
+
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -13,35 +18,44 @@ function RegisterPage() {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate("/");
+        navigate("/login/");
       })
       .catch((error) => {
-        const errorCode= error.code;
-        const errorMessage= error.message;
-        console.log(errorCode,errorMessage);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
       });
   };
 
   const backToLoginClick = () => {
-    navigate("/");
+    navigate("/login/");
   };
   return (
-    <div className="flex justify-center w-full">
-      <form onSubmit={signUp} className="text-black flex flex-col">
-        <h1>Register</h1>
-        <Label type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+    <Formh1 onSubmit={signUp} h1="Register">
+      <EmailLabel>
+        <Label
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </EmailLabel>
+      <PasswordLabel>
         <Label
           type="password"
-          placeholder="Enter your password"
+          placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <p className="opacity-60">Password should be at least 6 characters</p>
-        <button type="submit">Sign Up</button>
-      </form>
-      <button onClick={backToLoginClick}>Back to Log In</button>
-    </div>
+      </PasswordLabel>
+      <p className="opacity-60 my-2">Password should be at least 6 characters</p>
+      <ButtonCustom type="submit" className="w-28 h-12 my-2">Sign up</ButtonCustom>
+      <button type="button" onClick={backToLoginClick} className="mt-6">
+        Back to Login
+      </button>
+    </Formh1>
   );
 }
 
