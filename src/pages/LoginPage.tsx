@@ -54,6 +54,11 @@ function LoginPage() {
       <ButtonCustom type="submit" className="w-28 h-12">
         Login
       </ButtonCustom>
+      <div className="mt-8">
+        <h2>Demo Account:</h2>
+        <div  className="mt-4">Email: <span className="font-bold">bleniog@wp.pl</span> </div>
+        <div>Password: <span className="font-bold">tomasz</span></div>
+      </div>
     </Formh1>
   );
 }
