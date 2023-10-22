@@ -3,9 +3,9 @@ import interestsList from "./interestsList";
 import { motion } from "framer-motion";
 
 function Interests() {
-  const [activeInterest, setActiveInterest] = useState<number | null>(null);
+  const [activeInterest, setActiveInterest] = useState<number | null>(0);
   const [spanPosition, setSpanPosition] = useState(0);
-  const [spanWidth, setSpanWidth] = useState(0)
+  const [spanWidth, setSpanWidth] = useState(45)
 
   const rangeTab = [
     { rage: 0, width: 45 },

@@ -5,7 +5,6 @@ import MainFilter from "./Filter/MainFilter";
 import Products from "./Products/Products";
 import { useState } from "react";
 
-
 function ShoesSection() {
   const [filterVisible, setFilterVisible] = useState(true);
   const [sortBy, setSortBy] = useState("");
@@ -24,17 +23,18 @@ function ShoesSection() {
         setFilterVisible={setFilterVisible}
       />
       <FilterPhone setFilterType={setFilterType} />
-
-      <div className="flex p-2 sm:p-8 md:p-10 md:gap-10  ">
-        <MainFilter
-          setDiscount={setDiscount}
-          genderFilter={genderFilter}
-          setGenderFilter={setGenderFilter}
-          setFilterType={setFilterType}
-          filterVisible={filterVisible}
-          selectedSize={selectedSize}
-          setSelectedSize={setSelectedSize}
-        />
+      <div className="flex  sm:p-8 md:p-10 md:gap-10 ">
+        <div>
+          <MainFilter
+            setDiscount={setDiscount}
+            genderFilter={genderFilter}
+            setGenderFilter={setGenderFilter}
+            setFilterType={setFilterType}
+            filterVisible={filterVisible}
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
+        </div>
         <Products
           discount={discount}
           genderFilter={genderFilter}

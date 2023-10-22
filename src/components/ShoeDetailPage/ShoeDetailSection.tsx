@@ -3,14 +3,16 @@ import shoesList from "../ShoesPage/Products/shoesList";
 import SizeShoeDetail from "./SizeShoeDetail";
 import ButtonCustom from "../Buttons/ButtonCustom";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FavoritiestContext } from "../../context/context";
 import { Shoe } from "../ShoesPage/Products/interfaceShoe";
+import Shipping from "./Shipping";
 
 function ShoeDetailSection() {
   const { name } = useParams();
   const shoeDetails = shoesList.find((shoe) => shoe.name === name);
   const { favorities, setFavorities } = useContext(FavoritiestContext);
+  const [selectedSize, setSelectedSize] = useState<number | null>(null);
 
   if (!shoeDetails) {
     return (
@@ -30,12 +32,27 @@ function ShoeDetailSection() {
     }
   };
 
+  const addToBag = () => {
+    const shoeWithSelectedSize = {
+      ...shoeDetails,
+      selectedSize: selectedSize,
+    };
+    const currentBag = JSON.parse(localStorage.getItem("bagItems") || "[]");
+    currentBag.push(shoeWithSelectedSize);
+
+    localStorage.setItem("bagItems", JSON.stringify(currentBag));
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 my-10 ">
-      <div className=" col-span-1 ">
-        <img src={shoeDetails.img} alt={shoeDetails.name} className="aspect-square object-fill w-full  " />
+    <div className="grid grid-cols-1 md:grid-cols-2 my-10  ">
+      <div className=" col-span-1  ">
+        <img
+          src={shoeDetails.img}
+          alt={shoeDetails.name}
+          className="aspect-square object-fill w-full md:sticky md:top-10 "
+        />
       </div>
-      <div className="p-6 pl-16 font-bold text-[18px] w-[500px]  ">
+      <div className="p-6 pl-16 font-bold text-[18px] md:w-[500px]  ">
         <h1 className="text-[24px] opacity-90">{shoeDetails.name}</h1>
         <h2>{shoeDetails.gender}</h2>
         <div className="flex gap-4 my-5">
@@ -45,14 +62,17 @@ function ShoeDetailSection() {
         <p className=" text-green-700 opacity-90 text-[16px]">
           Member Exclusive: use code MEMBER20 for an extra 20% off select styles. Log in or sign up for free to save.
         </p>
-        <SizeShoeDetail shoeDetails={shoeDetails} />
+        <SizeShoeDetail shoeDetails={shoeDetails} onSizeSelect={setSelectedSize} />
         <div className="flex flex-col gap-5">
-          <ButtonCustom className="bg-black text-white">Add to Bad</ButtonCustom>
+          <ButtonCustom onClick={addToBag} className="bg-black text-white">
+            Add to Bad
+          </ButtonCustom>
           <ButtonCustom onClick={favoriteClick} className="flex justify-center items-center">
             <span>Favorite</span>
             {isFavorite ? <IoMdHeart size={20} className="ml-4" /> : <IoMdHeartEmpty size={20} className="ml-4" />}
           </ButtonCustom>
         </div>
+        <Shipping />
       </div>
     </div>
   );

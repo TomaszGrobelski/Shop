@@ -2,10 +2,11 @@ import navigationLinks from "./navigationLinks";
 import { Link } from "react-router-dom";
 import { FiChevronRight } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import iconList from "./iconList";
 import LogOut from "./LogOut/LogOut";
 import { useEffect } from "react";
+
 
 interface MobileNavProps {
   visible: () => void;
@@ -53,7 +54,7 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
           initial={{ x: 260 }}
           animate={{ x: 0 }}
           exit={{ x: 260 }}
-          transition={{ duration: 0.2}}
+          transition={{ duration: 0.2 }}
           className=" fixed p-6 right-0 top-0 h-screen bg-white w-[260px] z-20 border-l-[1px] sm:hidden"
         >
           <button onClick={visible} className="relative   left-[188px]">

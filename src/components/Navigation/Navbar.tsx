@@ -5,19 +5,19 @@ import logoNika from "../../images/Logo/logoNika.png";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import navigationLinks from "./navigationLinks";
-import iconList from "./iconList";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-
-
+import getIconList from "./LogOut/getIconList";
 
 function Navbar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navVisible, setNavVisible] = useState(false);
+  const [bagItemCount, setBagItemCount] = useState(0);
 
-
-  
   useEffect(() => {
+    const bagItems = JSON.parse(localStorage.getItem("bagItems") || "[]");
+    setBagItemCount(bagItems.length);
+
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -35,7 +35,7 @@ function Navbar() {
     </li>
   ));
 
-  const iconsList = iconList.map((icon, index) => (
+  const iconsList = getIconList(bagItemCount).map((icon, index) => (
     <Link key={index} to={icon.path}>
       {icon.icon}
     </Link>

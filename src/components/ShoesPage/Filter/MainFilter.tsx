@@ -30,7 +30,7 @@ function MainFilter({
           animate={{ x: 0 }}
           exit={{ x: -300 }}
           transition={{ duration: 0.2 }}
-          className="hidden  min-w-[200px] font-bold opacity-90 md:flex md:flex-col"
+          className="hidden  min-w-[200px] font-bold opacity-90 md:flex md:flex-col sticky top-24"
         >
           <ModelFilter setFilterType={setFilterType} />
           <GenderFilter genderFilter={genderFilter} setGenderFilter={setGenderFilter} />
