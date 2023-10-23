@@ -1,11 +1,16 @@
 import { useState } from "react";
 import interestsList from "./interestsList";
 import { motion } from "framer-motion";
+import { SetStateAction, Dispatch } from "react";
 
-function Interests() {
+interface InterestsProps {
+  setInterest: Dispatch<SetStateAction<string>>;
+}
+
+function Interests({ setInterest }:InterestsProps) {
   const [activeInterest, setActiveInterest] = useState<number | null>(0);
   const [spanPosition, setSpanPosition] = useState(0);
-  const [spanWidth, setSpanWidth] = useState(45)
+  const [spanWidth, setSpanWidth] = useState(45);
 
   const rangeTab = [
     { rage: 0, width: 45 },
@@ -16,7 +21,7 @@ function Interests() {
     { rage: 455, width: 67 },
   ];
 
-    const handleButtonClick = (index: number) => {
+  const handleButtonClick = (index: number) => {
     setActiveInterest(index);
     if (rangeTab[index]) {
       setSpanPosition(rangeTab[index].rage);
@@ -29,7 +34,10 @@ function Interests() {
     return (
       <li key={index}>
         <button
-          onClick={() => handleButtonClick(index)}
+          onClick={() => {
+            handleButtonClick(index);
+            setInterest(interest.name)
+          }}
           style={{ border: isActive ? "1px solid black" : "none" }}
           className={`font-bold p-3 rounded-xl ${isActive ? "text-black" : "text-gray-500"}`}
         >
@@ -39,8 +47,6 @@ function Interests() {
     );
   });
 
-
-
   return (
     <div className="flex flex-col gap-8">
       <h2 className="text-[24px] font-bold opacity-90">Interests</h2>
@@ -49,7 +55,7 @@ function Interests() {
         <div className="relative">
           <p className="border-[1px]"></p>
           <motion.span
-            animate={{ x: spanPosition, width:spanWidth }}
+            animate={{ x: spanPosition, width: spanWidth }}
             transition={{ duration: 0.2, type: "tween" }}
             className="hidden sm:block absolute -top-[3px] h-[3px] bg-black"
           ></motion.span>

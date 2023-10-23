@@ -6,3 +6,8 @@
     font-family: 'HelveticaNowDisplay';
     src: url('../public/fonts/HelveticaNowDisplay-Medium.ttf');
 }
+
+@font-face {
+    font-family: 'HelveticaText';
+    src: url('../public/fonts/HelveticaNowDisplay');
+}

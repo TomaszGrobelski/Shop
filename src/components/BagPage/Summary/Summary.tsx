@@ -1,11 +1,12 @@
-import ButtonCustom from "../Buttons/ButtonCustom";
+import ButtonCustom from "../../Buttons/ButtonCustom";
 import PromoCode from "./PromoCode";
 import { BiMinus } from "react-icons/bi";
 
-function Summary() {
+interface SummaryProps {
+  totalPrice: number;
+}
 
-
-
+function Summary({totalPrice}:SummaryProps) {
   return (
     <div className="max-w-[400px] min-w-[300px] flex flex-col gap-3 font-bold  ">
       <h2 className="text-[24px] ">Summary</h2>
@@ -33,9 +34,7 @@ function Summary() {
       </div>
       <div className="flex justify-between items-center border-b-[1px] py-3">
         <p>Total</p>
-        <span>
-          <BiMinus />
-        </span>
+        <span>{totalPrice === 0 ? <BiMinus /> : totalPrice}</span>
       </div>
       <div className=" hidden font-bold gap-4 md:flex md:flex-col">
         <ButtonCustom className="text-gray-500">Checkout</ButtonCustom>

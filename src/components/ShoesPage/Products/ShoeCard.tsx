@@ -1,4 +1,5 @@
-import { Shoe } from "./interfaceShoe";
+import { Shoe } from "./interfaceShoe"
+
 
 type ShoeCardProps = {
   shoe: Shoe;
@@ -8,6 +9,8 @@ type ShoeCardProps = {
 };
 
 const ShoeCard: React.FC<ShoeCardProps> = ({ shoe, key, children, favorite }) => {
+ 
+
   return (
     <div key={key} className="flex flex-col  mb-10">
       <div className="relative max-w-[400px]">

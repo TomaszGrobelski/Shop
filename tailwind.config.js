@@ -6,7 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        'helvetica': ['HELVETICA', 'Sans Serif'] 
+        'helvetica': ['HELVETICA', 'Sans Serif'],
+        'helveticaText': ['HelveticaText', 'Sans Serif'] 
       },
       backgroundColor:{
         'darkNika' : '#111111',
