@@ -7,7 +7,6 @@ import iconList from "./iconList";
 import LogOut from "./LogOut/LogOut";
 import { useEffect } from "react";
 
-
 interface MobileNavProps {
   visible: () => void;
   navVisible: boolean;
@@ -24,8 +23,12 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
 
   const navList = navigationLinks.map((link, index) => (
     <li className="flex items-center justify-between" key={index}>
-      <Link to={link.path}>{link.name}</Link>
-      <FiChevronRight size={20} />
+      <Link to={link.path}>
+        <button className="flex justify-between items-center w-[212px]">
+          {link.name}
+          <FiChevronRight size={20} />
+        </button>
+      </Link>
     </li>
   ));
 

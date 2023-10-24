@@ -18,25 +18,45 @@ function Order({ setTotalPrice }: OrderProps) {
       const sum = itemsArray.reduce((total, current) => total + current.price, 0);
       setTotalPrice(sum);
     }
-  }, [setTotalPrice]);
+  }, [setTotalPrice, setItemsList]);
+
+  const deleteProductClick = (index: number) => {
+    const updatedItems = [...itemsList];
+    const deletedItem = updatedItems.splice(index, 1)[0]; // Usuwa element z listy
+    setItemsList(updatedItems); // Aktualizuje stan listy po usunięciu elementu
+
+    // Aktualizuje localStorage po usunięciu elementu
+    const storedItems = localStorage.getItem("bagItems");
+    if (storedItems) {
+      const itemsArray: Shoe[] = JSON.parse(storedItems);
+      const updatedItemsArray = itemsArray.filter((item) => item.id !== deletedItem.id);
+      localStorage.setItem("bagItems", JSON.stringify(updatedItemsArray));
+    }
+
+    const sum = updatedItems.reduce((total, current) => total + current.price, 0);
+    setTotalPrice(sum); // Aktualizuje cenę po usunięciu elementu
+  };
 
   const displayOrder = itemsList.map((order, index) => (
     <li key={index} className="flex gap-10 w-full">
-      <img src={order.img} alt={order.name} className="max-w-[100px]" />
+      <img src={order.img} alt={order.name} className="max-w-[120px]" />
       <div>
         <h2>{order.name}</h2>
-        <p>{order.gender}</p>
-        <div>Size+Quantity</div>
-        <div className="flex gap-4">
+        <p className="text-[14px] text-gray-600">{order.gender}</p>
+        <div className="text-[14px] text-gray-600">Size: {order.selectedSize}</div>
+        <div className="flex gap-4 my-4">
           <button>
             <BsSuitHeart size={22} />
           </button>
-          <button>
+          <button onClick={() => deleteProductClick(index)}>
             <RiDeleteBin6Line size={22} />
           </button>
         </div>
       </div>
-      <p className="flex flex-col ">{order.oldPrice ? `${order.oldPrice}  ${order.price }`   : order.price}</p>
+      <div className="flex flex-col ">
+        <p className=" line-through text-gray-600">{order.oldPrice && order.oldPrice}</p>
+        <p>{order.price}</p>
+      </div>
     </li>
   ));
 

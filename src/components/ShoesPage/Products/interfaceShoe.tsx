@@ -8,4 +8,6 @@ export interface Shoe {
     price: number;
     sizes: number[];    
     imgURL?: string;
+    selectedSize?: number | number; 
+    
 }

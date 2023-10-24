@@ -7,12 +7,13 @@ import { useContext, useState } from "react";
 import { FavoritiestContext } from "../../context/context";
 import { Shoe } from "../ShoesPage/Products/interfaceShoe";
 import Shipping from "./Shipping";
+import { v4 as uuidv4 } from 'uuid'
 
 function ShoeDetailSection() {
   const { name } = useParams();
   const shoeDetails = shoesList.find((shoe) => shoe.name === name);
   const { favorities, setFavorities } = useContext(FavoritiestContext);
-  const [selectedSize, setSelectedSize] = useState<number | null>(null);
+  const [selectedSize, setSelectedSize] = useState<number | null | false>(null);
 
   if (!shoeDetails) {
     return (
@@ -32,10 +33,15 @@ function ShoeDetailSection() {
     }
   };
 
-  const addToBag = () => {
+  const addToBagClick = () => {
+    if(selectedSize=== null || selectedSize===false){
+     setSelectedSize(false)
+      return
+    }
     const shoeWithSelectedSize = {
       ...shoeDetails,
       selectedSize: selectedSize,
+      id: uuidv4()
     };
     const currentBag = JSON.parse(localStorage.getItem("bagItems") || "[]");
     currentBag.push(shoeWithSelectedSize);
@@ -62,9 +68,9 @@ function ShoeDetailSection() {
         <p className=" text-green-700 opacity-90 text-[16px]">
           Member Exclusive: use code MEMBER20 for an extra 20% off select styles. Log in or sign up for free to save.
         </p>
-        <SizeShoeDetail shoeDetails={shoeDetails} onSizeSelect={setSelectedSize} />
+        <SizeShoeDetail selectedSize={selectedSize} shoeDetails={shoeDetails} onSizeSelect={setSelectedSize} />
         <div className="flex flex-col gap-5">
-          <ButtonCustom onClick={addToBag} className="bg-black text-white">
+          <ButtonCustom onClick={addToBagClick} className="bg-black text-white">
             Add to Bad
           </ButtonCustom>
           <ButtonCustom onClick={favoriteClick} className="flex justify-center items-center">

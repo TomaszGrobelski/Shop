@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/PrivateRout/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContainerHome from "./components/Containers/Container";
 import ShoeDetailPage from "./pages/ShoeDetailPage";
+import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
 
 import FavoritesProvider from "./context/FavoritesProvider";
 
@@ -68,6 +69,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <UserPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <CheckoutPage />
                 </ProtectedRoute>
               }
             />
