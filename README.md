@@ -1,3 +1,5 @@
 # Nika
 
-Demo https://tomaszgrobelski.github.io/nika/
+## Demo
+[Nika website demo](Demo https://tomaszgrobelski.github.io/nika/)
+
