@@ -18,7 +18,7 @@ function RegisterPage() {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate("/Shop/");
+        navigate("/nika/");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -28,7 +28,7 @@ function RegisterPage() {
   };
 
   const backToLoginClick = () => {
-    navigate("/Shop/");
+    navigate("/nika/");
   };
   return (
     <Formh1 onSubmit={signUp} h1="Register">

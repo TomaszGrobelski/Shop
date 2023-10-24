@@ -1,8 +1,8 @@
 {
-  "name": "shop",
+  "name": "nika",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://TomaszGrobelski.github.io/Shop",
+  "homepage": "https://TomaszGrobelski.github.io/nika",
   "type": "module",
   "scripts": {
     "dev": "vite",

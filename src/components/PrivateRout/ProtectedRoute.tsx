@@ -23,15 +23,15 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
               if (userToken === token) {
                 navigate(`${pathLocation}`);
               } else {
-                navigate("/Shop/");
+                navigate("/nika/");
               }
             })
             .catch((error) => {
               console.error("Błąd podczas pobierania tokenu:", error);
-              navigate("/Shop/");
+              navigate("/nika/");
             });
         } else {
-          navigate("/Shop/");
+          navigate("/nika/");
         }
       });
     } else {

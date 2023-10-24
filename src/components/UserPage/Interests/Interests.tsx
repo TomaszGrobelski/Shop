@@ -1,5 +1,5 @@
 import { useState } from "react";
-import interestsList from "./interestsList";
+import interestsList from "../listOfInterests/interestsList";
 import { motion } from "framer-motion";
 import { SetStateAction, Dispatch } from "react";
 

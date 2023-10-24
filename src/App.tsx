@@ -22,7 +22,7 @@ function App() {
       <ContainerHome>
         <FavoritesProvider>
           <Routes>
-            <Route path="/Shop/" element={<LoginPage />} />
+            <Route path="/nika/" element={<LoginPage />} />
             <Route path="/registration/" element={<RegisterPage />} />
             <Route
               path="/home"

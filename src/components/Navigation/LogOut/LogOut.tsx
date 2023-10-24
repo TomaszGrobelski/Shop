@@ -30,7 +30,7 @@ function LogOut({ title }: LogOutProps) {
       .then(() => {
         console.log("sign out succes");
         localStorage.removeItem("user");
-        navigate("/Shop/");
+        navigate("/nika/");
       })
       .catch((error) => console.log(error));
   };
