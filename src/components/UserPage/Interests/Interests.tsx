@@ -48,7 +48,7 @@ function Interests({ setInterest }:InterestsProps) {
   });
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mt-12">
       <h2 className="text-[24px] font-bold opacity-90">Interests</h2>
       <div className="flex flex-col gap-4">
         <ul className="flex gap-4 flex-wrap">{interestsCategory}</ul>

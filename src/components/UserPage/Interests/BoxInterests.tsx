@@ -13,7 +13,6 @@ function BoxInterests({ interest, modalVisibility, setModalVisibility }: BoxInte
   };
   return (
     <div>
-      <p className=" ">Add your interests to shop a collection of products that are based on what you're into.</p>
       <div className="grid grid-cols-3 sm:grid-cols-5">
         <div className="flex  gap-3 justify-center items-center bg-gray-100 min-w-[130px] min-h-[170px]">
           <button onClick={modalClick} className="flex flex-col items-center gap-3 font-bold  hover:scale-110">
@@ -21,6 +20,7 @@ function BoxInterests({ interest, modalVisibility, setModalVisibility }: BoxInte
             <p>Add {interest}</p>
           </button>
         </div>
+        Tu się ma wyświetlać box
       </div>
     </div>
   );

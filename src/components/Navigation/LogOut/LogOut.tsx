@@ -28,7 +28,6 @@ function LogOut({ title }: LogOutProps) {
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("sign out succes");
         localStorage.removeItem("user");
         navigate("/nika/");
       })
