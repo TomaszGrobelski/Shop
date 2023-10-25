@@ -23,7 +23,7 @@ The project has been implemented using the following technologies:
 
 To install and run this project locally, follow these steps:
 
-1. Clone the repository: git clone https://github.com/TomaszGrobelski/CHROMEON.git
+1. Clone the repository: git clone https://github.com/TomaszGrobelski/nika.git
 2. Navigate to the project directory: cd CHROMEON
 3. Install dependencies: npm install
 4. Run the application: npm start
