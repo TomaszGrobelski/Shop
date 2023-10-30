@@ -3,6 +3,9 @@ import ButtonCustom from "../../Buttons/ButtonCustom";
 import PromoCode from "./PromoCode";
 import { BiMinus } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { loadStripe, Stripe } from '@stripe/stripe-js';
+
+
 
 interface SummaryProps {
   totalPrice: number;
@@ -15,6 +18,35 @@ function Summary({ totalPrice }: SummaryProps) {
   if (discount === true) {
     totalPrice = totalPrice - totalPrice * 0.2;
   }
+
+  const makePayment = async () => {
+    const stripePromise = await loadStripe("pk_test_51O4iOWGa5FM93XwuQtVotQkr7pFDySdTjVv1SheVHrqqKIijTws3F8tQzIOZiCoAwQd3nPA2me2gwcp5SxB9mU1p00Ie76m5OW");
+    const stripe: Stripe | null = await stripePromise;
+  
+    if (stripe) {
+    const response = await fetch('URL_DO_TWOJEGO_ENDPOINTU_PLATNOSCI', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        totalPrice: totalPrice,
+      }),
+    });
+  
+    const session = await response.json();
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+  
+    if (result.error) {
+      // Obsłuż błąd przekierowania
+      console.error(result.error.message);
+    }
+  } else {
+    console.error("Stripe is null.");
+  }
+};
 
   return (
     <div className="max-w-[400px] min-w-[300px] flex flex-col gap-3 font-bold  ">
@@ -61,7 +93,7 @@ function Summary({ totalPrice }: SummaryProps) {
       </div>
       <div className=" hidden font-bold gap-4 md:flex md:flex-col">
         <Link to="/checkout">
-          <ButtonCustom className={"text-gray-500 w-full " + (totalPrice === 0 ? "gr-gray-300" : "bg-black text-white")}>
+          <ButtonCustom onClick={makePayment} className={"text-gray-500 w-full " + (totalPrice === 0 ? "gr-gray-300" : "bg-black text-white")}>
             Checkout
           </ButtonCustom>
         </Link>

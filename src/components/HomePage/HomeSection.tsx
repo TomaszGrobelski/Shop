@@ -1,49 +1,21 @@
-// import { useEffect, useState } from "react";
-// import { getDownloadURL, ref, listAll, getMetadata } from "firebase/storage";
-// import { storage } from "../../config/firebase";
+import Slider from "../ShoesPage/Slider/Slider";
+import ButtonCustom from "../Buttons/ButtonCustom";
+import Hero from "../../images/Home/Hero.jpg";
 
 function HomeSection() {
-  
-//   const [imageURLs, setImageURLs] = useState<string[]>([]);
-//   const [imageNames, setImageNames] = useState<string[]>([]);
-
-//   useEffect(() => {
-//     const storageRef = ref(storage, "Shoes");
-//     listAll(storageRef)
-//       .then((res) => {
-//         const promises = res.items.map((itemRef) => {
-//           const promise1 = getDownloadURL(itemRef);
-//           const promise2 = getMetadata(itemRef).then((metadata) => {
-//             const name = metadata.name;
-//             return name.slice(0, -4); // Obcina ostatnie 4 znaki (rozszerzenie pliku)
-//           });
-//           return Promise.all([promise1, promise2]);
-//         });
-//         Promise.all(promises)
-//           .then((results) => {
-//             const urls = results.map((result) => result[0]);
-//             const names = results.map((result) => result[1]);
-//             setImageURLs(urls); // Ustaw listę adresów URL w stanie komponentu
-//             setImageNames(names); // Ustaw listę nazw plików w stanie komponentu
-//           })
-//           .catch((error) => {
-//             console.error("Error getting download URLs and names:", error);
-//           });
-//       })
-//       .catch((error) => {
-//         console.error("Error listing files:", error);
-//       });
-//   }, []);
-
-//   return (
-//     <div className="bg-gray-300">
-//       {imageURLs.map((url, index) => (
-//         <img loading="lazy" key={index} src={url} alt={imageNames[index]} />
-//       ))}
-//     </div>
-//   );
-// 
-// 
-return <p>ds</p>
+  return (
+    <section>
+      <Slider />
+      <div className="relative text-[18px] font-bold text-white">
+        <img className=" aspect-video blur-[2px]" src={Hero} alt="HeroPage" />
+        <div className="absolute bottom-[10%] left-[5%] mix-blend-exclusion ">
+          <h1 className="text-[28px] sm:text-[38px]">OWN THE FLOOR</h1>
+          <p className="text-[20px] sm:text-[28px] my-2">Show the world your style with iconic sneakers and fresh looks.</p>
+          <ButtonCustom className="text-black h-[40px] w-[100px]"> Shop </ButtonCustom>
+        </div>
+      </div>
+    </section>
+  );
 }
+
 export default HomeSection;

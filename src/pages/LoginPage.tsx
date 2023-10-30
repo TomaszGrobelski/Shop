@@ -18,7 +18,6 @@ function LoginPage() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((useCredential) => {
-        // Pobierz token dostępu za pomocą funkcji getIdToken
         useCredential.user.getIdToken().then((userToken) => {
           localStorage.setItem("user", userToken);
           navigate("/home");
