@@ -11,8 +11,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContainerHome from "./components/Containers/Container";
 import ShoeDetailPage from "./pages/ShoeDetailPage";
 import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
+import SuccessPage from "./pages/SuccessPage";
 
 import FavoritesProvider from "./context/FavoritesProvider";
+import "@stripe/stripe-js"
 
 function App() {
   
@@ -77,6 +79,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CheckoutPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/success"
+              element={
+                <ProtectedRoute>
+                  <SuccessPage />
                 </ProtectedRoute>
               }
             />
