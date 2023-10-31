@@ -5,7 +5,7 @@ import Payment from "./CheckoutComponents/Payment";
 import OrderReview from "./CheckoutComponents/OrderReview";
 import Navbar from "../../Navigation/Navbar";
 
-//https://www.youtube.com/watch?v=BSN2KcB_h-M&ab_channel=DesignCode    23:50
+//https://www.youtube.com/watch?v=BSN2KcB_h-M&ab_channel=DesignCode    
 import { loadStripe } from "@stripe/stripe-js";
 
 
