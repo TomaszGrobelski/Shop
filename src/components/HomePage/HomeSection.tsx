@@ -1,7 +1,7 @@
 import Slider from "../ShoesPage/Slider/Slider";
 import ButtonCustom from "../Buttons/ButtonCustom";
 import Hero from "../../images/Home/Hero.jpg";
-import SliderD from "./Discipline/SliderD";
+
 
 function HomeSection() {
   return (
@@ -15,7 +15,6 @@ function HomeSection() {
           <ButtonCustom className="text-black h-[40px] w-[100px]"> Shop </ButtonCustom>
         </div>
       </div>
-      <SliderD />
     </section>
   );
 }

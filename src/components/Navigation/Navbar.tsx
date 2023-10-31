@@ -5,7 +5,7 @@ import logoNika from "../../images/Logo/logoNika.png";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import navigationLinks from "./navigationLinks";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import getIconList from "./LogOut/getIconList";
 
@@ -44,9 +44,27 @@ function Navbar() {
   const navClick = () => {
     setNavVisible(!navVisible);
   };
+  /////////////dsadsadsadsa
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = useCallback(() => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollpos > currentScrollPos;
+
+    setPrevScrollpos(currentScrollPos);
+    setVisible(visible);
+  }, [prevScrollpos]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
-    <Nav>
+    <Nav style={{ top: visible ? 0 : "-100px", position: "fixed", transition: "top 0.2s" }}>
       <Link to="/home">
         <img className="max-w-[100px]" src={logoNika} width={1103} height={338} alt="Logo" />
       </Link>

@@ -19,7 +19,7 @@ function Slider() {
   }, [messages.length]);
 
   return (
-    <div className="flex justify-start opacity-70 bg-customGray font-bold border-b-[1px] border-gray-100 mb-4 items-center min-h-[70px] overflow-hidden">
+    <div className="flex justify-start opacity-70 bg-customGray font-bold border-b-[1px] border-gray-100 mb-4 mt-20 items-center min-h-[70px] overflow-hidden">
       <div style={{ transform: `translateX(-${currentIndex * 100}vw)` }} className="flex justify-center items-center  duration-500 ">
         {messages.map((message, index) => (
           <p className=' text-center w-screen' key={index}>

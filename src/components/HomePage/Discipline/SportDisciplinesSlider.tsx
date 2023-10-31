@@ -1,40 +1,32 @@
-import { useState} from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import disciplineList from "./disciplineList";
 
 function SportDisciplinesSlider() {
-  const [x, setX] = useState(0);
+  const [width, setWidth] = useState(0);
+  const carousel = useRef<HTMLDivElement>(null);
 
-  const handleDrag = (e, info) => {
-    setX(info.offset.x);
-  };
-
-  const disciplineBoxes = disciplineList.map((disciplin, index) => {
-    return (
-      <motion.div
-        drag="x"
-        dragElastic={0.8}
-        dragConstraints={{ left: 0, right: 0 }}
-        onDrag={handleDrag}
-        className="w-[500px] relative flex-row"
-        style={{ transform: `translate3d(${x}px, 0, 0)` }}
-        key={index}
-      >
-        <img src={disciplin.img} alt={disciplin.name} className=" grayscale" />
-        <div className="absolute text-white text-center right-4 top-4 w-10 bg-gray-800 rounded-xl">
-          {disciplin.number}/8
-        </div>
-        <p>{disciplin.name}</p>
-      </motion.div>
-    );
-  });
+  useEffect(() => {
+    if (carousel.current) {
+      setWidth(carousel.current.scrollWidth - (carousel.current.offsetWidth || 0));
+    }
+  }, []);
 
   return (
-    <div>
-      <h2>Browse by sport discipline</h2>
-      <div className="relative w-[1400px] h-[300px] overflow-hidden">
-        {disciplineBoxes}
-      </div>
+    <div >
+      <motion.div ref={carousel} className=" cursor-grab overflow-hidden py-16">
+        <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} whileTap={{cursor:"grabbing"}} className="flex ">
+          {disciplineList.map((disciplin) => {
+            return (
+              <motion.div key={disciplin.name} className="relative min-h-[20rem] min-w-[20rem] p-4 font-bold">
+                <img src={disciplin.img} alt={disciplin.name} className="w-full h-full rounded-xl pointer-events-none grayscale" />
+                <p className="p-2">{disciplin.name}</p>
+                <div className="absolute text-center w-10 right-8 top-8 bg-white border-[1px] border-black  rounded-2xl ">{disciplin.number}/8</div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

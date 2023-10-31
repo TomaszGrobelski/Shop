@@ -15,7 +15,7 @@ function UserSection() {
   const username = email?.split("@")[0];
 
   return (
-    <div className="p-10 flex flex-col gap-6">
+    <div className="p-10 flex flex-col gap-6 mt-20">
       <div className="flex items-center gap-5">
         <ImgUser />
         <div>

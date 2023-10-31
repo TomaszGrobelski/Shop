@@ -30,13 +30,13 @@ function MainFilter({
           animate={{ x: 0 }}
           exit={{ x: -300 }}
           transition={{ duration: 0.2 }}
-          className="hidden  min-w-[200px] font-bold opacity-90 md:flex md:flex-col sticky top-24"
+          className="hidden  min-w-[200px] font-bold opacity-90 max-h-[80vh] overflow-y-scroll md:flex md:flex-col sticky top-24"
         >
           <ModelFilter setFilterType={setFilterType} />
           <GenderFilter genderFilter={genderFilter} setGenderFilter={setGenderFilter} />
           <DiscountFilter setDiscount={setDiscount} />
           <div className="py-6 border-b-[1px] border-gray-200">
-            <p className="mb-4">Size</p>
+            <p className="mb-4">Sizes</p>
             <div className="grid grid-cols-3 items-center gap-2">
               {Array.from({ length: 13 }).map((_, index) => {
                 const size = 7 + index * 0.5;

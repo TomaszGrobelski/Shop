@@ -17,7 +17,7 @@ function Products({ sortBy, filterType, genderFilter, discount, selectedSize }: 
   useEffect(() => {
     let filteredProducts = [...shoesList];
 
-    if (filterType) {
+    if (filterType && filterType !== "All") {
       filteredProducts = filteredProducts.filter((shoe) => shoe.type === filterType);
     }
 
