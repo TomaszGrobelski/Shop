@@ -19,7 +19,7 @@ function SportDisciplinesSlider() {
           {disciplineList.map((disciplin) => {
             return (
               <motion.div key={disciplin.name} className="relative min-h-[20rem] min-w-[20rem] p-4 font-bold">
-                <img src={disciplin.img} alt={disciplin.name} className="w-full h-full rounded-xl pointer-events-none grayscale" />
+                <img loading="lazy" src={disciplin.img} alt={disciplin.name} className="w-full h-full rounded-xl pointer-events-none grayscale" />
                 <p className="p-2">{disciplin.name}</p>
                 <div className="absolute text-center w-10 right-8 top-8 bg-white border-[1px] border-black  rounded-2xl ">{disciplin.number}/8</div>
               </motion.div>

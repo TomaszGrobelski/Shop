@@ -34,7 +34,8 @@ const shoesList: Shoe[] =[
         type: 'Air Force 1',
         gender: `Men's Shoes`,
         price: 155,
-        sizes: [7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13]
+        sizes: [7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13],
+        stripePrice: "price_1O7akPGa5FM93Xwu5NLHka2r",
     },
     {
         id: 2,
@@ -43,7 +44,8 @@ const shoesList: Shoe[] =[
         type: 'Air Force 1',
         gender: `Men's Shoes`,
         price: 125,
-        sizes: [7, 7.5, 9, 10.5, 11, 12.5, 13]
+        sizes: [7, 7.5, 9, 10.5, 11, 12.5, 13],
+        stripePrice: 'price_1O7aqfGa5FM93XwuKSonFJLQ',
     },
     {
         id: 3,
@@ -53,7 +55,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 71.97,
         oldPrice: 130,
-        sizes: [7.5, 8, 9, 9.5, 11, 11.5]
+        sizes: [7.5, 8, 9, 9.5, 11, 11.5],
+        stripePrice: 'price_1O7b5rGa5FM93XwuhzMTSuxA',
     },
     {
         id: 4,
@@ -62,7 +65,8 @@ const shoesList: Shoe[] =[
         type: 'Air Force 1',
         gender: `Men's Shoes`,
         price: 135,
-        sizes: [7, 8.5, 9, 10, 11, 12]
+        sizes: [7, 8.5, 9, 10, 11, 12],
+        stripePrice: 'price_1O7blfGa5FM93XwulW1NSKpB',
     },
     {
         id: 5,
@@ -72,7 +76,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 90.97,
         oldPrice: 150,
-        sizes: [7.5, 8.5, 9, 9.5, 11]
+        sizes: [7.5, 8.5, 9, 9.5, 11],
+        stripePrice: 'price_1O7bnLGa5FM93XwuTcqR85wh',
     },
     {
         id: 6,
@@ -81,7 +86,8 @@ const shoesList: Shoe[] =[
         type: 'Air Max',
         gender: `Men's Shoes`,
         price: 160,
-        sizes: [8, 9, 10, 10.5, 11.5, 12.5, 13]
+        sizes: [8, 9, 10, 10.5, 11.5, 12.5, 13],
+        stripePrice: 'price_1O7bngGa5FM93XwujBJHTl7o',
     },
     {
         id: 7,
@@ -90,7 +96,8 @@ const shoesList: Shoe[] =[
         type: 'Air Max',
         gender: `Men's Shoes`,
         price: 210,
-        sizes: [7, 8, 8.5, 9, 11]
+        sizes: [7, 8, 8.5, 9, 11],
+        stripePrice: 'price_1O7bo7Ga5FM93XwuVlIWITZ7',
     },
     {
         id: 8,
@@ -99,7 +106,8 @@ const shoesList: Shoe[] =[
         type: 'Air Max',
         gender: `Men's Shoes`,
         price: 165,
-        sizes: [7.5, 8, 9, 10, 10.5, 11, 11.5, 12]
+        sizes: [7.5, 8, 9, 10, 10.5, 11, 11.5, 12],
+        stripePrice: 'price_1O7boTGa5FM93XwugLwdeNaZ',
     },
     {
         id: 9,
@@ -109,7 +117,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 111.97,
         oldPrice:185,
-        sizes: [7, 8.5, 9.5, 10, 12]
+        sizes: [7, 8.5, 9.5, 10, 12],
+        stripePrice: 'price_1O7bonGa5FM93XwuA0qYx7KW',
     },
     {
         id: 10,
@@ -119,7 +128,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 79.97,
         oldPrice:100,
-        sizes: [7, 8, 9, 10, 11, 11.5, 13]
+        sizes: [7, 8, 9, 10, 11, 11.5, 13],
+        stripePrice: 'price_1O7bpOGa5FM93XwuyMEln7Iv',
     },
     {
         id: 11,
@@ -128,7 +138,8 @@ const shoesList: Shoe[] =[
         type: 'Dunk',
         gender: `Men's Shoes`,
         price: 130,
-        sizes: [7, 8, 9.5, 10.5, 11, 12, 13]
+        sizes: [7, 8, 9.5, 10.5, 11, 12, 13],
+        stripePrice: 'price_1O7bpuGa5FM93XwucGHEuByk',
     },
     {
         id: 12,
@@ -138,7 +149,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 77.97,
         oldPrice: 140,
-        sizes: [7, 7.5, 9, 10, 11.5, 12.5]
+        sizes: [7, 7.5, 9, 10, 11.5, 12.5],
+        stripePrice: 'price_1O7bqRGa5FM93Xwuw5Zoyco8',
     },
     {
         id: 13,
@@ -147,7 +159,8 @@ const shoesList: Shoe[] =[
         type: 'Dunk',
         gender: `Men's Shoes`,
         price: 140,
-        sizes: [7.5, 8.5, 9, 10.5, 12, 13]
+        sizes: [7.5, 8.5, 9, 10.5, 12, 13],
+        stripePrice: 'price_1O7bqxGa5FM93XwuSEatJTZH',
     },
     {
         id: 14,
@@ -156,7 +169,8 @@ const shoesList: Shoe[] =[
         type: 'Dunk',
         gender: `Men's Shoes`,
         price: 155,
-        sizes: [8, 9, 10, 11, 12]
+        sizes: [8, 9, 10, 11, 12],
+        stripePrice: 'price_1O7brVGa5FM93XwutjucSVOE',
     },
     {
         id: 15,
@@ -165,7 +179,8 @@ const shoesList: Shoe[] =[
         type: 'Dunk',
         gender: `Men's Shoes`,
         price: 150,
-        sizes: [7, 7.5, 9, 9.5, 11]
+        sizes: [7, 7.5, 9, 9.5, 11],
+        stripePrice: 'price_1O7brnGa5FM93XwuXImFWxsA',
     },
     {
         id: 16,
@@ -174,7 +189,8 @@ const shoesList: Shoe[] =[
         type: `Dunk`,
         gender: `Women's Shoes`,
         price: 150,
-        sizes: [7, 7.5, 8, 9, 10, 11, 11.5]
+        sizes: [7, 7.5, 8, 9, 10, 11, 11.5],
+        stripePrice: 'price_1O7bs2Ga5FM93XwuDHms4JbK',
     },
     {
         id: 17,
@@ -183,7 +199,8 @@ const shoesList: Shoe[] =[
         type: `Dunk`,
         gender: `Women's Shoes`,
         price: 130,
-        sizes: [8, 9, 10, 10.5, 11.5]
+        sizes: [8, 9, 10, 10.5, 11.5],
+        stripePrice: 'price_1O7bsKGa5FM93XwuD0SB31lu',
     },
     {
         id: 18,
@@ -192,7 +209,8 @@ const shoesList: Shoe[] =[
         type: `Dunk`,
         gender: `Women's Shoes`,
         price: 125,
-        sizes: [7, 8.5, 9, 10, 11, 12, 13]
+        sizes: [7, 8.5, 9, 10, 11, 12, 13],
+        stripePrice: 'price_1O7bsdGa5FM93XwuTIuVDr3G',
     },
     {
         id: 19,
@@ -202,7 +220,8 @@ const shoesList: Shoe[] =[
         gender: `Women's Shoes`,
         price: 98.97,
         oldPrice:120,
-        sizes: [7.5, 8, 9.5, 10.5, 11]
+        sizes: [7.5, 8, 9.5, 10.5, 11],
+        stripePrice: 'price_1O7bsyGa5FM93XwucdtvQ2fc',
     },
     {
         id: 20,
@@ -211,7 +230,8 @@ const shoesList: Shoe[] =[
         type: `Dunk`,
         gender: `Women's Shoes`,
         price: 120,
-        sizes: [7, 7.5, 8.5, 9, 10, 10.5, 11]
+        sizes: [7, 7.5, 8.5, 9, 10, 10.5, 11],
+        stripePrice: 'price_1O7btEGa5FM93Xwu93XjzSvL',
     },
     {
         id: 21,
@@ -220,7 +240,8 @@ const shoesList: Shoe[] =[
         type: `Jordan`,
         gender: `Men's Shoes`,
         price: 225,
-        sizes: [7.5, 8, 9, 9.5, 10, 11, 11.5, 12]
+        sizes: [7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
+        stripePrice: 'price_1O7btfGa5FM93XwuPJJ68VCi',
     },
     {
         id: 22,
@@ -229,7 +250,8 @@ const shoesList: Shoe[] =[
         type: `Jordan`,
         gender: `Men's Shoes`,
         price: 200,
-        sizes: [8, 8.5, 9, 10, 11]
+        sizes: [8, 8.5, 9, 10, 11],
+        stripePrice: 'price_1O7btyGa5FM93XwuwKrXQqnU',
     },
     {
         id: 23,
@@ -238,7 +260,8 @@ const shoesList: Shoe[] =[
         type: `Jordan`,
         gender: `Men's Shoes`,
         price: 165,
-        sizes: [7.5, 8, 9, 10, 10.5, 11.5, 12]
+        sizes: [7.5, 8, 9, 10, 10.5, 11.5, 12],
+        stripePrice: 'price_1O7buHGa5FM93Xwu5oeDWPqZ',
     },
     {
         id: 24,
@@ -248,7 +271,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 116.97,
         oldPrice: 145,
-        sizes: [7, 8, 8.5, 9, 10, 10.5, 12, 12.5]
+        sizes: [7, 8, 8.5, 9, 10, 10.5, 12, 12.5],
+        stripePrice: 'price_1O7buXGa5FM93XwukTjYaZoI',
     },
     {
         id: 25,
@@ -258,7 +282,8 @@ const shoesList: Shoe[] =[
         gender: `Men's Shoes`,
         price: 87.97,
         oldPrice: 135,
-        sizes: [7, 7.5, 8, 9, 9.5, 11, 12.5, 13]
+        sizes: [7, 7.5, 8, 9, 9.5, 11, 12.5, 13],
+        stripePrice: 'price_1O7buoGa5FM93XwumqFP8zLA',
     },
 
 ]

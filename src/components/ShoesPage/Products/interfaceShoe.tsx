@@ -9,5 +9,6 @@ export interface Shoe {
     sizes: number[];    
     imgURL?: string;
     selectedSize?: number | number; 
+    stripePrice?: string;
     
 }
