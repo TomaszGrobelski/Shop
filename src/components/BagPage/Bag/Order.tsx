@@ -22,10 +22,9 @@ function Order({ setTotalPrice }: OrderProps) {
 
   const deleteProductClick = (index: number) => {
     const updatedItems = [...itemsList];
-    const deletedItem = updatedItems.splice(index, 1)[0]; // Usuwa element z listy
-    setItemsList(updatedItems); // Aktualizuje stan listy po usunięciu elementu
+    const deletedItem = updatedItems.splice(index, 1)[0]; 
+    setItemsList(updatedItems); 
 
-    // Aktualizuje localStorage po usunięciu elementu
     const storedItems = localStorage.getItem("bagItems");
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
@@ -34,13 +33,13 @@ function Order({ setTotalPrice }: OrderProps) {
     }
 
     const sum = updatedItems.reduce((total, current) => total + current.price, 0);
-    setTotalPrice(sum); // Aktualizuje cenę po usunięciu elementu
+    setTotalPrice(sum);
   };
 
   const displayOrder = itemsList.map((order, index) => (
-    <li key={index} className="flex gap-10 w-full">
+    <li key={index} className="flex gap-10  ">
       <img src={order.img} alt={order.name} className="max-w-[120px]" />
-      <div>
+      <div className="max-w-[160px]" >
         <h2>{order.name}</h2>
         <p className="text-[14px] text-gray-600">{order.gender}</p>
         <div className="text-[14px] text-gray-600">Size: {order.selectedSize}</div>
@@ -53,9 +52,9 @@ function Order({ setTotalPrice }: OrderProps) {
           </button>
         </div>
       </div>
-      <div className="flex flex-col ">
+      <div className="flex flex-col text-end ">
         <p className=" line-through text-gray-600">{order.oldPrice && order.oldPrice}</p>
-        <p>{order.price}</p>
+        <p>${order.price}</p>
       </div>
     </li>
   ));

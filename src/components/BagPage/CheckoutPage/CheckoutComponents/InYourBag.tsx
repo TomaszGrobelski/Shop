@@ -1,23 +1,37 @@
 import { BiMinus } from "react-icons/bi";
+import Summary from "../../Summary/Summary";
+import { useState, useEffect } from "react";
 
 function InYourBag() {
+  const [summary, setSummary] = useState(true);
+
+  const handleSummary = () => {
+    if (window.innerWidth < 768) {
+      setSummary(!summary);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setSummary(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div>
-      <button className="flex justify-between items-center w-full">
-        <h2>In Your Bag</h2>
-        <BiMinus className="sm:hidden" />
-        <p className="hidden sm:block">Edit</p>
+    <div className="max-w-[640px] my-4">
+      <button onClick={handleSummary} className="flex justify-between items-center w-full">
+        <h2 className="text-[20px]">In Your Bag</h2>
+        <BiMinus className="md:hidden" />
       </button>
-      <p>Arrives by Mon,....????</p>
-      <div>
-        <img src="" alt="" />
-        <div>
-          <h3>name</h3>
-          <p>size</p>
-          <p>price</p>
-        </div>
-      </div>
-      <div>Subtotal</div>
+      {summary&&<Summary totalPrice={125} visible={false} />}
     </div>
   );
 }

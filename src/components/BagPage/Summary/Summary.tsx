@@ -3,15 +3,13 @@ import ButtonCustom from "../../Buttons/ButtonCustom";
 import PromoCode from "./PromoCode";
 import { BiMinus } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { loadStripe, Stripe } from '@stripe/stripe-js';
-
-
 
 interface SummaryProps {
   totalPrice: number;
+  visible?: boolean;
 }
 
-function Summary({ totalPrice }: SummaryProps) {
+function Summary({ totalPrice, visible = true }: SummaryProps) {
   const [discount, setDiscount] = useState(false);
   const discountValue = totalPrice * 0.2;
 
@@ -19,39 +17,10 @@ function Summary({ totalPrice }: SummaryProps) {
     totalPrice = totalPrice - totalPrice * 0.2;
   }
 
-  const makePayment = async () => {
-    const stripePromise = await loadStripe("pk_test_51O4iOWGa5FM93XwuQtVotQkr7pFDySdTjVv1SheVHrqqKIijTws3F8tQzIOZiCoAwQd3nPA2me2gwcp5SxB9mU1p00Ie76m5OW");
-    const stripe: Stripe | null = await stripePromise;
-  
-    if (stripe) {
-    const response = await fetch('URL_DO_TWOJEGO_ENDPOINTU_PLATNOSCI', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        totalPrice: totalPrice,
-      }),
-    });
-  
-    const session = await response.json();
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-  
-    if (result.error) {
-      // Obsłuż błąd przekierowania
-      console.error(result.error.message);
-    }
-  } else {
-    console.error("Stripe is null.");
-  }
-};
-
   return (
-    <div className="max-w-[400px] min-w-[300px] flex flex-col gap-3 font-bold  ">
-      <h2 className="text-[24px] ">Summary</h2>
-      <PromoCode setDiscount={setDiscount} />
+    <div className="max-w-[660px] min-w-[300px] flex flex-col gap-3 font-bold  ">
+      <h2 className="text-[24px] mt-6 ">Summary</h2>
+      {visible&&<PromoCode setDiscount={setDiscount} />}
       <div className="flex py-3 justify-between items-center">
         <div className="flex gap-3 items-center opacity-90">
           Subtotal
@@ -91,16 +60,16 @@ function Summary({ totalPrice }: SummaryProps) {
         <p>Total</p>
         <span>{totalPrice === 0 ? <BiMinus /> : "$" + totalPrice.toFixed(2)}</span>
       </div>
-      <div className=" hidden font-bold gap-4 md:flex md:flex-col">
-        <Link to="/checkout">
-          <ButtonCustom onClick={makePayment} className={"text-gray-500 w-full " + (totalPrice === 0 ? "gr-gray-300" : "bg-black text-white")}>
-            Checkout
-          </ButtonCustom>
-        </Link>
-        <ButtonCustom className="text-gray-500">
-          <span className=" text-pay italic">Pay</span>
-          <span className="text-pal italic">Pal</span>
-        </ButtonCustom>
+      <div className="min-w-[300px] max-w-[500px] self-center font-bold ">
+        {visible && (
+          <Link to="/checkout">
+            <ButtonCustom
+              className={"text-gray-500 w-full " + (totalPrice === 0 ? "gr-gray-300" : "bg-black text-white")}
+            >
+              Checkout
+            </ButtonCustom>
+          </Link>
+        )}
       </div>
     </div>
   );

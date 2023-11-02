@@ -65,9 +65,9 @@ function OrderReview() {
   };
 
   return (
-    <div className="py-20">
-      <p>Total Price:</p>
-      <button onClick={redirectToCheckout}>Pay</button>
+    <div className="py-10 flex justify-end max-w-[660px]">
+      <button onClick={redirectToCheckout} 
+      className=" border-2 p-3 px-8 rounded-3xl font-bold text-[20px]">Pay</button>
     </div>
   );
 }
