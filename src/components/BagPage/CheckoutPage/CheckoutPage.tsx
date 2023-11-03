@@ -10,7 +10,7 @@ function CheckoutPage() {
       <Navbar />
       <div className="flex flex-col sm:flex-row-revers p-6">
         <button className="text-center text-[28px] my-10">Checkout</button>
-        <div className="flex flex-col gap-8 md:flex-row-reverse md:justify-center">
+        <div className="flex flex-col md:gap-8 md:flex-row-reverse md:justify-center">
           <InYourBag />
           <div>
             <DeliveryOptions />

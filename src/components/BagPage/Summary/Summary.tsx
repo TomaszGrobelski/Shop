@@ -11,7 +11,7 @@ interface SummaryProps {
 
 function Summary({ totalPrice, visible = true }: SummaryProps) {
   const [discount, setDiscount] = useState(false);
-  const discountValue = totalPrice * 0.2;
+  const discountValue = (totalPrice * 0.2).toFixed(2);
 
   if (discount === true) {
     totalPrice = totalPrice - totalPrice * 0.2;
