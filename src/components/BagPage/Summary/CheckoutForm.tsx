@@ -45,13 +45,7 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement
-        options={
-          {
-            /* opcje karty */
-          }
-        }
-      />
+      <CardElement/>
       <button type="submit" disabled={!stripe}>
         Pay ${totalPrice}
       </button>

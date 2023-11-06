@@ -7,7 +7,8 @@ import EmailLabel from "../components/LoginRegister/EmailLabel";
 import PasswordLabel from "../components/LoginRegister/PasswordLabel";
 import ButtonCustom from "../components/Buttons/ButtonCustom";
 import Formh1 from "../components/LoginRegister/Formh1";
-import {IoCreate} from 'react-icons/io5';
+import { IoCreate } from "react-icons/io5";
+import LoginRegisterImg from "../images/LoginRegister/LoginRegisterImg.jpg";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -34,31 +35,38 @@ function LoginPage() {
     navigate("/registration");
   };
   return (
-    <Formh1 onSubmit={signIn} h1="Login">
-      <EmailLabel>
-        <Label type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      </EmailLabel>
-      <PasswordLabel>
-        <Label
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </PasswordLabel>
-      <button type="button" onClick={handleRegisterClick} className="flex items-center gap-1 self-end mt-1 mb-5">
-        Register Now <IoCreate />
-      </button>
-      <ButtonCustom type="submit" className="w-28 h-12">
-        Login
-      </ButtonCustom>
-      <div className="mt-8">
-        <h2>Demo Account:</h2>
-        <div  className="mt-4">Email: <span className="font-bold">bleniog@wp.pl</span> </div>
-        <div>Password: <span className="font-bold">tomasz</span></div>
-      </div>
-    </Formh1>
+    <div className="flex justify-center items-center ">
+      <Formh1 onSubmit={signIn} h1="Login">
+        <EmailLabel>
+          <Label type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </EmailLabel>
+        <PasswordLabel>
+          <Label
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </PasswordLabel>
+        <button type="button" onClick={handleRegisterClick} className="flex items-center gap-1 self-end mt-1 mb-5">
+          Register Now <IoCreate />
+        </button>
+        <ButtonCustom type="submit" className="w-28 h-12 hover:bg-purple-500 font-bold">
+          Login
+        </ButtonCustom>
+        <div className="mt-8">
+          <h2>Demo Account:</h2>
+          <div className="mt-4">
+            Email: <span className="font-bold">bleniog@wp.pl</span>{" "}
+          </div>
+          <div>
+            Password: <span className="font-bold">tomasz</span>
+          </div>
+        </div>
+      </Formh1>
+      <img className="absolute top-0 left-0 -z-10 h-full w-full object-cover" src={LoginRegisterImg} alt="Login image" />
+    </div>
   );
 }
 

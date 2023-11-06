@@ -298,7 +298,7 @@ const shoesList: Shoe[] = [
     price: 98.97,
     oldPrice: 140,
     sizes: [7, 8, 8.5, 9, 10, 10.5, 11, 12, 13],
-    stripePrice: "",
+    stripePrice: "price_1O9RNaGa5FM93XwuzJnSfkm4",
   },
   {
     id: 27,
@@ -308,7 +308,7 @@ const shoesList: Shoe[] = [
     gender: `Women's Shoes`,
     price: 135,
     sizes: [7, 7.5, 8.5, 9, 10, 10.5, 11],
-    stripePrice: "",
+    stripePrice: "price_1O9ROGGa5FM93XwuZ70QnuXQ",
   },
   {
     id: 28,
@@ -318,7 +318,7 @@ const shoesList: Shoe[] = [
     gender: `Women's Shoes`,
     price: 160,
     sizes: [7, 8, 9.5, 10.5, 11, 12, 13],
-    stripePrice: "",
+    stripePrice: "price_1O9RPEGa5FM93XwuQvTz72JO",
   },
   {
     id: 29,
@@ -328,7 +328,7 @@ const shoesList: Shoe[] = [
     gender: `Women's Shoes`,
     price: 135,
     sizes: [7, 7.5, 8.5, 9, 10, 10.5, 11],
-    stripePrice: "",
+    stripePrice: "price_1O9RPbGa5FM93Xwunsvmx5dh",
   },
 ];
 
