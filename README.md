@@ -1,5 +1,5 @@
 # Nika
-
+![NikaShop](src/images/NikaShoes.png)
 ## Demo
 [Nika website demo](https://tomaszgrobelski.github.io/nika/)
 
