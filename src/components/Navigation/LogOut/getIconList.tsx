@@ -8,7 +8,7 @@ const getIconList = (bagItemCount: number) => [
     icon: (
       <div className="relative">
         <LiaShoppingBagSolid size={30} />
-        <span className="absolute top-[9px] left-[10px]  z-50 text-black font-bold text-[14px] ">
+        <span className="absolute top-[10px] left-[8px]  z-50 text-black font-bold text-[12px] ">
           {bagItemCount}
         </span>
       </div>

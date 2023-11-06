@@ -20,7 +20,6 @@ function BoxInterests({ interest, modalVisibility, setModalVisibility }: BoxInte
             <p>Add {interest}</p>
           </button>
         </div>
-        Tu się ma wyświetlać box
       </div>
     </div>
   );

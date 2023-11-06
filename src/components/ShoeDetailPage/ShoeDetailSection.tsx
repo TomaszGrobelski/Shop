@@ -8,12 +8,14 @@ import { FavoritiestContext } from "../../context/context";
 import { Shoe } from "../ShoesPage/Products/interfaceShoe";
 import Shipping from "./Shipping";
 import { v4 as uuidv4 } from 'uuid'
+import ModalDetail from "./ModalDetail";
 
 function ShoeDetailSection() {
   const { name } = useParams();
   const shoeDetails = shoesList.find((shoe) => shoe.name === name);
   const { favorities, setFavorities } = useContext(FavoritiestContext);
   const [selectedSize, setSelectedSize] = useState<number | null | false>(null);
+  const [modalVisible, setModalVisible]= useState(false)
 
   if (!shoeDetails) {
     return (
@@ -47,6 +49,10 @@ function ShoeDetailSection() {
     currentBag.push(shoeWithSelectedSize);
 
     localStorage.setItem("bagItems", JSON.stringify(currentBag));
+    setModalVisible(true)
+    setTimeout(()=>{
+      setModalVisible(false)
+    },4000)
   };
 
   return (
@@ -80,6 +86,7 @@ function ShoeDetailSection() {
         </div>
         <Shipping />
       </div>
+      {modalVisible&&<ModalDetail setModalVisible={setModalVisible} />}
     </div>
   );
 }

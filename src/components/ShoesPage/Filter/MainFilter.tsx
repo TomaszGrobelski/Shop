@@ -1,6 +1,7 @@
 import ModelFilter from "./MainFilters/ModelFilter";
 import GenderFilter from "./MainFilters/GenderFilter";
 import DiscountFilter from "./MainFilters/DiscountFilter";
+import SizeFilter from "./MainFilters/SizeFilter";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface MainFilterProps {
@@ -35,27 +36,7 @@ function MainFilter({
           <ModelFilter setFilterType={setFilterType} />
           <GenderFilter genderFilter={genderFilter} setGenderFilter={setGenderFilter} />
           <DiscountFilter setDiscount={setDiscount} />
-          <div className="py-6 border-b-[1px] border-gray-200">
-            <p className="mb-4">Sizes</p>
-            <div className="grid grid-cols-3 items-center gap-2">
-              {Array.from({ length: 13 }).map((_, index) => {
-                const size = 7 + index * 0.5;
-                if (size > 13) return null;
-                const isActive = size === selectedSize;
-
-                return (
-                  <div key={size} className={`text-center`}>
-                    <button
-                      className={`w-12 h-10 border ${isActive ? "border-black" : ""} rounded hover:border-black`}
-                      onClick={() => setSelectedSize(isActive ? null : size)}
-                    >
-                      {size}
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <SizeFilter selectedSize={selectedSize} setSelectedSize={setSelectedSize} />
         </motion.div>
       )}
     </AnimatePresence>

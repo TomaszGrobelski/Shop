@@ -1,7 +1,8 @@
 import Slider from "../ShoesPage/Slider/Slider";
 import ButtonCustom from "../Buttons/ButtonCustom";
 import Hero from "../../images/Home/Hero.jpg";
-
+import SportDisciplinesSlider from "./Discipline/SportDisciplinesSlider";
+import BillBowerman from "./BillBowerman.tsx/BillBowerman";
 
 function HomeSection() {
   return (
@@ -15,6 +16,8 @@ function HomeSection() {
           <ButtonCustom className="text-black h-[40px] w-[100px]"> Shop </ButtonCustom>
         </div>
       </div>
+      <SportDisciplinesSlider />
+      <BillBowerman />
     </section>
   );
 }
