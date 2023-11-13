@@ -1,5 +1,5 @@
 # Nika
-
+![NikaShop](src/images/NikaShoes.png)
 ## Demo
 [Nika website demo](https://tomaszgrobelski.github.io/nika/)
 
@@ -20,7 +20,8 @@ The project has been implemented using the following technologies:
 - TypeScript
 - React
 - Tailwind CSS
-
+- (JWT Fairbase, Stripe)
+  
 ## Installation
 
 To install and run this project locally, follow these steps:
