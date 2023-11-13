@@ -1,8 +1,9 @@
-import ModelFilter from "./MainFilters/ModelFilter";
-import GenderFilter from "./MainFilters/GenderFilter";
+import { AnimatePresence, motion } from "framer-motion";
+
 import DiscountFilter from "./MainFilters/DiscountFilter";
+import GenderFilter from "./MainFilters/GenderFilter";
+import ModelFilter from "./MainFilters/ModelFilter";
 import SizeFilter from "./MainFilters/SizeFilter";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface MainFilterProps {
   filterVisible: boolean;
@@ -31,12 +32,17 @@ function MainFilter({
           animate={{ x: 0 }}
           exit={{ x: -300 }}
           transition={{ duration: 0.2 }}
-          className="hidden  min-w-[200px] font-bold opacity-90 max-h-[80vh] overflow-y-scroll md:flex md:flex-col sticky top-24"
-        >
+          className="sticky  top-24 hidden max-h-[80vh] min-w-[200px] overflow-y-scroll font-bold opacity-90 md:flex md:flex-col">
           <ModelFilter setFilterType={setFilterType} />
-          <GenderFilter genderFilter={genderFilter} setGenderFilter={setGenderFilter} />
+          <GenderFilter
+            genderFilter={genderFilter}
+            setGenderFilter={setGenderFilter}
+          />
           <DiscountFilter setDiscount={setDiscount} />
-          <SizeFilter selectedSize={selectedSize} setSelectedSize={setSelectedSize} />
+          <SizeFilter
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
         </motion.div>
       )}
     </AnimatePresence>

@@ -1,5 +1,5 @@
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 interface CheckoutFormProps {
   totalPrice: number;
@@ -45,7 +45,7 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement/>
+      <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay ${totalPrice}
       </button>

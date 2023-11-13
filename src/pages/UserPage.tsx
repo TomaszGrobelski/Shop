@@ -1,15 +1,15 @@
-import Navbar from "../components/Navigation/Navbar"
-import UserSection from "../components/UserPage/UserSection"
-import FooterSection from "../components/Footer/FooterSection"
+import FooterSection from "../components/Footer/FooterSection";
+import Navbar from "../components/Navigation/Navbar";
+import UserSection from "../components/UserPage/UserSection";
 
 function UserPage() {
   return (
-    <div>
-        <Navbar />
-        <UserSection />
-        <FooterSection />
-    </div>
-  )
+    <>
+      <Navbar />
+      <UserSection />
+      <FooterSection />
+    </>
+  );
 }
 
-export default UserPage
+export default UserPage;

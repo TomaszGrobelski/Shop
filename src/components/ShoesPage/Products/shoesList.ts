@@ -1,13 +1,16 @@
-import NikeAirForce107ProTech from "../../../images/Shoes/AirForce1/Nike Air Force 1 07 Pro-Tech.png";
-import NikeAirForce1Mid07 from "../../../images/Shoes/AirForce1/Nike Air Force 1 Mid 07.png";
-import NikeAirForce1LowRetro from "../../../images/Shoes/AirForce1/Nike Air Force 1 Low Retro.png";
 import NikeAirForce107LV81 from "../../../images/Shoes/AirForce1/Nike Air Force 1 07 LV8 1.png";
 import NikeAirForce107Premium from "../../../images/Shoes/AirForce1/Nike Air Force 1 07 Premium.png";
+import NikeAirForce107ProTech from "../../../images/Shoes/AirForce1/Nike Air Force 1 07 Pro-Tech.png";
+import NikeAirForce1LowRetro from "../../../images/Shoes/AirForce1/Nike Air Force 1 Low Retro.png";
+import NikeAirForce1Mid07 from "../../../images/Shoes/AirForce1/Nike Air Force 1 Mid 07.png";
+import NikeAirForce1xSerenaWiliams from "../../../images/Shoes/AirForce1/Women/Nike Air Force 1 x Serena Williams Design Crew.webp";
+import NikeAirForce2Premium from "../../../images/Shoes/AirForce1/Women/Nike Air Force 2 Premium.webp";
 import Max90GORETEX from "../../../images/Shoes/AirMax/Nike Air Max 90 GORE-TEX.png";
-import MAXVaporPLUS from "../../../images/Shoes/AirMax/Nike Air VaporMax Plus.png";
 import Max270 from "../../../images/Shoes/AirMax/Nike Air Max 270.png";
-import MaxTerrascapePlus from "../../../images/Shoes/AirMax/Nike Air Max Terrascape Plus.png";
 import MaxSOLO from "../../../images/Shoes/AirMax/Nike Air Max Solo.png";
+import MaxTerrascapePlus from "../../../images/Shoes/AirMax/Nike Air Max Terrascape Plus.png";
+import MAXVaporPLUS from "../../../images/Shoes/AirMax/Nike Air VaporMax Plus.png";
+import NikeAirMax270 from "../../../images/Shoes/AirMax/Women/NikeAirMax270.webp";
 import DunkHigh85 from "../../../images/Shoes/Dunk/Nike Dunk High 85.png";
 import DunkHighByYou from "../../../images/Shoes/Dunk/Nike Dunk High By You.png";
 import DunkHighRetro from "../../../images/Shoes/Dunk/Nike Dunk High Retro.png";
@@ -23,11 +26,7 @@ import Jordan5RetroSE from "../../../images/Shoes/Jordan/Air Jordan 5 Retro SE.p
 import Jordan6Retro from "../../../images/Shoes/Jordan/Air Jordan 6 Retro.png";
 import JordanDíaDeMuertos from "../../../images/Shoes/Jordan/Día De Muertos.png";
 import JordanJumpmanProQuick from "../../../images/Shoes/Jordan/Jordan Jumpman Pro Quick.png";
-import NikeAirForce1xSerenaWiliams from "../../../images/Shoes/AirForce1/Women/Nike Air Force 1 x Serena Williams Design Crew.webp";
-import NikeAirForce2Premium from "../../../images/Shoes/AirForce1/Women/Nike Air Force 2 Premium.webp";
-import NikeAirMax270 from "../../../images/Shoes/AirMax/Women/NikeAirMax270.webp";
 import AirJordan1MidSe from "../../../images/Shoes/Jordan/Women/AirJordan1MidSe.webp";
-
 import { Shoe } from "./interfaceShoe";
 
 const shoesList: Shoe[] = [

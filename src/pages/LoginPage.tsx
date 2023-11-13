@@ -1,14 +1,15 @@
-import { Label } from "../styles/LoginPage.styles";
-import { FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { FormEvent, useState } from "react";
+import { IoCreate } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 import EmailLabel from "../components/LoginRegister/EmailLabel";
 import PasswordLabel from "../components/LoginRegister/PasswordLabel";
-import ButtonCustom from "../components/Buttons/ButtonCustom";
-import Formh1 from "../components/LoginRegister/Formh1";
-import { IoCreate } from "react-icons/io5";
+import WrapperWithFormAndTitle from "../components/LoginRegister/WrapperWithFormAndTitle";
+import { auth } from "../config/firebase";
 import LoginRegisterImg from "../images/LoginRegister/LoginRegisterImg.jpg";
+import { Label } from "../styles/LoginPage.styles";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ function LoginPage() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        alert(`Error Code: ${errorCode}\nError Message: ${errorMessage}`);
       });
   };
 
@@ -35,10 +36,16 @@ function LoginPage() {
     navigate("/registration");
   };
   return (
-    <div className="flex justify-center items-center ">
-      <Formh1 onSubmit={signIn} h1="Login">
+    <div className="flex items-center justify-center ">
+      <WrapperWithFormAndTitle onSubmit={signIn} h1="Login">
         <EmailLabel>
-          <Label type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <Label
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </EmailLabel>
         <PasswordLabel>
           <Label
@@ -49,12 +56,17 @@ function LoginPage() {
             required
           />
         </PasswordLabel>
-        <button type="button" onClick={handleRegisterClick} className="flex items-center gap-1 self-end mt-1 mb-5">
+        <button
+          type="button"
+          onClick={handleRegisterClick}
+          className="mb-5 mt-1 flex items-center gap-1 self-end">
           Register Now <IoCreate />
         </button>
-        <ButtonCustom type="submit" className="w-28 h-12 hover:bg-purple-500 font-bold">
+        <PrimaryButton
+          type="submit"
+          className="h-12 w-28 font-bold hover:bg-purple-500">
           Login
-        </ButtonCustom>
+        </PrimaryButton>
         <div className="mt-8">
           <h2>Demo Account:</h2>
           <div className="mt-4">
@@ -64,8 +76,12 @@ function LoginPage() {
             Password: <span className="font-bold">tomasz</span>
           </div>
         </div>
-      </Formh1>
-      <img className="absolute top-0 left-0 -z-10 h-full w-full object-cover" src={LoginRegisterImg} alt="Login image" />
+      </WrapperWithFormAndTitle>
+      <img
+        className="absolute left-0 top-0 -z-10 h-full w-full object-cover"
+        src={LoginRegisterImg}
+        alt="Login image"
+      />
     </div>
   );
 }

@@ -1,15 +1,15 @@
-import Navbar from "../components/Navigation/Navbar"
-import BagSection from "../components/BagPage/BagSection"
-import FooterSection from "../components/Footer/FooterSection"
+import BagSection from "../components/BagPage/BagSection";
+import FooterSection from "../components/Footer/FooterSection";
+import Navbar from "../components/Navigation/Navbar";
 
 function BagPage() {
   return (
-    <div>
-        <Navbar />
-        <BagSection />
-        <FooterSection />
-    </div>
-  )
+    <>
+      <Navbar />
+      <BagSection />
+      <FooterSection />
+    </>
+  );
 }
 
-export default BagPage
+export default BagPage;

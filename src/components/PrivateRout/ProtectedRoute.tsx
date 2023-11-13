@@ -1,6 +1,6 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { ReactNode, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ReactNode, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -9,8 +9,8 @@ interface ProtectedRouteProps {
 function ProtectedRoute({ children }: ProtectedRouteProps) {
   const navigate = useNavigate();
   const auth = getAuth();
-  const location = useLocation()
-  const pathLocation=location.pathname;
+  const location = useLocation();
+  const pathLocation = location.pathname;
 
   useEffect(() => {
     const token = localStorage.getItem("user");
@@ -18,7 +18,8 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
     if (token) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          user.getIdToken()
+          user
+            .getIdToken()
             .then((userToken) => {
               if (userToken === token) {
                 navigate(`${pathLocation}`);

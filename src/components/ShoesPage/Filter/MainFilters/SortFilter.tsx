@@ -6,11 +6,13 @@ interface SortFilterProps {
 }
 
 const SortFilter = ({ sortBy, setSortBy }: SortFilterProps) => {
+  const highLow = "high-low";
+  const lowHigh = "low-high";
   const [sortByLabe, setSortByLabel] = useState("");
   useEffect(() => {
-    if (sortBy === "high-low") {
+    if (sortBy === highLow) {
       setSortByLabel(": Price: High-Low");
-    } else if (sortBy === "low-high") {
+    } else if (sortBy === lowHigh) {
       setSortByLabel(": Price: Low-High");
     }
   }, [sortBy]);
@@ -23,18 +25,16 @@ const SortFilter = ({ sortBy, setSortBy }: SortFilterProps) => {
       <div className="flex flex-col">
         <button
           onClick={() => {
-            setSortBy("high-low");
+            setSortBy(highLow);
           }}
-          className="whitespace-nowrap hover:opacity-70 text-start"
-        >
+          className="whitespace-nowrap text-start hover:opacity-70">
           Price: High-Low
         </button>
         <button
           onClick={() => {
-            setSortBy("low-high");
+            setSortBy(lowHigh);
           }}
-          className="whitespace-nowrap hover:opacity-70 text-start"
-        >
+          className="whitespace-nowrap text-start hover:opacity-70">
           Price: Low-High
         </button>
       </div>

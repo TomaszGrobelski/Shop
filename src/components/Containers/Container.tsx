@@ -1,12 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
-
-function Container(props:{children: ReactNode}) {
+function Container(props: { children: ReactNode }) {
   return (
-    <div className='max-w-[1300px] m-0 mx-auto font-helvetica '>
-        {props.children}
+    <div className="m-0 mx-auto max-w-[1300px] font-helvetica ">
+      {props.children}
     </div>
-  )
+  );
 }
 
-export default Container
+export default Container;

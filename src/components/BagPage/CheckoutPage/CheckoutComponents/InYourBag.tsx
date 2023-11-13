@@ -1,19 +1,20 @@
+import { useEffect, useState } from "react";
 import { BiMinus } from "react-icons/bi";
+
 import Summary from "../../Summary/Summary";
-import { useState, useEffect } from "react";
 
 function InYourBag() {
   const [summary, setSummary] = useState(true);
-
+  const windowWidth768 = 768;
   const handleSummary = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < windowWidth768) {
       setSummary(!summary);
     }
   };
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= windowWidth768) {
         setSummary(true);
       }
     };
@@ -37,13 +38,16 @@ function InYourBag() {
   };
 
   const bagListString = localStorage.getItem("bagItems");
-  const bagList: (Item | null)[] = bagListString ? JSON.parse(bagListString) : [];
+  const bagList: (Item | null)[] = bagListString
+    ? JSON.parse(bagListString)
+    : [];
   const totalPrice = bagList.reduce(reducer, 0);
 
-
   return (
-    <div className="max-w-[640px] my-4">
-      <button onClick={handleSummary} className="flex justify-between items-center w-full">
+    <div className="my-4 max-w-[640px]">
+      <button
+        onClick={handleSummary}
+        className="flex w-full items-center justify-between">
         <h2 className="text-[20px]">In Your Bag</h2>
         <BiMinus className="md:hidden" />
       </button>

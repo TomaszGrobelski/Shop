@@ -1,7 +1,8 @@
-import ButtonCustom from "../Buttons/ButtonCustom";
-import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 interface ModalDetailProps {
   setModalVisible: (visible: boolean) => void;
@@ -19,8 +20,12 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
   if (numberItemsBag > 0) {
     const lastProduct = bagList[numberItemsBag - 1];
     productDetails = (
-      <div className="flex gap-2 my-3">
-        <img className="w-[100px]" src={lastProduct.img} alt={lastProduct.name} />
+      <div className="my-3 flex gap-2">
+        <img
+          className="w-[100px]"
+          src={lastProduct.img}
+          alt={lastProduct.name}
+        />
         <div>
           <p>{lastProduct.name}</p>
           <p className="opacity-80">{lastProduct.gender}</p>
@@ -29,30 +34,41 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
         </div>
       </div>
     );
-      console.log(lastProduct.gender);
   }
 
   return (
     <div>
-      <div className="fixed right-0 top-0 w-full h-[250px] bg-white z-50 md:w-[400px] ">
+      <div className="fixed right-0 top-0 z-50 h-[250px] w-full bg-white md:w-[400px] ">
         <div className="p-4">
           <div className="flex items-center justify-between">
-            <h2 className="flex gap-3 items-center font-bold">
+            <h2 className="flex items-center gap-3 font-bold">
               <BsFillCheckCircleFill className="text-green-600" />
               Added to Bag
             </h2>
-            <AiOutlineClose size={22} onClick={handleModal} className="cursor-pointer" />
+            <AiOutlineClose
+              size={22}
+              onClick={handleModal}
+              className="cursor-pointer"
+            />
           </div>
           <div>{productDetails}</div>
           <div className="flex gap-4">
-            <ButtonCustom onClick={()=>navigate("/bag")} className="w-1/2 bg-white">
+            <PrimaryButton
+              onClick={() => navigate("/bag")}
+              className="w-1/2 bg-white">
               View Bag <span>({numberItemsBag})</span>
-            </ButtonCustom>
-            <ButtonCustom onClick={()=>navigate("/checkout")} className="w-1/2 bg-black text-white">Checkout </ButtonCustom>
+            </PrimaryButton>
+            <PrimaryButton
+              onClick={() => navigate("/checkout")}
+              className="w-1/2 bg-black text-white">
+              Checkout{" "}
+            </PrimaryButton>
           </div>
         </div>
       </div>
-      <div onClick={handleModal} className="fixed left-0 top-0 w-full h-full bg-gray-900 opacity-80"></div>
+      <div
+        onClick={handleModal}
+        className="fixed left-0 top-0 h-full w-full bg-gray-900 opacity-80"></div>
     </div>
   );
 }

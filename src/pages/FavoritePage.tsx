@@ -1,14 +1,14 @@
-import Navbar from "../components/Navigation/Navbar";
-import FooterSection from "../components/Footer/FooterSection"
 import FavoiteSection from "../components/FavoritePage/FavoiteSection";
+import FooterSection from "../components/Footer/FooterSection";
+import Navbar from "../components/Navigation/Navbar";
 
 function FavoritePage() {
   return (
-    <div>
+    <>
       <Navbar />
       <FavoiteSection />
       <FooterSection />
-    </div>
+    </>
   );
 }
 

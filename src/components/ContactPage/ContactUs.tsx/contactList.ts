@@ -1,10 +1,8 @@
-import ProductsOrder from '../../../images/Contact/Products&Orders.png'
-import ProductsOrderPhone from '../../../images/Contact/Products&OrdersPhone.png'
-import NRC from '../../../images/Contact/NRC.png'
-import INFO from '../../../images/Contact/Info.png'
-import StoreLocation from '../../../images/Contact/StoreLocation.png'
-
-
+import INFO from "../../../images/Contact/Info.png";
+import NRC from "../../../images/Contact/NRC.png";
+import ProductsOrder from "../../../images/Contact/Products&Orders.png";
+import ProductsOrderPhone from "../../../images/Contact/Products&OrdersPhone.png";
+import StoreLocation from "../../../images/Contact/StoreLocation.png";
 
 const contactList = [
   {

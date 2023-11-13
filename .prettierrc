@@ -1,0 +1,13 @@
+{
+  "trailingComma": "all",
+  "singleQuote": false,
+  "semi": true,
+  "jsxBracketSameLine": true,
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": ["^@react/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
