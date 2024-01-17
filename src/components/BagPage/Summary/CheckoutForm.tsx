@@ -1,5 +1,5 @@
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 interface CheckoutFormProps {
   totalPrice: number;

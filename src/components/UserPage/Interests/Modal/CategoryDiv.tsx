@@ -17,7 +17,15 @@ interface CategoryDivProps {
   currentCategory: string;
 }
 
+<<<<<<< HEAD
 function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: CategoryDivProps) {
+=======
+function CategoryDiv({
+  setCurrentCategory,
+  setSelectedList,
+  currentCategory,
+}: CategoryDivProps) {
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   const interestsList: { name: string; data: SportsData[] }[] = [
     { name: "Sports", data: sportsList },
     { name: "Products", data: productsList },
@@ -28,7 +36,8 @@ function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: C
 
   const handleCategoryChange = (category: string) => {
     setCurrentCategory(category);
-    const newSelectedList = interestsList.find((item) => item.name === category)?.data || [];
+    const newSelectedList =
+      interestsList.find((item) => item.name === category)?.data || [];
     setSelectedList(newSelectedList);
   };
 
@@ -39,8 +48,11 @@ function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: C
           <li key={index} className="py-2">
             <button
               onClick={() => handleCategoryChange(interest.name)}
-              className={interest.name === currentCategory ? "text-black" : "text-gray-400"}
-            >
+              className={
+                interest.name === currentCategory
+                  ? "text-black"
+                  : "text-gray-400"
+              }>
               {interest.name} ({interest.data.length})
             </button>
           </li>

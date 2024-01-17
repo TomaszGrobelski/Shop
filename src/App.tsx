@@ -1,13 +1,35 @@
-import {LoginPage, RegisterPage, HomePage, ShoesPage, ContactPage, FavoritePage, BagPage, UserPage, ShoeDetailPage ,SuccessPage} from './pages/index'
-import ContainerHome from "./components/Containers/Container";
-import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/HomePage";
+import ShoesPage from "./pages/ShoesPage";
+import ContactPage from "./pages/ContactPage";
+import FavoritePage from "./pages/FavoritePage";
+import BagPage from "./pages/BagPage";
+import UserPage from "./pages/UserPage";
 import ProtectedRoute from "./components/PrivateRout/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ContainerHome from "./components/Containers/Container";
+import ShoeDetailPage from "./pages/ShoeDetailPage";
+import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
+import SuccessPage from "./pages/SuccessPage";
+
 import FavoritesProvider from "./context/FavoritesProvider";
-import "@stripe/stripe-js"
+import {
+  BagPage,
+  ContactPage,
+  FavoritePage,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  ShoeDetailPage,
+  ShoesPage,
+  SuccessPage,
+  UserPage,
+} from "./pages/index";
 
 function App() {
   
+
   return (
     <Router>
       <ContainerHome>

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import ProductsOrder from "../../../images/Contact/Products&Orders.png";
 import ProductsOrderPhone from "../../../images/Contact/Products&OrdersPhone.png";
 import NRC from "../../../images/Contact/NRC.png";
 import INFO from "../../../images/Contact/Info.png";
+=======
+import INFO from "../../../images/Contact/Info.png";
+import NRC from "../../../images/Contact/NRC.png";
+import ProductsOrder from "../../../images/Contact/Products&Orders.png";
+import ProductsOrderPhone from "../../../images/Contact/Products&OrdersPhone.png";
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import StoreLocation from "../../../images/Contact/StoreLocation.png";
 
 const contactList = [

@@ -1,9 +1,10 @@
-import Slider from "./Slider/Slider";
-import HeaderShoes from "./Filter/HeaderShoes";
+import { useState } from "react";
+
 import FilterPhone from "./Filter/FilterPhone";
+import HeaderShoes from "./Filter/HeaderShoes";
 import MainFilter from "./Filter/MainFilter";
 import Products from "./Products/Products";
-import { useState } from "react";
+import Slider from "./Slider/Slider";
 
 function ShoesSection() {
   const [filterVisible, setFilterVisible] = useState(true);
@@ -32,6 +33,7 @@ function ShoesSection() {
         selectedSize={selectedSize}
         setSelectedSize={setSelectedSize}
       />
+<<<<<<< HEAD
       <div className="flex sm:p-8 md:p-10 md:gap-10">
         <MainFilter
           setDiscount={setDiscount}
@@ -42,6 +44,20 @@ function ShoesSection() {
           selectedSize={selectedSize}
           setSelectedSize={setSelectedSize}
         />
+=======
+      <div className="flex  sm:p-8 md:gap-10 md:p-10">
+        <div>
+          <MainFilter
+            setDiscount={setDiscount}
+            genderFilter={genderFilter}
+            setGenderFilter={setGenderFilter}
+            setFilterType={setFilterType}
+            filterVisible={filterVisible}
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
+        </div>
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         <Products
           discount={discount}
           genderFilter={genderFilter}

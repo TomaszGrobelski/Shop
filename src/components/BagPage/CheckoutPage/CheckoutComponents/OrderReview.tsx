@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { loadStripe, Stripe } from "@stripe/stripe-js";
+=======
+import { Stripe, loadStripe } from "@stripe/stripe-js";
+import { useState } from "react";
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 
 type Item = {
   price: string;
@@ -10,6 +15,10 @@ type BagItem = {
 };
 
 function OrderReview() {
+<<<<<<< HEAD
+=======
+  const [error, setError] = useState("");
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   let items: Item[] = [];
   const bagItemsString = localStorage.getItem("bagItems");
 
@@ -30,15 +39,17 @@ function OrderReview() {
 
     items = Object.values(itemCounts);
   } else {
+<<<<<<< HEAD
     return;
+=======
+    setError("No items");
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   }
 
-  const STRIPE_KEY =
-    "pk_test_51O4iOWGa5FM93XwuQtVotQkr7pFDySdTjVv1SheVHrqqKIijTws3F8tQzIOZiCoAwQd3nPA2me2gwcp5SxB9mU1p00Ie76m5OW";
   let stripePromise: Promise<Stripe | null>;
   const getStripe = () => {
     if (!stripePromise) {
-      stripePromise = loadStripe(STRIPE_KEY);
+      stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
     }
     return stripePromise;
   };
@@ -53,16 +64,26 @@ function OrderReview() {
   const redirectToCheckout = async () => {
     const stripe = await getStripe();
     if (stripe) {
-      const { error } = await stripe.redirectToCheckout(checkoutOptions);
-      console.log(error);
+      const result = await stripe.redirectToCheckout(checkoutOptions);
+      if (result.error) {
+        setError(result.error.message as any);
+      }
     } else {
-      console.error("Stripe could not be initialized");
+      setError("Stripe could not be initialized");
     }
   };
 
   return (
+<<<<<<< HEAD
     <div className="py-10 flex justify-end max-w-[660px]">
       <button onClick={redirectToCheckout} className=" border-2 p-3 px-8 rounded-3xl font-bold text-[20px]">
+=======
+    <div className="flex max-w-[660px] justify-end py-10">
+      <div>{error}</div>
+      <button
+        onClick={redirectToCheckout}
+        className=" rounded-3xl border-2 p-3 px-8 text-[20px] font-bold">
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         Pay
       </button>
     </div>

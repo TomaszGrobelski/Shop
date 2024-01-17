@@ -9,7 +9,9 @@ function CitiesAPI() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT")
+    fetch(
+      "http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT",
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was failed");
@@ -17,7 +19,9 @@ function CitiesAPI() {
         return res.json();
       })
       .then((data) => {
-        const cities = (data.geonames as any[]).map((city) => ({ name: city.name })) as City[];
+        const cities = (data.geonames as any[]).map((city) => ({
+          name: city.name,
+        })) as City[];
         setCitiesList(cities);
         setIsLoading(false);
       })

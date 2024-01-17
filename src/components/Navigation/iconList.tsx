@@ -1,5 +1,5 @@
-import { LiaHeart, LiaShoppingBagSolid } from "react-icons/lia";
 import { BiUser } from "react-icons/bi";
+import { LiaHeart, LiaShoppingBagSolid } from "react-icons/lia";
 
 const iconList = [
   { name: "Favorites", icon: <LiaHeart size={25} />, path: "/favorite" },

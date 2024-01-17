@@ -1,7 +1,8 @@
-import { useState, useEffect, ChangeEvent } from "react";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import app from "../../config/firebase";
 import { getAuth } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { ChangeEvent, useEffect, useState } from "react";
+
+import app from "../../config/firebase";
 
 function ImgUser() {
   const [image, setImage] = useState<string | null>(null);
@@ -38,14 +39,20 @@ function ImgUser() {
   }, [storage, user]);
 
   return (
-    <div className="relative h-24 w-24 bg-gray-300 rounded-full overflow-hidden">
+    <div className="relative h-24 w-24 overflow-hidden rounded-full bg-gray-300">
       <label htmlFor="upload">
-        {image ? <img src={image} alt="Profile image" className="h-24 w-24 rounded-full" /> : null}
+        {image ? (
+          <img
+            src={image}
+            alt="Profile image"
+            className="h-24 w-24 rounded-full"
+          />
+        ) : null}
       </label>
       <input
         id="upload"
         type="file"
-        className="absolute -top-10 -left-10 w-[200px] h-[200px] z-30 opacity-0 cursor-pointer"
+        className="absolute -left-10 -top-10 z-30 h-[200px] w-[200px] cursor-pointer opacity-0"
         onChange={handleImageChange}
       />
     </div>

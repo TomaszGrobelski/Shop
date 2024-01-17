@@ -4,10 +4,18 @@ function QuickAssists() {
   return (
     <div className="my-16 ">
       <div className="border-b-[1px] ">
+<<<<<<< HEAD
         <h2 className="text-[24px] pl-6 ">QUICK ASSISTS</h2>
         <p className="text-[14px] pl-6 my-2">Answers to our most frequently asked questions are just one click away.</p>
+=======
+        <h2 className="pl-6 text-[24px] ">QUICK ASSISTS</h2>
+        <p className="my-2 pl-6 text-[14px]">
+          Answers to our most frequently asked questions are just one click
+          away.
+        </p>
+>>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
       </div>
-      <div className="md:grid md:grid-cols-3 gap-6 md:pl-6">
+      <div className="gap-6 md:grid md:grid-cols-3 md:pl-6">
         <AccordionAssists title="SHIPPING & DELIVERY">
           <p>What are Nika shipping options?</p>
           <p>How do I get free shipping on Nika orders?</p>
@@ -35,7 +43,9 @@ function QuickAssists() {
         <AccordionAssists title="NIKE OFFERS">
           <p>Does Nika offer a student discount?</p>
           <p>Does Nika offer a military discount?</p>
-          <p>Does Nika offer a first responder and medical professional discount?</p>
+          <p>
+            Does Nika offer a first responder and medical professional discount?
+          </p>
         </AccordionAssists>
       </div>
     </div>

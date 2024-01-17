@@ -13,10 +13,13 @@ function SelectedDiv({ selectedList }: SelectedDivProps) {
           <label
             htmlFor={`checkbox-${index}`}
             key={index}
-            className="flex justify-between items-center border-b-[1px] py-4 mx-10 cursor-pointer"
-          >
+            className="flex justify-between items-center border-b-[1px] py-4 mx-10 cursor-pointer">
             <span>{item.name}</span>
-            <input id={`checkbox-${index}`} type="checkbox" className="w-4 h-4 checked:accent-black" />
+            <input
+              id={`checkbox-${index}`}
+              type="checkbox"
+              className="w-4 h-4 checked:accent-black"
+            />
           </label>
         ))}
       </ul>

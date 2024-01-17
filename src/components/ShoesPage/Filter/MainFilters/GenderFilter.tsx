@@ -5,7 +5,10 @@ interface GenderFilterProps {
   genderFilter: string | null;
 }
 
-const GenderFilter: React.FC<GenderFilterProps> = ({ setGenderFilter, genderFilter }) => {
+const GenderFilter: React.FC<GenderFilterProps> = ({
+  setGenderFilter,
+  genderFilter,
+}) => {
   const handleCheckboxChange = (genderType: string) => {
     if (genderFilter === genderType) {
       setGenderFilter(null);
@@ -15,7 +18,7 @@ const GenderFilter: React.FC<GenderFilterProps> = ({ setGenderFilter, genderFilt
   };
 
   return (
-    <div className="py-6 border-b-[1px] border-gray-200 ">
+    <div className="border-b-[1px] border-gray-200 py-6 ">
       <p className="mb-4">Gender</p>
       <ul className="flex flex-col gap-3">
         {genderList.map((sex, index) => {
@@ -27,9 +30,11 @@ const GenderFilter: React.FC<GenderFilterProps> = ({ setGenderFilter, genderFilt
                 type="checkbox"
                 checked={genderFilter === sex.type}
                 onChange={() => handleCheckboxChange(sex.type)}
-                className="w-5 h-5 cursor-pointer  checked:accent-black "
+                className="h-5 w-5 cursor-pointer  checked:accent-black "
               />
-              <label htmlFor={inputId} className="cursor-pointer hover:opacity-80 ">
+              <label
+                htmlFor={inputId}
+                className="cursor-pointer hover:opacity-80 ">
                 {sex.type}
               </label>
             </li>

@@ -1,16 +1,16 @@
 import FooterSection from "../../Footer/FooterSection";
-import InYourBag from "./CheckoutComponents/InYourBag";
-import DeliveryOptions from "./CheckoutComponents/Delivery/DeliveryOptions";
-import OrderReview from "./CheckoutComponents/OrderReview";
 import Navbar from "../../Navigation/Navbar";
+import DeliveryOptions from "./CheckoutComponents/Delivery/DeliveryOptions";
+import InYourBag from "./CheckoutComponents/InYourBag";
+import OrderReview from "./CheckoutComponents/OrderReview";
 
 function CheckoutPage() {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col sm:flex-row-revers p-6">
-        <button className="text-center text-[28px] my-10">Checkout</button>
-        <div className="flex flex-col md:gap-12 md:flex-row-reverse md:justify-center">
+      <div className="sm:flex-row-revers flex flex-col p-6">
+        <button className="my-10 text-center text-[28px]">Checkout</button>
+        <div className="flex flex-col md:flex-row-reverse md:justify-center md:gap-12">
           <InYourBag />
           <div>
             <DeliveryOptions />

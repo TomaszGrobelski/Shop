@@ -1,6 +1,6 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { ReactNode, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ReactNode, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
   children: ReactNode;
