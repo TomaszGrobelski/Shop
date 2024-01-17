@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import { useParams } from "react-router-dom";
-import shoesList from "../ShoesPage/Products/shoesList";
-import SizeShoeDetail from "./SizeShoeDetail";
-import PrimaryButton from "../Buttons/PrimaryButton";
-import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import { useContext, useState } from "react";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { useParams } from "react-router-dom";
@@ -14,12 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { FavoritiestContext } from "../../context/context";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { Shoe } from "../ShoesPage/Products/interfaceShoe";
-<<<<<<< HEAD
-import Shipping from "./Shipping";
-import { v4 as uuidv4 } from "uuid";
-=======
 import shoesList from "../ShoesPage/Products/shoesList";
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import ModalDetail from "./ModalDetail";
 import Shipping from "./Shipping";
 import SizeShoeDetail from "./SizeShoeDetail";
@@ -104,14 +91,6 @@ function ShoeDetailSection() {
           onSizeSelect={setSelectedSize}
         />
         <div className="flex flex-col gap-5">
-<<<<<<< HEAD
-          <PrimaryButton onClick={addToBagClick} className="bg-black text-white">
-            Add to Bad
-          </PrimaryButton>
-          <PrimaryButton onClick={favoriteClick} className="flex justify-center items-center">
-            <span>Favorite</span>
-            {isFavorite ? <IoMdHeart size={20} className="ml-4" /> : <IoMdHeartEmpty size={20} className="ml-4" />}
-=======
           <PrimaryButton
             onClick={addToBagClick}
             className="bg-black text-white">
@@ -126,7 +105,6 @@ function ShoeDetailSection() {
             ) : (
               <IoMdHeartEmpty size={20} className="ml-4" />
             )}
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
           </PrimaryButton>
         </div>
         <Shipping />

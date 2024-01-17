@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import PrimaryButton from "../Buttons/PrimaryButton";
-import { BsFillCheckCircleFill } from "react-icons/bs";
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import { AiOutlineClose } from "react-icons/ai";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +34,6 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
         </div>
       </div>
     );
-<<<<<<< HEAD
-    console.log(lastProduct.gender);
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   }
 
   return (
@@ -62,12 +53,6 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
           </div>
           <div>{productDetails}</div>
           <div className="flex gap-4">
-<<<<<<< HEAD
-            <PrimaryButton onClick={() => navigate("/bag")} className="w-1/2 bg-white">
-              View Bag <span>({numberItemsBag})</span>
-            </PrimaryButton>
-            <PrimaryButton onClick={() => navigate("/checkout")} className="w-1/2 bg-black text-white">
-=======
             <PrimaryButton
               onClick={() => navigate("/bag")}
               className="w-1/2 bg-white">
@@ -76,7 +61,6 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
             <PrimaryButton
               onClick={() => navigate("/checkout")}
               className="w-1/2 bg-black text-white">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
               Checkout{" "}
             </PrimaryButton>
           </div>

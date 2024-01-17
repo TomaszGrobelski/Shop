@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import PrimaryButton from "../../../Buttons/PrimaryButton";
-import { SetStateAction, Dispatch } from "react";
-=======
 import { Dispatch, SetStateAction } from "react";
 
 import PrimaryButton from "../../../Buttons/PrimaryButton";
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import sportsList from "../../listOfInterests/sportsList";
 import CategoryDiv from "./CategoryDiv";
 import HeaderModal from "./HeaderModal";
@@ -57,13 +52,9 @@ function ModalInterests({ setModalVisibility }: ModalInterestsProps) {
             <PrimaryButton onClick={modalClick} className="h-12 w-24">
               Cancel
             </PrimaryButton>
-<<<<<<< HEAD
-            <PrimaryButton onClick={selectedClick} className="h-12 w-20 bg-black text-white">
-=======
             <PrimaryButton
               onClick={selectedClick}
               className="h-12 w-20 bg-black text-white">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
               Save
             </PrimaryButton>
           </div>

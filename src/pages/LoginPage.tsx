@@ -6,14 +6,8 @@ import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import EmailLabel from "../components/LoginRegister/EmailLabel";
 import PasswordLabel from "../components/LoginRegister/PasswordLabel";
-<<<<<<< HEAD
-import PrimaryButton from "../components/Buttons/PrimaryButton";
-import Formh1 from "../components/LoginRegister/Formh1";
-import { IoCreate } from "react-icons/io5";
-=======
 import WrapperWithFormAndTitle from "../components/LoginRegister/WrapperWithFormAndTitle";
 import { auth } from "../config/firebase";
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import LoginRegisterImg from "../images/LoginRegister/LoginRegisterImg.jpg";
 import { Label } from "../styles/LoginPage.styles";
 
@@ -68,13 +62,9 @@ function LoginPage() {
           className="mb-5 mt-1 flex items-center gap-1 self-end">
           Register Now <IoCreate />
         </button>
-<<<<<<< HEAD
-        <PrimaryButton type="submit" className="w-28 h-12 hover:bg-purple-500 font-bold">
-=======
         <PrimaryButton
           type="submit"
           className="h-12 w-28 font-bold hover:bg-purple-500">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
           Login
         </PrimaryButton>
         <div className="mt-8">
@@ -86,15 +76,9 @@ function LoginPage() {
             Password: <span className="font-bold">tomasz</span>
           </div>
         </div>
-<<<<<<< HEAD
-      </Formh1>
-      <img
-        className="absolute top-0 left-0 -z-10 h-full w-full object-cover"
-=======
       </WrapperWithFormAndTitle>
       <img
         className="absolute left-0 top-0 -z-10 h-full w-full object-cover"
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         src={LoginRegisterImg}
         alt="Login image"
       />

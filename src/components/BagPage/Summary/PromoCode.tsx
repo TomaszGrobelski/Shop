@@ -1,9 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-<<<<<<< HEAD
-import PrimaryButton from "../../Buttons/PrimaryButton";
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 import { BiSolidChevronDown } from "react-icons/bi";
 
 import PrimaryButton from "../../Buttons/PrimaryButton";
@@ -49,13 +45,9 @@ function PromoCode({ setDiscount }: PromoCodeProps) {
               type="text"
               className="h-10 w-2/3 rounded-lg border-[1px]"
             />
-<<<<<<< HEAD
-            <PrimaryButton onClick={discountClick} className="w-1/3 h-10 text-gray-500 bg-white">
-=======
             <PrimaryButton
               onClick={discountClick}
               className="h-10 w-1/3 bg-white text-gray-500">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
               Apply
             </PrimaryButton>
           </motion.div>

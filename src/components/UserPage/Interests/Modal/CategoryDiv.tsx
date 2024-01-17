@@ -17,15 +17,11 @@ interface CategoryDivProps {
   currentCategory: string;
 }
 
-<<<<<<< HEAD
-function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: CategoryDivProps) {
-=======
 function CategoryDiv({
   setCurrentCategory,
   setSelectedList,
   currentCategory,
 }: CategoryDivProps) {
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   const interestsList: { name: string; data: SportsData[] }[] = [
     { name: "Sports", data: sportsList },
     { name: "Products", data: productsList },

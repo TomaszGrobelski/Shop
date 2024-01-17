@@ -74,14 +74,8 @@ function FavoiteSection() {
                     </span>
                   </button>
                 )
-<<<<<<< HEAD
-              }
-            >
-              <PrimaryButton className=" bg-white w-[100px] sm:w-[130px] h-[45px] my-5 font-bold opacity-90">
-=======
               }>
               <PrimaryButton className=" my-5 h-[45px] w-[100px] bg-white font-bold opacity-90 sm:w-[130px]">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
                 Select Size
               </PrimaryButton>
             </ShoeCard>

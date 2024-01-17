@@ -45,10 +45,6 @@ function Navbar() {
   const navClick = () => {
     setNavVisible(!navVisible);
   };
-<<<<<<< HEAD
-
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
 

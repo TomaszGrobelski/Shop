@@ -5,14 +5,9 @@ function Shipping() {
     <div className="opacity-90">
       <div className="my-10">
         <div>Free Shipping*</div>
-<<<<<<< HEAD
-        <p className="text-[16px] my-2">
-          To get accurate shipping information <span className="border-b-[1px] border-black">Edit Location</span>{" "}
-=======
         <p className="my-2 text-[16px]">
           To get accurate shipping information{" "}
           <span className="border-b-[1px] border-black">Edit Location</span>{" "}
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         </p>
         <div className="mt-8">Free Pickup</div>
         <button className="border-b-[1px] border-black">Find a Store</button>

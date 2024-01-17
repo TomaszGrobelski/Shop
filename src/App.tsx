@@ -1,17 +1,17 @@
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import HomePage from "./pages/HomePage";
-import ShoesPage from "./pages/ShoesPage";
-import ContactPage from "./pages/ContactPage";
-import FavoritePage from "./pages/FavoritePage";
-import BagPage from "./pages/BagPage";
-import UserPage from "./pages/UserPage";
+// import LoginPage from "./pages/LoginPage";
+// import RegisterPage from "./pages/RegisterPage";
+// import HomePage from "./pages/HomePage";
+// import ShoesPage from "./pages/ShoesPage";
+// import ContactPage from "./pages/ContactPage";
+// import FavoritePage from "./pages/FavoritePage";
+// import BagPage from "./pages/BagPage";
+// import UserPage from "./pages/UserPage";
+// import ShoeDetailPage from "./pages/ShoeDetailPage";
+// import SuccessPage from "./pages/SuccessPage";
 import ProtectedRoute from "./components/PrivateRout/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContainerHome from "./components/Containers/Container";
-import ShoeDetailPage from "./pages/ShoeDetailPage";
 import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
-import SuccessPage from "./pages/SuccessPage";
 
 import FavoritesProvider from "./context/FavoritesProvider";
 import {

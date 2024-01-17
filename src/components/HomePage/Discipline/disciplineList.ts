@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import Running from "../../../images/Home/discipline/Running.jpg";
-import Football from "../../../images/Home/discipline/Football.jpg";
-import Basketball from "../../../images/Home/discipline/Basketball.jpg";
-import Training from "../../../images/Home/discipline/Training.jpg";
-import Tennis from "../../../images/Home/discipline/Tennis.jpg";
-import Dance from "../../../images/Home/discipline/Dance.jpg";
-import Yoga from "../../../images/Home/discipline/Yoga.jpg";
-import Skateboarding from "../../../images/Home/discipline/Skateboarding.jpg";
-=======
 import Basketball from "../../../images/Home/discipline/Basketball.jpg";
 import Dance from "../../../images/Home/discipline/Dance.jpg";
 import Football from "../../../images/Home/discipline/Football.jpg";
@@ -16,7 +6,6 @@ import Skateboarding from "../../../images/Home/discipline/Skateboarding.jpg";
 import Tennis from "../../../images/Home/discipline/Tennis.jpg";
 import Training from "../../../images/Home/discipline/Training.jpg";
 import Yoga from "../../../images/Home/discipline/Yoga.jpg";
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 
 const disciplineList = [
   {

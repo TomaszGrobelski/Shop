@@ -7,16 +7,12 @@ type ShoeCardProps = {
   favorite?: React.ReactNode;
 };
 
-<<<<<<< HEAD
-const ShoeCard: React.FC<ShoeCardProps> = ({ shoe, key, children, favorite }) => {
-=======
 const ShoeCard: React.FC<ShoeCardProps> = ({
   shoe,
   key,
   children,
   favorite,
 }) => {
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
   return (
     <div key={key} className="mb-10 flex  flex-col">
       <div className="relative max-w-[400px]">

@@ -19,11 +19,6 @@ function DeliveryOptions() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="my-2 w-[100%] ">
-      <h2 className="my-2 text-[22px]">{delivery === "ship" ? "Delivery Options" : "Pickup"}</h2>
-      <div className="flex flex-row gap-4 my-4 text-[20px]">
-=======
     <div className="my-2 w-[100%]">
       <h2 className="my-2 text-[22px]">
         {delivery === DELIVERY_TYPES.SHIP
@@ -31,7 +26,6 @@ function DeliveryOptions() {
           : DELIVERY_TYPES.PICK_UP}
       </h2>
       <div className="my-4 flex flex-row gap-4 text-[20px]">
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         <button
           onClick={() => handleDeliveryChange(DELIVERY_TYPES.SHIP)}
           className={`flex w-full items-center justify-center gap-3 rounded-2xl border-[2px] p-4 ${

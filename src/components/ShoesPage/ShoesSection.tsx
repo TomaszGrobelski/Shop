@@ -33,18 +33,6 @@ function ShoesSection() {
         selectedSize={selectedSize}
         setSelectedSize={setSelectedSize}
       />
-<<<<<<< HEAD
-      <div className="flex sm:p-8 md:p-10 md:gap-10">
-        <MainFilter
-          setDiscount={setDiscount}
-          genderFilter={genderFilter}
-          setGenderFilter={setGenderFilter}
-          setFilterType={setFilterType}
-          filterVisible={filterVisible}
-          selectedSize={selectedSize}
-          setSelectedSize={setSelectedSize}
-        />
-=======
       <div className="flex  sm:p-8 md:gap-10 md:p-10">
         <div>
           <MainFilter
@@ -57,7 +45,6 @@ function ShoesSection() {
             setSelectedSize={setSelectedSize}
           />
         </div>
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
         <Products
           discount={discount}
           genderFilter={genderFilter}

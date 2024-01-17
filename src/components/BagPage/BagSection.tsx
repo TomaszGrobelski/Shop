@@ -2,10 +2,6 @@ import { useState } from "react";
 
 import Order from "./Bag/Order";
 import Summary from "./Summary/Summary";
-<<<<<<< HEAD
-import { useState } from "react";
-=======
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
 
 function BagSection() {
   const [totalPrice, setTotalPrice] = useState(0);

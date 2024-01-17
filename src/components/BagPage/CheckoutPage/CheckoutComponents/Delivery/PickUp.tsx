@@ -13,11 +13,7 @@ function PickUp() {
     setSearchValue("");
   };
   return (
-<<<<<<< HEAD
-    <div className="">
-=======
     <>
->>>>>>> d7429fbb29cddb730079b0695a415bfd9d1f153b
       <h2 className="my-4">Select a store location</h2>
       <div className="relative flex w-full flex-col space-y-1 rounded-xl border-2 p-1">
         <label
