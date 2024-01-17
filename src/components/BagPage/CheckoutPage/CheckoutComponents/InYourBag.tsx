@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BiMinus } from 'react-icons/bi';
 
+import { ItemPrice } from '../../../../types/BagPage/bagPage.types';
 import Summary from '../../Summary/Summary';
 
 function InYourBag() {
@@ -26,11 +27,7 @@ function InYourBag() {
     };
   }, []);
 
-  interface Item {
-    price: number;
-  }
-
-  const reducer = (accumulator: number, currentValue: Item | null) => {
+  const reducer = (accumulator: number, currentValue: ItemPrice | null) => {
     if (currentValue?.price) {
       return accumulator + currentValue.price;
     }
@@ -38,7 +35,7 @@ function InYourBag() {
   };
 
   const bagListString = localStorage.getItem('bagItems');
-  const bagList: (Item | null)[] = bagListString
+  const bagList: (ItemPrice | null)[] = bagListString
     ? JSON.parse(bagListString)
     : [];
   const totalPrice = bagList.reduce(reducer, 0);

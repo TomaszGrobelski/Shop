@@ -24,9 +24,9 @@ function Order({ setTotalPrice }: OrderProps) {
   const deleteProductClick = (index: number) => {
     const updatedItems = [...itemsList];
     const deletedItem = updatedItems.splice(index, 1)[0];
+    const storedItems = localStorage.getItem('bagItems');
     setItemsList(updatedItems);
 
-    const storedItems = localStorage.getItem('bagItems');
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
       const updatedItemsArray = itemsArray.filter(

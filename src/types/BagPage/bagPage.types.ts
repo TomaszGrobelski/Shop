@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface OrderProps {
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -7,6 +9,7 @@ export type LabelFormProps = {
   type: string;
   autoComplite: string;
   id: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type ItemsProps = {
@@ -31,4 +34,8 @@ export interface PromoCodeProps {
 export interface SummaryProps {
   totalPrice: number;
   visible?: boolean;
+}
+
+export interface ItemPrice {
+  price: number;
 }

@@ -5,6 +5,7 @@ const LabelForm: React.FC<LabelFormProps> = ({
   type,
   autoComplite,
   id,
+  onChange
 }: LabelFormProps) => {
   return (
     <div className='relative flex w-full flex-col space-y-1 rounded-xl border-[2px] p-1'>
@@ -22,6 +23,7 @@ const LabelForm: React.FC<LabelFormProps> = ({
         autoComplete={autoComplite}
         aria-required='true'
         aria-invalid='false'
+        onChange={onChange}
       />
     </div>
   );

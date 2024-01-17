@@ -6,7 +6,10 @@ import {
   ItemsProps,
 } from '../../../../types/BagPage/bagPage.types';
 
-function OrderReview() {
+interface OrderReviewProps {
+  validate: () => boolean;
+}
+function OrderReview({ validate }: OrderReviewProps) {
   const [error, setError] = useState('');
   let items: ItemsProps[] = [];
   const bagItemsString = localStorage.getItem('bagItems');
@@ -50,6 +53,9 @@ function OrderReview() {
   };
 
   const redirectToCheckout = async () => {
+    if (!validate()) {
+      return console.log('Not valid');
+    }
     const stripe = await getStripe();
     if (stripe) {
       const result = await stripe.redirectToCheckout(checkoutOptions);

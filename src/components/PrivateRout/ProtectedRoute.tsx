@@ -23,8 +23,7 @@ function ProtectedRoute({ children }: { children: ReactNode }) {
                 navigate('/nika/');
               }
             })
-            .catch((error) => {
-              console.error('Błąd podczas pobierania tokenu:', error); // obsługa error
+            .catch(() => {
               navigate('/nika/');
             });
         } else {

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
 import { CityProps } from '../../../../types/UserPage/userPage.types';
+import LoadingElement from '../../../PrivateRout/LoadingElement';
 
 function CitiesAPI() {
   const [citiesList, setCitiesList] = useState<CityProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(
@@ -23,14 +25,14 @@ function CitiesAPI() {
         setCitiesList(cities);
         setIsLoading(false);
       })
-      .catch((error) => {
-        console.error('Error:', error); // obsluga errror
+      .catch(() => {
+        setError('Error occurred please try again later');
         setIsLoading(false);
       });
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingElement />;
   }
 
   return (
@@ -40,6 +42,7 @@ function CitiesAPI() {
           <li key={index}>{city.name}</li>
         ))}
       </ul>
+      {error}
     </div>
   );
 }
