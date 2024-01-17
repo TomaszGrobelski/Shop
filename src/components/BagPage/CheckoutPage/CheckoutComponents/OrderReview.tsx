@@ -1,23 +1,21 @@
-//https://www.youtube.com/watch?v=BSN2KcB_h-M&ab_channel=DesignCode
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 
-type Item={
-  price:string;
-  quantity:number
-}
+type Item = {
+  price: string;
+  quantity: number;
+};
 type BagItem = {
   stripePrice: string;
   name: string;
-  // other properties of items in bagItems
 };
 
 function OrderReview() {
-  let items:Item[] = [];
+  let items: Item[] = [];
   const bagItemsString = localStorage.getItem("bagItems");
-  
+
   if (bagItemsString) {
-    const bagItems:BagItem[] = JSON.parse(bagItemsString);
-    
+    const bagItems: BagItem[] = JSON.parse(bagItemsString);
+
     const itemCounts = bagItems.reduce<Record<string, Item>>((acc, item) => {
       if (acc[item.name]) {
         acc[item.name].quantity += 1;
@@ -29,12 +27,10 @@ function OrderReview() {
       }
       return acc;
     }, {});
-    
+
     items = Object.values(itemCounts);
-    
-    console.log(items);
   } else {
-    console.log("No items in localStorage");
+    return;
   }
 
   const STRIPE_KEY =
@@ -66,8 +62,9 @@ function OrderReview() {
 
   return (
     <div className="py-10 flex justify-end max-w-[660px]">
-      <button onClick={redirectToCheckout} 
-      className=" border-2 p-3 px-8 rounded-3xl font-bold text-[20px]">Pay</button>
+      <button onClick={redirectToCheckout} className=" border-2 p-3 px-8 rounded-3xl font-bold text-[20px]">
+        Pay
+      </button>
     </div>
   );
 }

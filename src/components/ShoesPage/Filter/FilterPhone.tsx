@@ -15,7 +15,7 @@ interface FilterPhoneProps {
   setDiscount: React.Dispatch<React.SetStateAction<string | null>>;
   selectedSize: number | null;
   setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
-  sortBy: string; 
+  sortBy: string;
   setSortBy: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -33,26 +33,25 @@ function FilterPhone({
 
   const handleFilter = () => {
     setFilterVisible(true);
-      document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
 
-  const handleFilterOut=()=>{
-    setFilterVisible(false)
+  const handleFilterOut = () => {
+    setFilterVisible(false);
     document.body.style.overflow = "auto";
-  }
+  };
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
         setFilterVisible(false);
-        document.body.style.overflow = 'auto';
-        console.log('yol');
+        document.body.style.overflow = "auto";
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   console.log(modelsList.length);

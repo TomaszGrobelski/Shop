@@ -5,9 +5,7 @@ function QuickAssists() {
     <div className="my-16 ">
       <div className="border-b-[1px] ">
         <h2 className="text-[24px] pl-6 ">QUICK ASSISTS</h2>
-        <p className="text-[14px] pl-6 my-2">
-          Answers to our most frequently asked questions are just one click away.
-        </p>
+        <p className="text-[14px] pl-6 my-2">Answers to our most frequently asked questions are just one click away.</p>
       </div>
       <div className="md:grid md:grid-cols-3 gap-6 md:pl-6">
         <AccordionAssists title="SHIPPING & DELIVERY">

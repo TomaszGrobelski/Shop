@@ -22,8 +22,8 @@ function Order({ setTotalPrice }: OrderProps) {
 
   const deleteProductClick = (index: number) => {
     const updatedItems = [...itemsList];
-    const deletedItem = updatedItems.splice(index, 1)[0]; 
-    setItemsList(updatedItems); 
+    const deletedItem = updatedItems.splice(index, 1)[0];
+    setItemsList(updatedItems);
 
     const storedItems = localStorage.getItem("bagItems");
     if (storedItems) {
@@ -39,7 +39,7 @@ function Order({ setTotalPrice }: OrderProps) {
   const displayOrder = itemsList.map((order, index) => (
     <li key={index} className="flex gap-10  ">
       <img src={order.img} alt={order.name} className="max-w-[120px]" />
-      <div className="max-w-[160px]" >
+      <div className="max-w-[160px]">
         <h2>{order.name}</h2>
         <p className="text-[14px] text-gray-600">{order.gender}</p>
         <div className="text-[14px] text-gray-600">Size: {order.selectedSize}</div>

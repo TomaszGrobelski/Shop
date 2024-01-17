@@ -6,7 +6,7 @@ interface AccordionAssistsProps {
   children: React.ReactNode;
 }
 
-function AccordionAssists({ title, children}:AccordionAssistsProps) {
+function AccordionAssists({ title, children }: AccordionAssistsProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {

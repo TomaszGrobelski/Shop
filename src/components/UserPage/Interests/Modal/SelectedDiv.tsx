@@ -1,4 +1,3 @@
-
 type InterestDataItem = { name: string };
 type InterestData = InterestDataItem[];
 

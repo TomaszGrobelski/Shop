@@ -8,5 +8,5 @@ type FavoritiestContextType = {
 
 export const FavoritiestContext = createContext<FavoritiestContextType>({
   favorities: [],
-  setFavorities: () => {}
+  setFavorities: () => {},
 });

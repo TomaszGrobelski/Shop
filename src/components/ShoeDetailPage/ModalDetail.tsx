@@ -1,4 +1,4 @@
-import ButtonCustom from "../Buttons/ButtonCustom";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +29,7 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
         </div>
       </div>
     );
-      console.log(lastProduct.gender);
+    console.log(lastProduct.gender);
   }
 
   return (
@@ -45,10 +45,12 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
           </div>
           <div>{productDetails}</div>
           <div className="flex gap-4">
-            <ButtonCustom onClick={()=>navigate("/bag")} className="w-1/2 bg-white">
+            <PrimaryButton onClick={() => navigate("/bag")} className="w-1/2 bg-white">
               View Bag <span>({numberItemsBag})</span>
-            </ButtonCustom>
-            <ButtonCustom onClick={()=>navigate("/checkout")} className="w-1/2 bg-black text-white">Checkout </ButtonCustom>
+            </PrimaryButton>
+            <PrimaryButton onClick={() => navigate("/checkout")} className="w-1/2 bg-black text-white">
+              Checkout{" "}
+            </PrimaryButton>
           </div>
         </div>
       </div>

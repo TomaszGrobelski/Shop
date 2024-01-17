@@ -1,9 +1,8 @@
 import LabelForm from "./LabelForm";
 
-
 function FormDelivery() {
   return (
-    <form >
+    <form>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4 sm:flex-row">
           <LabelForm id="firstName" title="First Name" type="text" autoComplite="given-name" />

@@ -1,20 +1,20 @@
 import { FaLock } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 interface PasswordLabelProps {
   children: React.ReactElement;
 }
 
 function PasswordLabel({ children }: PasswordLabelProps) {
-  const [inputType, setInputType]= useState("password")
+  const [inputType, setInputType] = useState("password");
 
   const toggleVisibility = () => {
-    setInputType(prevType => prevType === "password" ? "text" : "password");
+    setInputType((prevType) => (prevType === "password" ? "text" : "password"));
   };
 
   const updatedChild = React.cloneElement(children, {
-    type: inputType
+    type: inputType,
   });
 
   return (
@@ -24,7 +24,7 @@ function PasswordLabel({ children }: PasswordLabelProps) {
       </div>
       {updatedChild}
       <button type="button" onClick={toggleVisibility} className="pr-2">
-        {inputType==="password"?<AiFillEye size={25} />:<AiFillEyeInvisible size={25} />}
+        {inputType === "password" ? <AiFillEye size={25} /> : <AiFillEyeInvisible size={25} />}
       </button>
     </div>
   );

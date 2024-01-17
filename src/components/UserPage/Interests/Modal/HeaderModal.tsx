@@ -1,10 +1,10 @@
 import { IoIosCloseCircle } from "react-icons/io";
 
-interface HeaderModalProps{
-  closeModal: ()=>void;
+interface HeaderModalProps {
+  closeModal: () => void;
 }
 
-function HeaderModal({closeModal}:HeaderModalProps) {
+function HeaderModal({ closeModal }: HeaderModalProps) {
   return (
     <div className="flex justify-between items-center">
       <h2 className="text-[24px] my-4">Select Your Interests</h2>

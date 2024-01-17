@@ -1,10 +1,9 @@
-
-interface SizeFilterProps{
-    selectedSize:number | null;
-    setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
+interface SizeFilterProps {
+  selectedSize: number | null;
+  setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-const SizeFilter = ({ selectedSize, setSelectedSize }:SizeFilterProps) => {
+const SizeFilter = ({ selectedSize, setSelectedSize }: SizeFilterProps) => {
   return (
     <div className="py-6 border-b-[1px] border-gray-200">
       <p className="mb-4">Sizes</p>

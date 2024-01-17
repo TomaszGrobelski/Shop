@@ -44,7 +44,7 @@ function Navbar() {
   const navClick = () => {
     setNavVisible(!navVisible);
   };
-  // ruchomy Navbar:
+
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
 

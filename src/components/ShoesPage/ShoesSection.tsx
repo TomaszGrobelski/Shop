@@ -14,7 +14,7 @@ function ShoesSection() {
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
 
   return (
-    <div>
+    <>
       <Slider />
       <HeaderShoes
         sortBy={sortBy}
@@ -32,18 +32,16 @@ function ShoesSection() {
         selectedSize={selectedSize}
         setSelectedSize={setSelectedSize}
       />
-      <div className="flex  sm:p-8 md:p-10 md:gap-10">
-        <div>
-          <MainFilter
-            setDiscount={setDiscount}
-            genderFilter={genderFilter}
-            setGenderFilter={setGenderFilter}
-            setFilterType={setFilterType}
-            filterVisible={filterVisible}
-            selectedSize={selectedSize}
-            setSelectedSize={setSelectedSize}
-          />
-        </div>
+      <div className="flex sm:p-8 md:p-10 md:gap-10">
+        <MainFilter
+          setDiscount={setDiscount}
+          genderFilter={genderFilter}
+          setGenderFilter={setGenderFilter}
+          setFilterType={setFilterType}
+          filterVisible={filterVisible}
+          selectedSize={selectedSize}
+          setSelectedSize={setSelectedSize}
+        />
         <Products
           discount={discount}
           genderFilter={genderFilter}
@@ -52,7 +50,7 @@ function ShoesSection() {
           selectedSize={selectedSize}
         />
       </div>
-    </div>
+    </>
   );
 }
 

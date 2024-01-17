@@ -16,7 +16,7 @@ function AccordionShipping({ title, children }: AccordionShippingProps) {
     <div className="border-b-[1px] ">
       <button onClick={visibleClick} className="flex p-4 w-full items-center justify-between md:p-0 my-4 ">
         <p className="font-bold text-[24px] opacity-[85%] ">{title}</p>
-        <div >{visible ? <BiSolidChevronUp /> : <BiSolidChevronDown />}</div>
+        <div>{visible ? <BiSolidChevronUp /> : <BiSolidChevronDown />}</div>
       </button>
       {visible && <div className="flex flex-col gap-5 font-bold opacity-70 ">{children}</div>}
     </div>

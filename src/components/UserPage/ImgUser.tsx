@@ -4,7 +4,6 @@ import app from "../../config/firebase";
 import { getAuth } from "firebase/auth";
 
 function ImgUser() {
-  
   const [image, setImage] = useState<string | null>(null);
   const storage = getStorage(app);
   const auth = getAuth(app);

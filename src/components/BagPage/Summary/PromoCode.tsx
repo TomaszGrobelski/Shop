@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonCustom from "../../Buttons/ButtonCustom";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 import { BiSolidChevronDown } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -39,9 +39,9 @@ function PromoCode({ setDiscount }: PromoCodeProps) {
               type="text"
               className="w-2/3 border-[1px] rounded-lg h-10"
             />
-            <ButtonCustom onClick={discountClick} className="w-1/3 h-10 text-gray-500 bg-white">
+            <PrimaryButton onClick={discountClick} className="w-1/3 h-10 text-gray-500 bg-white">
               Apply
-            </ButtonCustom>
+            </PrimaryButton>
           </motion.div>
         )}
       </motion.div>

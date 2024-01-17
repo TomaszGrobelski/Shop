@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 interface City {
   name: string;
-  // inne pola, które są obecne w obiekcie miasta
 }
 
 function CitiesAPI() {
@@ -20,11 +19,11 @@ function CitiesAPI() {
       .then((data) => {
         const cities = (data.geonames as any[]).map((city) => ({ name: city.name })) as City[];
         setCitiesList(cities);
-        setIsLoading(false); // Ustawia stan isLoading na false po pobraniu danych
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
-        setIsLoading(false); // Ustawia stan isLoading na false w przypadku błędu
+        setIsLoading(false);
       });
   }, []);
 

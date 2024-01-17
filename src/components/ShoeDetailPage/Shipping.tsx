@@ -5,7 +5,9 @@ function Shipping() {
     <div className="opacity-90">
       <div className="my-10">
         <div>Free Shipping*</div>
-        <p className="text-[16px] my-2">To get accurate shipping information <span className="border-b-[1px] border-black">Edit Location</span> </p>
+        <p className="text-[16px] my-2">
+          To get accurate shipping information <span className="border-b-[1px] border-black">Edit Location</span>{" "}
+        </p>
         <div className="mt-8">Free Pickup</div>
         <button className="border-b-[1px] border-black">Find a Store</button>
         <p className="text-gray-400 text-[14px] my-6">*Faster Shipping options may be available</p>

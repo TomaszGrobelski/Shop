@@ -6,7 +6,7 @@ import { Label } from "../styles/LoginPage.styles";
 import EmailLabel from "../components/LoginRegister/EmailLabel";
 import PasswordLabel from "../components/LoginRegister/PasswordLabel";
 import Formh1 from "../components/LoginRegister/Formh1";
-import ButtonCustom from "../components/Buttons/ButtonCustom";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 import LoginRegisterImg from "../images/LoginRegister/LoginRegisterImg.jpg";
 
 function RegisterPage() {
@@ -52,9 +52,9 @@ function RegisterPage() {
           />
         </PasswordLabel>
         <p className="opacity-60 my-2">Password should be at least 6 characters</p>
-        <ButtonCustom type="submit" className="w-28 h-12 my-2 hover:bg-purple-500 font-bold">
+        <PrimaryButton type="submit" className="w-28 h-12 my-2 hover:bg-purple-500 font-bold">
           Sign up
-        </ButtonCustom>
+        </PrimaryButton>
         <button type="button" onClick={backToLoginClick} className="mt-6 ">
           Back to Login
         </button>

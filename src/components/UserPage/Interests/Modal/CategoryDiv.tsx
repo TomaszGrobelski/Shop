@@ -18,8 +18,7 @@ interface CategoryDivProps {
 }
 
 function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: CategoryDivProps) {
-  
-    const interestsList: { name: string; data: SportsData[] }[] = [
+  const interestsList: { name: string; data: SportsData[] }[] = [
     { name: "Sports", data: sportsList },
     { name: "Products", data: productsList },
     { name: "Teams", data: teamsList },
@@ -31,7 +30,6 @@ function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: C
     setCurrentCategory(category);
     const newSelectedList = interestsList.find((item) => item.name === category)?.data || [];
     setSelectedList(newSelectedList);
-    console.log(interestsList);
   };
 
   return (

@@ -13,7 +13,7 @@ interface ProductsPage {
 
 function Products({ sortBy, filterType, genderFilter, discount, selectedSize }: ProductsPage) {
   const [sortedProducts, setSortedProducts] = useState(shoesList);
-  
+
   useEffect(() => {
     let filteredProducts = [...shoesList];
 
@@ -42,11 +42,9 @@ function Products({ sortBy, filterType, genderFilter, discount, selectedSize }: 
     setSortedProducts(filteredProducts);
   }, [sortBy, filterType, genderFilter, discount, selectedSize]);
 
-
   const produkts = sortedProducts.map((shoe, index) => {
-    
     return (
-      <Link to={`/shoe/${shoe.name}`} key={index} >
+      <Link to={`/shoe/${shoe.name}`} key={index}>
         <ShoeCard shoe={shoe} />
       </Link>
     );

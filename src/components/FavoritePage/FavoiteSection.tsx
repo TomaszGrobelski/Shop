@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FavoritiestContext } from "../../context/context";
-import ButtonCustom from "../Buttons/ButtonCustom";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import ShoeCard from "../ShoesPage/Products/ShoeCard";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 
@@ -34,12 +34,12 @@ function FavoiteSection() {
       <div className="flex justify-between items-center">
         <h2 className="text-[24px] sm:text-[32px] py-10">{isEdit ? "Manage Your Favorites" : "Favorites"}</h2>
         {favorities.length !== 0 && (
-          <ButtonCustom
+          <PrimaryButton
             onClick={editClick}
             className={`${isEdit ? "bg-black text-white" : "bg-white"} w-[90px] h-[50px] text-[18px] hover:opacity-75`}
           >
             {isEdit ? "Done" : "Edit"}
-          </ButtonCustom>
+          </PrimaryButton>
         )}
       </div>
       {favorities.length === 0 ? (
@@ -63,9 +63,9 @@ function FavoiteSection() {
                 )
               }
             >
-              <ButtonCustom className=" bg-white w-[100px] sm:w-[130px] h-[45px] my-5 font-bold opacity-90">
+              <PrimaryButton className=" bg-white w-[100px] sm:w-[130px] h-[45px] my-5 font-bold opacity-90">
                 Select Size
-              </ButtonCustom>
+              </PrimaryButton>
             </ShoeCard>
           ))}
         </div>

@@ -8,9 +8,9 @@ interface GenderFilterProps {
 const GenderFilter: React.FC<GenderFilterProps> = ({ setGenderFilter, genderFilter }) => {
   const handleCheckboxChange = (genderType: string) => {
     if (genderFilter === genderType) {
-      setGenderFilter(null); 
+      setGenderFilter(null);
     } else {
-      setGenderFilter(genderType); 
+      setGenderFilter(genderType);
     }
   };
 

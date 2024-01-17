@@ -40,7 +40,6 @@ function InYourBag() {
   const bagList: (Item | null)[] = bagListString ? JSON.parse(bagListString) : [];
   const totalPrice = bagList.reduce(reducer, 0);
 
-
   return (
     <div className="max-w-[640px] my-4">
       <button onClick={handleSummary} className="flex justify-between items-center w-full">

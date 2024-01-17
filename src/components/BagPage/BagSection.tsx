@@ -1,10 +1,10 @@
 import Order from "./Bag/Order";
 import Summary from "./Summary/Summary";
-import {useState} from 'react'
+import { useState } from "react";
 
 function BagSection() {
-  const [totalPrice, setTotalPrice]= useState(0)
-  
+  const [totalPrice, setTotalPrice] = useState(0);
+
   return (
     <div className="flex flex-col mt-20 gap-4 p-4 md:flex-row md:justify-center md:p-10">
       <div className="w-2/3 font-bold">

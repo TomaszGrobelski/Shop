@@ -7,7 +7,7 @@ interface InterestsProps {
   setInterest: Dispatch<SetStateAction<string>>;
 }
 
-function Interests({ setInterest }:InterestsProps) {
+function Interests({ setInterest }: InterestsProps) {
   const [activeInterest, setActiveInterest] = useState<number | null>(0);
   const [spanPosition, setSpanPosition] = useState(0);
   const [spanWidth, setSpanWidth] = useState(45);
@@ -36,7 +36,7 @@ function Interests({ setInterest }:InterestsProps) {
         <button
           onClick={() => {
             handleButtonClick(index);
-            setInterest(interest.name)
+            setInterest(interest.name);
           }}
           style={{ border: isActive ? "1px solid black" : "none" }}
           className={`font-bold p-3 rounded-xl ${isActive ? "text-black" : "text-gray-500"}`}

@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import shoesList from "../ShoesPage/Products/shoesList";
 import SizeShoeDetail from "./SizeShoeDetail";
-import ButtonCustom from "../Buttons/ButtonCustom";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useContext, useState } from "react";
 import { FavoritiestContext } from "../../context/context";
 import { Shoe } from "../ShoesPage/Products/interfaceShoe";
 import Shipping from "./Shipping";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 import ModalDetail from "./ModalDetail";
 
 function ShoeDetailSection() {
@@ -15,7 +15,7 @@ function ShoeDetailSection() {
   const shoeDetails = shoesList.find((shoe) => shoe.name === name);
   const { favorities, setFavorities } = useContext(FavoritiestContext);
   const [selectedSize, setSelectedSize] = useState<number | null | false>(null);
-  const [modalVisible, setModalVisible]= useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
 
   if (!shoeDetails) {
     return (
@@ -36,23 +36,23 @@ function ShoeDetailSection() {
   };
 
   const addToBagClick = () => {
-    if(selectedSize=== null || selectedSize===false){
-     setSelectedSize(false)
-      return
+    if (selectedSize === null || selectedSize === false) {
+      setSelectedSize(false);
+      return;
     }
     const shoeWithSelectedSize = {
       ...shoeDetails,
       selectedSize: selectedSize,
-      id: uuidv4()
+      id: uuidv4(),
     };
     const currentBag = JSON.parse(localStorage.getItem("bagItems") || "[]");
     currentBag.push(shoeWithSelectedSize);
 
     localStorage.setItem("bagItems", JSON.stringify(currentBag));
-    setModalVisible(true)
-    setTimeout(()=>{
-      setModalVisible(false)
-    },4000)
+    setModalVisible(true);
+    setTimeout(() => {
+      setModalVisible(false);
+    }, 4000);
   };
 
   return (
@@ -76,17 +76,17 @@ function ShoeDetailSection() {
         </p>
         <SizeShoeDetail selectedSize={selectedSize} shoeDetails={shoeDetails} onSizeSelect={setSelectedSize} />
         <div className="flex flex-col gap-5">
-          <ButtonCustom onClick={addToBagClick} className="bg-black text-white">
+          <PrimaryButton onClick={addToBagClick} className="bg-black text-white">
             Add to Bad
-          </ButtonCustom>
-          <ButtonCustom onClick={favoriteClick} className="flex justify-center items-center">
+          </PrimaryButton>
+          <PrimaryButton onClick={favoriteClick} className="flex justify-center items-center">
             <span>Favorite</span>
             {isFavorite ? <IoMdHeart size={20} className="ml-4" /> : <IoMdHeartEmpty size={20} className="ml-4" />}
-          </ButtonCustom>
+          </PrimaryButton>
         </div>
         <Shipping />
       </div>
-      {modalVisible&&<ModalDetail setModalVisible={setModalVisible} />}
+      {modalVisible && <ModalDetail setModalVisible={setModalVisible} />}
     </div>
   );
 }

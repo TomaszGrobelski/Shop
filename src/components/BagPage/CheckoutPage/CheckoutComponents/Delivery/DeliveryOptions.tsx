@@ -16,7 +16,7 @@ function DeliveryOptions() {
 
   return (
     <div className="my-2 w-[100%] ">
-      <h2 className="my-2 text-[22px]">{delivery==='ship'?"Delivery Options":"Pickup"}</h2>
+      <h2 className="my-2 text-[22px]">{delivery === "ship" ? "Delivery Options" : "Pickup"}</h2>
       <div className="flex flex-row gap-4 my-4 text-[20px]">
         <button
           onClick={shipClick}

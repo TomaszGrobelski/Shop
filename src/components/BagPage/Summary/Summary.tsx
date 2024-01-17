@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonCustom from "../../Buttons/ButtonCustom";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 import PromoCode from "./PromoCode";
 import { BiMinus } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ function Summary({ totalPrice, visible = true }: SummaryProps) {
   return (
     <div className="max-w-[660px] min-w-[300px] flex flex-col gap-3 font-bold  ">
       <h2 className="text-[24px] mt-6 ">Summary</h2>
-      {visible&&<PromoCode setDiscount={setDiscount} />}
+      {visible && <PromoCode setDiscount={setDiscount} />}
       <div className="flex py-3 justify-between items-center">
         <div className="flex gap-3 items-center opacity-90">
           Subtotal
@@ -63,11 +63,11 @@ function Summary({ totalPrice, visible = true }: SummaryProps) {
       <div className="min-w-[300px] max-w-[500px] self-center font-bold ">
         {visible && (
           <Link to="/checkout">
-            <ButtonCustom
+            <PrimaryButton
               className={"text-gray-500 w-full " + (totalPrice === 0 ? "gr-gray-300" : "bg-black text-white")}
             >
               Checkout
-            </ButtonCustom>
+            </PrimaryButton>
           </Link>
         )}
       </div>

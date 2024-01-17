@@ -1,14 +1,15 @@
-type LabelFormProps={
-    title:string;
-    type:string;
-    autoComplite:string;
-    id:string;
-}
-const LabelForm: React.FC<LabelFormProps>=({title, type, autoComplite, id}:LabelFormProps) =>{
+type LabelFormProps = {
+  title: string;
+  type: string;
+  autoComplite: string;
+  id: string;
+};
+const LabelForm: React.FC<LabelFormProps> = ({ title, type, autoComplite, id }: LabelFormProps) => {
   return (
     <div className="relative flex flex-col space-y-1 border-[2px] rounded-xl p-1 w-full">
       <label htmlFor={id} className=" absolute left-3 -top-3 z-40 text-sm font-medium text-gray-700 bg-white">
-        {title}<span className="text-red-500">*</span>
+        {title}
+        <span className="text-red-500">*</span>
       </label>
       <input
         type={type}
@@ -21,6 +22,6 @@ const LabelForm: React.FC<LabelFormProps>=({title, type, autoComplite, id}:Label
       />
     </div>
   );
-}
+};
 
 export default LabelForm;

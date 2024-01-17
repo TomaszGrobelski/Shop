@@ -9,14 +9,14 @@ interface CheckoutFormProps {
 const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!stripe || !elements) {
       return;
     }
-
+    // Dodać isLoading + !!!!!!!!!!!!!!!!!! USUNĄĆ KOM
     const cardElement = elements.getElement(CardElement);
 
     try {
@@ -29,6 +29,8 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
         console.error(error.message);
         if (typeof error.message === "string") {
           setError(error.message);
+        } else {
+          setError("smth go wrong");
         }
       } else {
         if (paymentMethod && typeof paymentMethod.id === "string") {
@@ -36,16 +38,13 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
         }
       }
     } catch (error) {
-      console.error("Błąd podczas tworzenia metody płatności:", error);
-      if (typeof error === "string") {
-        setError("Błąd podczas tworzenia metody płatności. Spróbuj ponownie.");
-      }
+      setError("Błąd podczas tworzenia metody płatności. Spróbuj ponownie.");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement/>
+      <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay ${totalPrice}
       </button>
