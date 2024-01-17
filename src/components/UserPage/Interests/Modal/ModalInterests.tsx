@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Dispatch, SetStateAction } from 'react';
 
+import {
+  InterestData,
+  ModalInterestsProps,
+} from '../../../../types/UserPage/userPage.types';
 import PrimaryButton from '../../../Buttons/PrimaryButton';
 import sportsList from '../../listOfInterests/sportsList';
 import CategoryDiv from './CategoryDiv';
 import HeaderModal from './HeaderModal';
 import SelectedDiv from './SelectedDiv';
-
-interface ModalInterestsProps {
-  setModalVisibility: Dispatch<SetStateAction<boolean>>;
-}
-
-type InterestDataItem = { name: string };
-type InterestData = InterestDataItem[];
 
 function ModalInterests({ setModalVisibility }: ModalInterestsProps) {
   const [selectedList, setSelectedList] = useState<InterestData>(sportsList);

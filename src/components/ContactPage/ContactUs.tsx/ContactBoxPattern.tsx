@@ -1,10 +1,4 @@
-interface ContactBoxPatternProps {
-  image: string;
-  title: string;
-  description: string;
-  times?: string;
-  days?: string;
-}
+import { ContactBoxPatternProps } from '../../../types/ContactPage/contactPage.types';
 
 function ContactBoxPattern({
   image,

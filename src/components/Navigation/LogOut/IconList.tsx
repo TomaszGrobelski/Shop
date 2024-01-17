@@ -1,5 +1,6 @@
 import { BiUser } from 'react-icons/bi';
 import { LiaHeart, LiaShoppingBagSolid } from 'react-icons/lia';
+import { Link } from 'react-router-dom';
 
 const getIconList = (bagItemCount: number) => [
   { name: 'Favorites', icon: <LiaHeart size={30} />, path: '/favorite' },
@@ -18,4 +19,16 @@ const getIconList = (bagItemCount: number) => [
   { name: 'User', icon: <BiUser size={30} />, path: '/user' },
 ];
 
-export default getIconList;
+const IconList = ({ bagItemCount }: { bagItemCount: number }) => {
+  return (
+    <>
+      {getIconList(bagItemCount).map((icon, index) => (
+        <Link key={index} to={icon.path}>
+          {icon.icon}
+        </Link>
+      ))}
+    </>
+  );
+};
+
+export default IconList;

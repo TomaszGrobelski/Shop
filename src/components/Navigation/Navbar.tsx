@@ -3,10 +3,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-import logoNika from '../../images/Logo/logoNika.png';
+import IconList from './LogOut/IconList';
 import LogOut from './LogOut/LogOut';
-import getIconList from './LogOut/getIconList';
+import Logo from './Logo';
 import MobileNav from './MobileNav';
+import { LiNavigation } from './Navbar.styles';
+import {
+  ButtonBurger,
+  IconPositioning,
+  UlNavBarFlexBox,
+} from './Navbar.styles';
 import { Nav } from './Navbar.styles';
 import navigationLinks from './navigationLinks';
 
@@ -14,39 +20,31 @@ function Navbar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navVisible, setNavVisible] = useState(false);
   const [bagItemCount, setBagItemCount] = useState(0);
+  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const bagItems = JSON.parse(localStorage.getItem('bagItems') || '[]');
     setBagItemCount(bagItems.length);
-
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleResize);
     windowWidth > 640 ? setNavVisible(false) : null;
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [windowWidth]);
 
   const navList = navigationLinks.map((link, index) => (
-    <li className=' text-[16px] font-semibold tracking-[1px]' key={index}>
+    <LiNavigation key={index}>
       <Link to={link.path}>{link.name}</Link>
-    </li>
-  ));
-
-  const iconsList = getIconList(bagItemCount).map((icon, index) => (
-    <Link key={index} to={icon.path}>
-      {icon.icon}
-    </Link>
+    </LiNavigation>
   ));
 
   const navClick = () => {
     setNavVisible(!navVisible);
   };
-  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
-  const [visible, setVisible] = useState(true);
 
   const handleScroll = useCallback(() => {
     const currentScrollPos = window.pageYOffset;
@@ -70,26 +68,16 @@ function Navbar() {
         position: 'fixed',
         transition: 'top 0.2s',
       }}>
-      <Link to='/home'>
-        <img
-          className='max-w-[100px]'
-          src={logoNika}
-          width={1103}
-          height={338}
-          alt='Logo'
-        />
-      </Link>
-      <ul className='hidden gap-4  sm:flex'>{navList}</ul>
-      <div className='hidden items-center gap-4 sm:flex '>
-        {iconsList}
+      <Logo />
+      <UlNavBarFlexBox>{navList}</UlNavBarFlexBox>
+      <IconPositioning>
+        <IconList bagItemCount={bagItemCount} />
         <LogOut />
-      </div>
+      </IconPositioning>
       {!navVisible && (
-        <button
-          onClick={navClick}
-          className=' absolute left-[90%] mr-4 sm:hidden'>
+        <ButtonBurger onClick={navClick}>
           <AiOutlineMenu size={26} />
-        </button>
+        </ButtonBurger>
       )}
       <AnimatePresence>
         {navVisible && <MobileNav navVisible={navVisible} visible={navClick} />}

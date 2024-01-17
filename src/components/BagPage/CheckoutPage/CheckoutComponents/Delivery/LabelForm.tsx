@@ -1,9 +1,4 @@
-type LabelFormProps = {
-  title: string;
-  type: string;
-  autoComplite: string;
-  id: string;
-};
+import { LabelFormProps } from '../../../../../types/BagPage/bagPage.types';
 
 const LabelForm: React.FC<LabelFormProps> = ({
   title,

@@ -1,8 +1,5 @@
+import { ModelFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 import modelsList from '../Lists/modelsList';
-
-interface ModelFilterProps {
-  setFilterType: React.Dispatch<React.SetStateAction<string>>;
-}
 
 const ModelFilter: React.FC<ModelFilterProps> = ({ setFilterType }) => {
   return (

@@ -3,12 +3,7 @@ import { useEffect, useState } from 'react';
 import { BiSolidChevronDown } from 'react-icons/bi';
 import { PiSlidersHorizontalLight } from 'react-icons/pi';
 
-interface HeaderShoesProps {
-  filterVisible: boolean;
-  sortBy: string;
-  setFilterVisible: (visible: boolean) => void;
-  setSortBy: React.Dispatch<React.SetStateAction<string>>;
-}
+import { HeaderShoesProps } from '../../../types/ShoesPage/shoePage.types';
 
 function HeaderShoes({
   filterVisible,

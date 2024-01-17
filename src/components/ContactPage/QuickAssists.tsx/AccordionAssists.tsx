@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 
-interface AccordionAssistsProps {
-  title: string;
-  children: React.ReactNode;
-}
+import { AccordionAssistsProps } from '../../../types/ContactPage/contactPage.types';
 
 function AccordionAssists({ title, children }: AccordionAssistsProps) {
   const [isOpen, setIsOpen] = useState(false);

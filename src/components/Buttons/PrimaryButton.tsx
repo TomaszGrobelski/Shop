@@ -1,11 +1,6 @@
 import { twMerge } from 'tailwind-merge';
 
-interface PrimaryButtonProps {
-  className?: string;
-  children: React.ReactNode;
-  type?: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
-}
+import { PrimaryButtonProps } from '../../types/Buttons/buttons.types';
 
 function PrimaryButton({
   className = '',

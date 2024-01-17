@@ -1,8 +1,4 @@
-interface models {
-  name: string;
-}
-
-const modelsList: models[] = [
+const modelsList = [
   { name: 'All' },
   {
     name: 'Air Force 1',

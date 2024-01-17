@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react';
 import { BsSuitHeart } from 'react-icons/bs';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
-import { Shoe } from '../../ShoesPage/Products/interfaceShoe';
-
-interface OrderProps {
-  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
-}
+import { OrderProps } from '../../../types/BagPage/bagPage.types';
+import { Shoe } from '../../../types/ShoesPage/interfaceShoe';
 
 function Order({ setTotalPrice }: OrderProps) {
   const [itemsList, setItemsList] = useState<Shoe[]>([]);

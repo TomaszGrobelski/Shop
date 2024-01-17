@@ -1,6 +1,4 @@
-interface DiscountFilterProps {
-  setDiscount: React.Dispatch<React.SetStateAction<string | null>>;
-}
+import { DiscountFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 
 const DiscountFilter: React.FC<DiscountFilterProps> = ({ setDiscount }) => {
   const handleDiscountChange = (event: React.ChangeEvent<HTMLInputElement>) => {

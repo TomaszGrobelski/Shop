@@ -1,11 +1,8 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 
-import { Shoe } from '../components/ShoesPage/Products/interfaceShoe';
 import { FavoritiestContext } from '../context/context';
-
-interface FavoritesProviderProps {
-  children: ReactNode;
-}
+import { Shoe } from '../types/ShoesPage/interfaceShoe';
+import { FavoritesProviderProps } from '../types/context/context.types';
 
 const FavoritesProvider: React.FC<FavoritesProviderProps> = ({ children }) => {
   const [favorities, setFavorities] = useState<Shoe[]>([]);

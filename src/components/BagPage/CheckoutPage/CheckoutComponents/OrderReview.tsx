@@ -1,34 +1,33 @@
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
 
-type Item = {
-  price: string;
-  quantity: number;
-};
-type BagItem = {
-  stripePrice: string;
-  name: string;
-};
+import {
+  BagItemsProps,
+  ItemsProps,
+} from '../../../../types/BagPage/bagPage.types';
 
 function OrderReview() {
   const [error, setError] = useState('');
-  let items: Item[] = [];
+  let items: ItemsProps[] = [];
   const bagItemsString = localStorage.getItem('bagItems');
 
   if (bagItemsString) {
-    const bagItems: BagItem[] = JSON.parse(bagItemsString);
+    const bagItems: BagItemsProps[] = JSON.parse(bagItemsString);
 
-    const itemCounts = bagItems.reduce<Record<string, Item>>((acc, item) => {
-      if (acc[item.name]) {
-        acc[item.name].quantity += 1;
-      } else {
-        acc[item.name] = {
-          price: item.stripePrice,
-          quantity: 1,
-        };
-      }
-      return acc;
-    }, {});
+    const itemCounts = bagItems.reduce<Record<string, ItemsProps>>(
+      (acc, item) => {
+        if (acc[item.name]) {
+          acc[item.name].quantity += 1;
+        } else {
+          acc[item.name] = {
+            price: item.stripePrice,
+            quantity: 1,
+          };
+        }
+        return acc;
+      },
+      {},
+    );
 
     items = Object.values(itemCounts);
   } else {

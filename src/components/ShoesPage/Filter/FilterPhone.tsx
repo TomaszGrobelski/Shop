@@ -2,22 +2,12 @@ import { useEffect, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { PiSlidersHorizontal } from 'react-icons/pi';
 
+import { FilterPhoneProps } from '../../../types/ShoesPage/shoePage.types';
 import modelsList from './Lists/modelsList';
 import DiscountFilter from './MainFilters/DiscountFilter';
 import GenderFilter from './MainFilters/GenderFilter';
 import SizeFilter from './MainFilters/SizeFilter';
 import SortFilter from './MainFilters/SortFilter';
-
-interface FilterPhoneProps {
-  setFilterType: React.Dispatch<React.SetStateAction<string>>;
-  setGenderFilter: React.Dispatch<React.SetStateAction<string | null>>;
-  genderFilter: string | null;
-  setDiscount: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedSize: number | null;
-  setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
-  sortBy: string;
-  setSortBy: React.Dispatch<React.SetStateAction<string>>;
-}
 
 function FilterPhone({
   sortBy,

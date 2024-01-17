@@ -1,10 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 
-interface CheckoutFormProps {
-  totalPrice: number;
-  handlePayment: (paymentMethodId: string) => void;
-}
+import { CheckoutFormProps } from '../../../types/BagPage/bagPage.types';
 
 const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
   const stripe = useStripe();
@@ -26,7 +23,6 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
       });
 
       if (error) {
-        console.error(error.message);
         if (typeof error.message === 'string') {
           setError(error.message);
         } else {

@@ -2,11 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { BiSolidChevronDown } from 'react-icons/bi';
 
+import { PromoCodeProps } from '../../../types/BagPage/bagPage.types';
 import PrimaryButton from '../../Buttons/PrimaryButton';
 
-interface PromoCodeProps {
-  setDiscount: (value: boolean) => void;
-}
 
 function PromoCode({ setDiscount }: PromoCodeProps) {
   const [visible, setVisible] = useState(false);

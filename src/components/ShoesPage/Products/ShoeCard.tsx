@@ -1,11 +1,4 @@
-import { Shoe } from './interfaceShoe';
-
-type ShoeCardProps = {
-  shoe: Shoe;
-  key?: string | number;
-  children?: React.ReactNode;
-  favorite?: React.ReactNode;
-};
+import { ShoeCardProps } from '../../../types/ShoesPage/shoePage.types';
 
 const ShoeCard: React.FC<ShoeCardProps> = ({
   shoe,

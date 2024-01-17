@@ -1,9 +1,5 @@
+import { GenderFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 import genderList from '../Lists/genderList';
-
-interface GenderFilterProps {
-  setGenderFilter: React.Dispatch<React.SetStateAction<string | null>>;
-  genderFilter: string | null;
-}
 
 const GenderFilter: React.FC<GenderFilterProps> = ({
   setGenderFilter,

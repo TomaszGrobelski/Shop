@@ -4,8 +4,8 @@ import { FiChevronRight } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
+import IconListRightSideNavBar from './IconListRightSideNavBar';
 import LogOut from './LogOut/LogOut';
-import iconList from './iconList';
 import navigationLinks from './navigationLinks';
 
 interface MobileNavProps {
@@ -33,15 +33,6 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
     </li>
   ));
 
-  const iconsList = iconList.map((icon, index) => (
-    <button key={index}>
-      <Link className='flex items-center gap-4 ' to={icon.path}>
-        {icon.icon}
-        {icon.name}
-      </Link>
-    </button>
-  ));
-
   return (
     <div className='relative z-50  font-helvetica text-[24px] text-black'>
       <motion.div
@@ -66,7 +57,7 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
             <ul className='flex flex-col  gap-4'>{navList}</ul>
           </div>
           <div className='my-20 flex flex-col gap-4'>
-            {iconsList}
+            <IconListRightSideNavBar />
             <LogOut title='Logout' />
           </div>
         </motion.div>

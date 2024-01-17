@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { BiSolidChevronDown, BiSolidChevronUp } from 'react-icons/bi';
 
-interface AccordionShippingProps {
-  title: string;
-  children: React.ReactNode;
-}
+import { AccordionShippingProps } from '../../types/ShoeDetailPage/shoeDetailPage.types';
 
 function AccordionShipping({ title, children }: AccordionShippingProps) {
   const [visible, setVisible] = useState(false);

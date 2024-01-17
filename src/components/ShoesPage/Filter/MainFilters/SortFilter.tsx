@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface SortFilterProps {
-  sortBy: string;
-  setSortBy: React.Dispatch<React.SetStateAction<string>>;
-}
+import { SortFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 
 const SortFilter = ({ sortBy, setSortBy }: SortFilterProps) => {
   const highLow = 'high-low';

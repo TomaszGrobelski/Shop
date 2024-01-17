@@ -1,21 +1,12 @@
-import athletesList from '../../listOfInterests/athletesList';
-import citiesList from '../../listOfInterests/citiesList';
-import productsList from '../../listOfInterests/productsList';
-import sportsList from '../../listOfInterests/sportsList';
-import teamsList from '../../listOfInterests/teamsList';
-
-type InterestDataItem = { name: string };
-type InterestData = InterestDataItem[];
-
-interface SportsData {
-  name: string;
-}
-
-interface CategoryDivProps {
-  setCurrentCategory: (category: string) => void;
-  setSelectedList: (list: InterestData) => void;
-  currentCategory: string;
-}
+import { SportsData } from '../../../../types/UserPage/userPage.types';
+import { CategoryDivProps } from '../../../../types/UserPage/userPage.types';
+import {
+  athletesList,
+  citiesList,
+  productsList,
+  sportsList,
+  teamsList,
+} from '../../listOfInterests/index';
 
 function CategoryDiv({
   setCurrentCategory,

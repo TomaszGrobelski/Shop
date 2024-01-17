@@ -1,19 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { MainFilterProps } from '../../../types/ShoesPage/shoePage.types';
 import DiscountFilter from './MainFilters/DiscountFilter';
 import GenderFilter from './MainFilters/GenderFilter';
 import ModelFilter from './MainFilters/ModelFilter';
 import SizeFilter from './MainFilters/SizeFilter';
-
-interface MainFilterProps {
-  filterVisible: boolean;
-  setFilterType: React.Dispatch<React.SetStateAction<string>>;
-  setGenderFilter: React.Dispatch<React.SetStateAction<string | null>>;
-  genderFilter: string | null;
-  setDiscount: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedSize: number | null;
-  setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
-}
 
 function MainFilter({
   filterVisible,

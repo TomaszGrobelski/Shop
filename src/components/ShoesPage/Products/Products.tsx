@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { ProductsProps } from '../../../types/ShoesPage/shoePage.types';
 import ShoeCard from './ShoeCard';
 import shoesList from './shoesList';
-
-interface ProductsPage {
-  sortBy: string;
-  filterType: string;
-  genderFilter: string | null;
-  discount: string | null;
-  selectedSize: number | null;
-}
 
 function Products({
   sortBy,
@@ -18,7 +11,7 @@ function Products({
   genderFilter,
   discount,
   selectedSize,
-}: ProductsPage) {
+}: ProductsProps) {
   const discounted = 'discounted';
   const highLow = 'high-low';
   const lowHigh = 'low-high';

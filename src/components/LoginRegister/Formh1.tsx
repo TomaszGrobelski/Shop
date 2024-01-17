@@ -1,12 +1,6 @@
-import { FormEvent } from 'react';
+import { FormHeaderProps } from '../../types/Login&Register/login&register.types';
 
-interface Formh1Props {
-  h1: string;
-  children: React.ReactNode;
-  onSubmit: (e: FormEvent) => void;
-}
-
-function Formh1({ onSubmit, h1, children }: Formh1Props) {
+function Formh1({ onSubmit, h1, children }: FormHeaderProps) {
   return (
     <div className='flex h-screen items-center justify-center '>
       <div className='flex justify-center backdrop-blur-sm '>

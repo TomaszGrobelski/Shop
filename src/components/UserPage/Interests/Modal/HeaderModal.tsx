@@ -1,8 +1,6 @@
 import { IoIosCloseCircle } from 'react-icons/io';
 
-interface HeaderModalProps {
-  closeModal: () => void;
-}
+import { HeaderModalProps } from '../../../../types/UserPage/userPage.types';
 
 function HeaderModal({ closeModal }: HeaderModalProps) {
   return (

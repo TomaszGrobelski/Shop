@@ -1,10 +1,4 @@
-import { FormEvent } from 'react';
-
-interface WrapperWithFormAndTitleProps {
-  h1: string;
-  children: React.ReactNode;
-  onSubmit: (e: FormEvent) => void;
-}
+import { WrapperWithFormAndTitleProps } from '../../types/Login&Register/login&register.types';
 
 function WrapperWithFormAndTitle({
   onSubmit,

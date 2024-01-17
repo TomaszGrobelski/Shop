@@ -1,8 +1,4 @@
-interface models {
-  type: string;
-}
-
-const genderList: models[] = [
+const genderList = [
   {
     type: `Men's Shoes`,
   },

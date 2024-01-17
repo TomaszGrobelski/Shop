@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import { FavoritiestContext } from '../../context/context';
+import { Shoe } from '../../types/ShoesPage/interfaceShoe';
 import PrimaryButton from '../Buttons/PrimaryButton';
-import { Shoe } from '../ShoesPage/Products/interfaceShoe';
 import shoesList from '../ShoesPage/Products/shoesList';
 import ModalDetail from './ModalDetail';
 import Shipping from './Shipping';

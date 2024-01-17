@@ -1,9 +1,4 @@
-type InterestDataItem = { name: string };
-type InterestData = InterestDataItem[];
-
-interface SelectedDivProps {
-  selectedList: InterestData;
-}
+import { SelectedDivProps } from '../../../../types/UserPage/userPage.types';
 
 function SelectedDiv({ selectedList }: SelectedDivProps) {
   return (

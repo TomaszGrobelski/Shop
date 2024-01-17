@@ -4,10 +4,7 @@ import { BiLogOut } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
 import { auth } from '../../../config/firebase';
-
-interface LogOutProps {
-  title?: string;
-}
+import { LogOutProps } from '../../../types/Navigation/navigation.types';
 
 function LogOut({ title }: LogOutProps) {
   const [authUser, setAuthUser] = useState<User | null>(null);

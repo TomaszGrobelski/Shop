@@ -2,11 +2,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { ReactNode, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-interface ProtectedRouteProps {
-  children: ReactNode;
-}
-
-function ProtectedRoute({ children }: ProtectedRouteProps) {
+function ProtectedRoute({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const auth = getAuth();
   const location = useLocation();
@@ -28,7 +24,7 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
               }
             })
             .catch((error) => {
-              console.error('Błąd podczas pobierania tokenu:', error);
+              console.error('Błąd podczas pobierania tokenu:', error); // obsługa error
               navigate('/nika/');
             });
         } else {

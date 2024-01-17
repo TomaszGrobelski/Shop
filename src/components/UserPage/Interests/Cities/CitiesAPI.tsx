@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 
-interface City {
-  name: string;
-}
+import { CityProps } from '../../../../types/UserPage/userPage.types';
 
 function CitiesAPI() {
-  const [citiesList, setCitiesList] = useState<City[]>([]);
+  const [citiesList, setCitiesList] = useState<CityProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,15 +17,14 @@ function CitiesAPI() {
         return res.json();
       })
       .then((data) => {
-        console.log(typeof data.geonames);
-        const cities = (data.geonames as City[]).map((city) => ({
+        const cities = (data.geonames as CityProps[]).map((city) => ({
           name: city.name,
-        })) as City[];
+        })) as CityProps[];
         setCitiesList(cities);
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error('Error:', error); // obsluga errror
         setIsLoading(false);
       });
   }, []);

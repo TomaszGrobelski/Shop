@@ -2,11 +2,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
+import { ModalDetailProps } from '../../types/ShoeDetailPage/shoeDetailPage.types';
 import PrimaryButton from '../Buttons/PrimaryButton';
-
-interface ModalDetailProps {
-  setModalVisible: (visible: boolean) => void;
-}
 
 function ModalDetail({ setModalVisible }: ModalDetailProps) {
   const navigate = useNavigate();

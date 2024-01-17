@@ -27,7 +27,7 @@ import Jordan6Retro from '../../../images/Shoes/Jordan/Air Jordan 6 Retro.png';
 import JordanDíaDeMuertos from '../../../images/Shoes/Jordan/Día De Muertos.png';
 import JordanJumpmanProQuick from '../../../images/Shoes/Jordan/Jordan Jumpman Pro Quick.png';
 import AirJordan1MidSe from '../../../images/Shoes/Jordan/Women/AirJordan1MidSe.webp';
-import { Shoe } from './interfaceShoe';
+import { Shoe } from '../../../types/ShoesPage/interfaceShoe';
 
 const shoesList: Shoe[] = [
   {

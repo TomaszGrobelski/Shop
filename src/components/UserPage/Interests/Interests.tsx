@@ -1,12 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Dispatch, SetStateAction } from 'react';
 
+import { InterestsProps } from '../../../types/UserPage/userPage.types';
 import interestsList from '../listOfInterests/interestsList';
-
-interface InterestsProps {
-  setInterest: Dispatch<SetStateAction<string>>;
-}
 
 function Interests({ setInterest }: InterestsProps) {
   const [activeInterest, setActiveInterest] = useState<number | null>(0);

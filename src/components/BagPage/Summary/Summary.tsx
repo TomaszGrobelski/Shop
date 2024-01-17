@@ -2,13 +2,9 @@ import { useState } from 'react';
 import { BiMinus } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
+import { SummaryProps } from '../../../types/BagPage/bagPage.types';
 import PrimaryButton from '../../Buttons/PrimaryButton';
 import PromoCode from './PromoCode';
-
-interface SummaryProps {
-  totalPrice: number;
-  visible?: boolean;
-}
 
 function Summary({ totalPrice, visible = true }: SummaryProps) {
   const [discount, setDiscount] = useState(false);

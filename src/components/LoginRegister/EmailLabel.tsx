@@ -1,8 +1,6 @@
 import { FaUser } from 'react-icons/fa';
 
-interface EmailLabelProps {
-  children: React.ReactNode;
-}
+import { EmailLabelProps } from '../../types/Login&Register/login&register.types';
 
 function EmailLabel({ children }: EmailLabelProps) {
   return (

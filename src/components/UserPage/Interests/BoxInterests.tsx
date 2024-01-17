@@ -1,11 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
-type BoxInterestsProps = {
-  interest: string;
-  modalVisibility: boolean;
-  setModalVisibility: Dispatch<SetStateAction<boolean>>;
-};
+import { BoxInterestsProps } from '../../../types/UserPage/userPage.types';
 
 function BoxInterests({
   interest,

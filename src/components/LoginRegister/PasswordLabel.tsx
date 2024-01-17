@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { FaLock } from 'react-icons/fa';
 
-interface PasswordLabelProps {
-  children: React.ReactElement;
-}
+import { PasswordLabelProps } from '../../types/Login&Register/login&register.types';
 
 function PasswordLabel({ children }: PasswordLabelProps) {
   const password = 'password';

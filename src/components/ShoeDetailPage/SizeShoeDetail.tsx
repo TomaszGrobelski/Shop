@@ -1,10 +1,4 @@
-import { Shoe } from '../ShoesPage/Products/interfaceShoe';
-
-interface SizeShoeDetailProps {
-  shoeDetails: Shoe;
-  onSizeSelect: (size: number) => void;
-  selectedSize: number | null | false;
-}
+import { SizeShoeDetailProps } from '../../types/ShoeDetailPage/shoeDetailPage.types';
 
 function SizeShoeDetail({
   shoeDetails,

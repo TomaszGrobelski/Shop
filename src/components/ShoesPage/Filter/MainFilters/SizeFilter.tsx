@@ -1,7 +1,4 @@
-interface SizeFilterProps {
-  selectedSize: number | null;
-  setSelectedSize: React.Dispatch<React.SetStateAction<number | null>>;
-}
+import { SizeFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 
 const SizeFilter = ({ selectedSize, setSelectedSize }: SizeFilterProps) => {
   return (
