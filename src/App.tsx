@@ -1,19 +1,9 @@
-// import LoginPage from "./pages/LoginPage";
-// import RegisterPage from "./pages/RegisterPage";
-// import HomePage from "./pages/HomePage";
-// import ShoesPage from "./pages/ShoesPage";
-// import ContactPage from "./pages/ContactPage";
-// import FavoritePage from "./pages/FavoritePage";
-// import BagPage from "./pages/BagPage";
-// import UserPage from "./pages/UserPage";
-// import ShoeDetailPage from "./pages/ShoeDetailPage";
-// import SuccessPage from "./pages/SuccessPage";
-import ProtectedRoute from "./components/PrivateRout/ProtectedRoute";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ContainerHome from "./components/Containers/Container";
-import CheckoutPage from "./components/BagPage/CheckoutPage/CheckoutPage";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import FavoritesProvider from "./context/FavoritesProvider";
+import CheckoutPage from './components/BagPage/CheckoutPage/CheckoutPage';
+import ContainerHome from './components/Containers/Container';
+import ProtectedRoute from './components/PrivateRout/ProtectedRoute';
+import FavoritesProvider from './context/FavoritesProvider';
 import {
   BagPage,
   ContactPage,
@@ -25,20 +15,18 @@ import {
   ShoesPage,
   SuccessPage,
   UserPage,
-} from "./pages/index";
+} from './pages/index';
 
 function App() {
-  
-
   return (
     <Router>
       <ContainerHome>
         <FavoritesProvider>
           <Routes>
-            <Route path="/nika/" element={<LoginPage />} />
-            <Route path="/registration/" element={<RegisterPage />} />
+            <Route path='/nika/' element={<LoginPage />} />
+            <Route path='/registration/' element={<RegisterPage />} />
             <Route
-              path="/home"
+              path='/home'
               element={
                 <ProtectedRoute>
                   <HomePage />
@@ -46,7 +34,7 @@ function App() {
               }
             />
             <Route
-              path="/shoes"
+              path='/shoes'
               element={
                 <ProtectedRoute>
                   <ShoesPage />
@@ -54,7 +42,7 @@ function App() {
               }
             />
             <Route
-              path="/contact"
+              path='/contact'
               element={
                 <ProtectedRoute>
                   <ContactPage />
@@ -62,7 +50,7 @@ function App() {
               }
             />
             <Route
-              path="/favorite"
+              path='/favorite'
               element={
                 <ProtectedRoute>
                   <FavoritePage />
@@ -70,7 +58,7 @@ function App() {
               }
             />
             <Route
-              path="/bag"
+              path='/bag'
               element={
                 <ProtectedRoute>
                   <BagPage />
@@ -78,7 +66,7 @@ function App() {
               }
             />
             <Route
-              path="/user"
+              path='/user'
               element={
                 <ProtectedRoute>
                   <UserPage />
@@ -86,7 +74,7 @@ function App() {
               }
             />
             <Route
-              path="/checkout"
+              path='/checkout'
               element={
                 <ProtectedRoute>
                   <CheckoutPage />
@@ -94,14 +82,14 @@ function App() {
               }
             />
             <Route
-              path="/success"
+              path='/success'
               element={
                 <ProtectedRoute>
                   <SuccessPage />
                 </ProtectedRoute>
               }
             />
-            <Route path="/shoe/:name" element={<ShoeDetailPage />} />
+            <Route path='/shoe/:name' element={<ShoeDetailPage />} />
           </Routes>
         </FavoritesProvider>
       </ContainerHome>

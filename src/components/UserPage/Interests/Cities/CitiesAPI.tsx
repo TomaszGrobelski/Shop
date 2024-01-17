@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface City {
   name: string;
@@ -10,23 +10,24 @@ function CitiesAPI() {
 
   useEffect(() => {
     fetch(
-      "http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT",
+      'http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT',
     )
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Network response was failed");
+          throw new Error('Network response was failed');
         }
         return res.json();
       })
       .then((data) => {
-        const cities = (data.geonames as any[]).map((city) => ({
+        console.log(typeof data.geonames);
+        const cities = (data.geonames as City[]).map((city) => ({
           name: city.name,
         })) as City[];
         setCitiesList(cities);
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
         setIsLoading(false);
       });
   }, []);

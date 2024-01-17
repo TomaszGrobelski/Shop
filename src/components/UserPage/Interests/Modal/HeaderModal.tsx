@@ -1,4 +1,4 @@
-import { IoIosCloseCircle } from "react-icons/io";
+import { IoIosCloseCircle } from 'react-icons/io';
 
 interface HeaderModalProps {
   closeModal: () => void;
@@ -6,12 +6,12 @@ interface HeaderModalProps {
 
 function HeaderModal({ closeModal }: HeaderModalProps) {
   return (
-    <div className="flex justify-between items-center">
-      <h2 className="text-[24px] my-4">Select Your Interests</h2>
-      <button onClick={closeModal} className="">
+    <div className='flex items-center justify-between'>
+      <h2 className='my-4 text-[24px]'>Select Your Interests</h2>
+      <button onClick={closeModal} className=''>
         <IoIosCloseCircle
           size={30}
-          className=" text-gray-400 hover:text-gray-500"
+          className=' text-gray-400 hover:text-gray-500'
         />
       </button>
     </div>

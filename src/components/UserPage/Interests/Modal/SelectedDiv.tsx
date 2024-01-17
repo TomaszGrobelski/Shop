@@ -8,17 +8,17 @@ interface SelectedDivProps {
 function SelectedDiv({ selectedList }: SelectedDivProps) {
   return (
     <div>
-      <ul className="max-h-60 overflow-y-auto">
+      <ul className='max-h-60 overflow-y-auto'>
         {selectedList.map((item, index) => (
           <label
             htmlFor={`checkbox-${index}`}
             key={index}
-            className="flex justify-between items-center border-b-[1px] py-4 mx-10 cursor-pointer">
+            className='mx-10 flex cursor-pointer items-center justify-between border-b-[1px] py-4'>
             <span>{item.name}</span>
             <input
               id={`checkbox-${index}`}
-              type="checkbox"
-              className="w-4 h-4 checked:accent-black"
+              type='checkbox'
+              className='h-4 w-4 checked:accent-black'
             />
           </label>
         ))}

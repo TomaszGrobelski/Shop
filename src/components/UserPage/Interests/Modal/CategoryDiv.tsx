@@ -1,8 +1,8 @@
-import athletesList from "../../listOfInterests/athletesList";
-import citiesList from "../../listOfInterests/citiesList";
-import productsList from "../../listOfInterests/productsList";
-import sportsList from "../../listOfInterests/sportsList";
-import teamsList from "../../listOfInterests/teamsList";
+import athletesList from '../../listOfInterests/athletesList';
+import citiesList from '../../listOfInterests/citiesList';
+import productsList from '../../listOfInterests/productsList';
+import sportsList from '../../listOfInterests/sportsList';
+import teamsList from '../../listOfInterests/teamsList';
 
 type InterestDataItem = { name: string };
 type InterestData = InterestDataItem[];
@@ -23,11 +23,11 @@ function CategoryDiv({
   currentCategory,
 }: CategoryDivProps) {
   const interestsList: { name: string; data: SportsData[] }[] = [
-    { name: "Sports", data: sportsList },
-    { name: "Products", data: productsList },
-    { name: "Teams", data: teamsList },
-    { name: "Athletes", data: athletesList },
-    { name: "Cities", data: citiesList },
+    { name: 'Sports', data: sportsList },
+    { name: 'Products', data: productsList },
+    { name: 'Teams', data: teamsList },
+    { name: 'Athletes', data: athletesList },
+    { name: 'Cities', data: citiesList },
   ];
 
   const handleCategoryChange = (category: string) => {
@@ -38,16 +38,16 @@ function CategoryDiv({
   };
 
   return (
-    <div className="border-b-[1px]">
-      <ul className="flex gap-5 text-[18px] overflow-x-auto">
+    <div className='border-b-[1px]'>
+      <ul className='flex gap-5 overflow-x-auto text-[18px]'>
         {interestsList.map((interest, index) => (
-          <li key={index} className="py-2">
+          <li key={index} className='py-2'>
             <button
               onClick={() => handleCategoryChange(interest.name)}
               className={
                 interest.name === currentCategory
-                  ? "text-black"
-                  : "text-gray-400"
+                  ? 'text-black'
+                  : 'text-gray-400'
               }>
               {interest.name} ({interest.data.length})
             </button>

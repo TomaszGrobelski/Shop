@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import ShoeCard from "./ShoeCard";
-import shoesList from "./shoesList";
+import ShoeCard from './ShoeCard';
+import shoesList from './shoesList';
 
 interface ProductsPage {
   sortBy: string;
@@ -19,15 +19,15 @@ function Products({
   discount,
   selectedSize,
 }: ProductsPage) {
-  const discounted = "discounted";
-  const highLow = "high-low";
-  const lowHigh = "low-high";
+  const discounted = 'discounted';
+  const highLow = 'high-low';
+  const lowHigh = 'low-high';
   const [sortedProducts, setSortedProducts] = useState(shoesList);
 
   useEffect(() => {
     let filteredProducts = [...shoesList];
 
-    if (filterType && filterType !== "All") {
+    if (filterType && filterType !== 'All') {
       filteredProducts = filteredProducts.filter(
         (shoe) => shoe.type === filterType,
       );
@@ -68,7 +68,7 @@ function Products({
     );
   });
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-3  ">{produkts}</div>
+    <div className='grid grid-cols-2 gap-4 md:grid-cols-3  '>{produkts}</div>
   );
 }
 

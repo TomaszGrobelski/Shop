@@ -1,11 +1,10 @@
+const interestsList = [
+  { name: 'All' },
+  { name: 'Sports' },
+  { name: 'Products' },
+  { name: 'Teams' },
+  { name: 'Athletes' },
+  { name: 'Cities' },
+];
 
-const interestsList=[
-    {name: 'All'},
-    {name: 'Sports'},
-    {name: 'Products'},
-    {name: 'Teams'},
-    {name: 'Athletes'},
-    {name: 'Cities'},
-]
-
-export default interestsList
+export default interestsList;

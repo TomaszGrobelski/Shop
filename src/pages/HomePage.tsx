@@ -1,6 +1,6 @@
-import FooterSection from "../components/Footer/FooterSection";
-import Navbar from "../components/Navigation/Navbar";
-import HomeSection from "../components/HomePage/HomeSection";
+import FooterSection from '../components/Footer/FooterSection';
+import HomeSection from '../components/HomePage/HomeSection';
+import Navbar from '../components/Navigation/Navbar';
 
 function HomePage() {
   return (

@@ -1,9 +1,9 @@
-import { User, onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { BiLogOut } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { User, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { BiLogOut } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
-import { auth } from "../../../config/firebase";
+import { auth } from '../../../config/firebase';
 
 interface LogOutProps {
   title?: string;
@@ -29,8 +29,8 @@ function LogOut({ title }: LogOutProps) {
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
-        localStorage.removeItem("user");
-        navigate("/nika/");
+        localStorage.removeItem('user');
+        navigate('/nika/');
       })
       .catch((error) => alert(`Error: ${error}`));
   };
@@ -38,7 +38,7 @@ function LogOut({ title }: LogOutProps) {
     <div>
       {authUser ? (
         <>
-          <button className="flex items-center gap-4" onClick={userSignOut}>
+          <button className='flex items-center gap-4' onClick={userSignOut}>
             <BiLogOut size={25} />
             {title}
           </button>

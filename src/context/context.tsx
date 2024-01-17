@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-import { Shoe } from "../components/ShoesPage/Products/interfaceShoe";
+import { Shoe } from '../components/ShoesPage/Products/interfaceShoe';
 
 type FavoritiestContextType = {
   favorities: Shoe[];

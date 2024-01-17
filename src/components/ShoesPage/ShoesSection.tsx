@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import FilterPhone from "./Filter/FilterPhone";
-import HeaderShoes from "./Filter/HeaderShoes";
-import MainFilter from "./Filter/MainFilter";
-import Products from "./Products/Products";
-import Slider from "./Slider/Slider";
+import FilterPhone from './Filter/FilterPhone';
+import HeaderShoes from './Filter/HeaderShoes';
+import MainFilter from './Filter/MainFilter';
+import Products from './Products/Products';
+import Slider from './Slider/Slider';
 
 function ShoesSection() {
   const [filterVisible, setFilterVisible] = useState(true);
-  const [sortBy, setSortBy] = useState("");
-  const [filterType, setFilterType] = useState("");
+  const [sortBy, setSortBy] = useState('');
+  const [filterType, setFilterType] = useState('');
   const [genderFilter, setGenderFilter] = useState<string | null>(null);
   const [discount, setDiscount] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
@@ -33,7 +33,7 @@ function ShoesSection() {
         selectedSize={selectedSize}
         setSelectedSize={setSelectedSize}
       />
-      <div className="flex  sm:p-8 md:gap-10 md:p-10">
+      <div className='flex  sm:p-8 md:gap-10 md:p-10'>
         <div>
           <MainFilter
             setDiscount={setDiscount}

@@ -1,6 +1,6 @@
-import FooterSection from "../components/Footer/FooterSection";
-import Navbar from "../components/Navigation/Navbar";
-import ShoesSection from "../components/ShoesPage/ShoesSection";
+import FooterSection from '../components/Footer/FooterSection';
+import Navbar from '../components/Navigation/Navbar';
+import ShoesSection from '../components/ShoesPage/ShoesSection';
 
 function ShoesPage() {
   return (
@@ -9,7 +9,7 @@ function ShoesPage() {
       <ShoesSection />
       <FooterSection />
     </>
-  )
-  }
+  );
+}
 
-  export default ShoesPage
+export default ShoesPage;

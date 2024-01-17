@@ -1,7 +1,7 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState } from 'react';
 
-import { Shoe } from "../components/ShoesPage/Products/interfaceShoe";
-import { FavoritiestContext } from "../context/context";
+import { Shoe } from '../components/ShoesPage/Products/interfaceShoe';
+import { FavoritiestContext } from '../context/context';
 
 interface FavoritesProviderProps {
   children: ReactNode;

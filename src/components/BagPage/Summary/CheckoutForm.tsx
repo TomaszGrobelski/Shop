@@ -1,5 +1,5 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useState } from 'react';
 
 interface CheckoutFormProps {
   totalPrice: number;
@@ -9,7 +9,7 @@ interface CheckoutFormProps {
 const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -21,31 +21,31 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
 
     try {
       const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: "card",
+        type: 'card',
         card: cardElement!,
       });
 
       if (error) {
         console.error(error.message);
-        if (typeof error.message === "string") {
+        if (typeof error.message === 'string') {
           setError(error.message);
         } else {
-          setError("smth go wrong");
+          setError('smth go wrong');
         }
       } else {
-        if (paymentMethod && typeof paymentMethod.id === "string") {
+        if (paymentMethod && typeof paymentMethod.id === 'string') {
           handlePayment(paymentMethod.id);
         }
       }
     } catch (error) {
-      setError("Błąd podczas tworzenia metody płatności. Spróbuj ponownie.");
+      setError('Błąd podczas tworzenia metody płatności. Spróbuj ponownie.');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <CardElement />
-      <button type="submit" disabled={!stripe}>
+      <button type='submit' disabled={!stripe}>
         Pay ${totalPrice}
       </button>
       {error && <div>{error}</div>}

@@ -1,5 +1,5 @@
-import { Stripe, loadStripe } from "@stripe/stripe-js";
-import { useState } from "react";
+import { Stripe, loadStripe } from '@stripe/stripe-js';
+import { useState } from 'react';
 
 type Item = {
   price: string;
@@ -11,9 +11,9 @@ type BagItem = {
 };
 
 function OrderReview() {
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   let items: Item[] = [];
-  const bagItemsString = localStorage.getItem("bagItems");
+  const bagItemsString = localStorage.getItem('bagItems');
 
   if (bagItemsString) {
     const bagItems: BagItem[] = JSON.parse(bagItemsString);
@@ -32,7 +32,7 @@ function OrderReview() {
 
     items = Object.values(itemCounts);
   } else {
-    setError("No items");
+    setError('No items');
   }
 
   let stripePromise: Promise<Stripe | null>;
@@ -45,7 +45,7 @@ function OrderReview() {
 
   const checkoutOptions = {
     lineItems: items,
-    mode: "payment" as const,
+    mode: 'payment' as const,
     successUrl: `${window.location.origin}/success`,
     cancelUrl: `${window.location.origin}/checkout`,
   };
@@ -58,16 +58,16 @@ function OrderReview() {
         setError(result.error.message as string);
       }
     } else {
-      setError("Stripe could not be initialized");
+      setError('Stripe could not be initialized');
     }
   };
 
   return (
-    <div className="flex max-w-[660px] justify-end py-10">
+    <div className='flex max-w-[660px] justify-end py-10'>
       <div>{error}</div>
       <button
         onClick={redirectToCheckout}
-        className=" rounded-3xl border-2 p-3 px-8 text-[20px] font-bold">
+        className=' rounded-3xl border-2 p-3 px-8 text-[20px] font-bold'>
         Pay
       </button>
     </div>

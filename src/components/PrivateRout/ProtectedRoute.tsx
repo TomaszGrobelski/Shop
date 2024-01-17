@@ -1,6 +1,6 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { ReactNode, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { ReactNode, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
   const pathLocation = location.pathname;
 
   useEffect(() => {
-    const token = localStorage.getItem("user");
+    const token = localStorage.getItem('user');
 
     if (token) {
       onAuthStateChanged(auth, (user) => {
@@ -24,19 +24,19 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
               if (userToken === token) {
                 navigate(`${pathLocation}`);
               } else {
-                navigate("/nika/");
+                navigate('/nika/');
               }
             })
             .catch((error) => {
-              console.error("Błąd podczas pobierania tokenu:", error);
-              navigate("/nika/");
+              console.error('Błąd podczas pobierania tokenu:', error);
+              navigate('/nika/');
             });
         } else {
-          navigate("/nika/");
+          navigate('/nika/');
         }
       });
     } else {
-      navigate("/");
+      navigate('/');
     }
   }, [auth, navigate, pathLocation]);
 

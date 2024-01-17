@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { BsSuitHeart } from "react-icons/bs";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { useEffect, useState } from 'react';
+import { BsSuitHeart } from 'react-icons/bs';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
-import { Shoe } from "../../ShoesPage/Products/interfaceShoe";
+import { Shoe } from '../../ShoesPage/Products/interfaceShoe';
 
 interface OrderProps {
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
@@ -12,7 +12,7 @@ function Order({ setTotalPrice }: OrderProps) {
   const [itemsList, setItemsList] = useState<Shoe[]>([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem("bagItems");
+    const storedItems = localStorage.getItem('bagItems');
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
       setItemsList(itemsArray);
@@ -29,13 +29,13 @@ function Order({ setTotalPrice }: OrderProps) {
     const deletedItem = updatedItems.splice(index, 1)[0];
     setItemsList(updatedItems);
 
-    const storedItems = localStorage.getItem("bagItems");
+    const storedItems = localStorage.getItem('bagItems');
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
       const updatedItemsArray = itemsArray.filter(
         (item) => item.id !== deletedItem.id,
       );
-      localStorage.setItem("bagItems", JSON.stringify(updatedItemsArray));
+      localStorage.setItem('bagItems', JSON.stringify(updatedItemsArray));
     }
 
     const sum = updatedItems.reduce(
@@ -46,15 +46,15 @@ function Order({ setTotalPrice }: OrderProps) {
   };
 
   const displayOrder = itemsList.map((order, index) => (
-    <li key={index} className="flex gap-10  ">
-      <img src={order.img} alt={order.name} className="max-w-[120px]" />
-      <div className="max-w-[160px]">
+    <li key={index} className='flex gap-10  '>
+      <img src={order.img} alt={order.name} className='max-w-[120px]' />
+      <div className='max-w-[160px]'>
         <h2>{order.name}</h2>
-        <p className="text-[14px] text-gray-600">{order.gender}</p>
-        <div className="text-[14px] text-gray-600">
+        <p className='text-[14px] text-gray-600'>{order.gender}</p>
+        <div className='text-[14px] text-gray-600'>
           Size: {order.selectedSize}
         </div>
-        <div className="my-4 flex gap-4">
+        <div className='my-4 flex gap-4  '>
           <button>
             <BsSuitHeart size={22} />
           </button>
@@ -63,8 +63,8 @@ function Order({ setTotalPrice }: OrderProps) {
           </button>
         </div>
       </div>
-      <div className="m-2 flex flex-col text-end">
-        <p className=" text-gray-600 line-through">
+      <div className='m-2 flex flex-col text-end'>
+        <p className=' text-gray-600 line-through'>
           {order.oldPrice && order.oldPrice}
         </p>
         <p>${order.price}</p>
@@ -73,8 +73,8 @@ function Order({ setTotalPrice }: OrderProps) {
   ));
 
   return (
-    <div className="flex">
-      <ul className="flex flex-col gap-4">{displayOrder}</ul>
+    <div className='flex'>
+      <ul className='flex flex-col gap-4'>{displayOrder}</ul>
     </div>
   );
 }

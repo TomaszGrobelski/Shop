@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { BiMinus } from "react-icons/bi";
+import { useEffect, useState } from 'react';
+import { BiMinus } from 'react-icons/bi';
 
-import Summary from "../../Summary/Summary";
+import Summary from '../../Summary/Summary';
 
 function InYourBag() {
   const [summary, setSummary] = useState(true);
@@ -19,10 +19,10 @@ function InYourBag() {
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -37,19 +37,19 @@ function InYourBag() {
     return accumulator;
   };
 
-  const bagListString = localStorage.getItem("bagItems");
+  const bagListString = localStorage.getItem('bagItems');
   const bagList: (Item | null)[] = bagListString
     ? JSON.parse(bagListString)
     : [];
   const totalPrice = bagList.reduce(reducer, 0);
 
   return (
-    <div className="my-4 max-w-[640px]">
+    <div className='my-4 max-w-[640px]'>
       <button
         onClick={handleSummary}
-        className="flex w-full items-center justify-between">
-        <h2 className="text-[20px]">In Your Bag</h2>
-        <BiMinus className="md:hidden" />
+        className='flex w-full items-center justify-between'>
+        <h2 className='text-[20px]'>In Your Bag</h2>
+        <BiMinus className='md:hidden' />
       </button>
       {summary && <Summary totalPrice={totalPrice} visible={false} />}
     </div>

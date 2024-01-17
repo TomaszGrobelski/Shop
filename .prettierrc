@@ -1,6 +1,7 @@
 {
   "trailingComma": "all",
-  "singleQuote": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
   "semi": true,
   "jsxBracketSameLine": true,
   "plugins": [
@@ -11,3 +12,5 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
+
+

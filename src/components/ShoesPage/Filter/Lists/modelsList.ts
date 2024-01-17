@@ -3,18 +3,18 @@ interface models {
 }
 
 const modelsList: models[] = [
-  { name: "All" },
+  { name: 'All' },
   {
-    name: "Air Force 1",
+    name: 'Air Force 1',
   },
   {
-    name: "Air Max",
+    name: 'Air Max',
   },
   {
-    name: "Dunk",
+    name: 'Dunk',
   },
   {
-    name: "Jordan",
+    name: 'Jordan',
   },
 ];
 

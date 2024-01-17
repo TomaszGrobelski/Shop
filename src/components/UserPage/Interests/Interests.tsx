@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-import interestsList from "../listOfInterests/interestsList";
+import interestsList from '../listOfInterests/interestsList';
 
 interface InterestsProps {
   setInterest: Dispatch<SetStateAction<string>>;
@@ -39,9 +39,9 @@ function Interests({ setInterest }: InterestsProps) {
             handleButtonClick(index);
             setInterest(interest.name);
           }}
-          style={{ border: isActive ? "1px solid black" : "none" }}
+          style={{ border: isActive ? '1px solid black' : 'none' }}
           className={`rounded-xl p-3 font-bold ${
-            isActive ? "text-black" : "text-gray-500"
+            isActive ? 'text-black' : 'text-gray-500'
           }`}>
           {interest.name}
         </button>
@@ -50,16 +50,16 @@ function Interests({ setInterest }: InterestsProps) {
   });
 
   return (
-    <div className="mt-12 flex flex-col gap-8">
-      <h2 className="text-[24px] font-bold opacity-90">Interests</h2>
-      <div className="flex flex-col gap-4">
-        <ul className="flex flex-wrap gap-4">{interestsCategory}</ul>
-        <div className="relative">
-          <p className="border-[1px]"></p>
+    <div className='mt-12 flex flex-col gap-8'>
+      <h2 className='text-[24px] font-bold opacity-90'>Interests</h2>
+      <div className='flex flex-col gap-4'>
+        <ul className='flex flex-wrap gap-4'>{interestsCategory}</ul>
+        <div className='relative'>
+          <p className='border-[1px]'></p>
           <motion.span
             animate={{ x: spanPosition, width: spanWidth }}
-            transition={{ duration: 0.2, type: "tween" }}
-            className="absolute -top-[3px] hidden h-[3px] bg-black sm:block"></motion.span>
+            transition={{ duration: 0.2, type: 'tween' }}
+            className='absolute -top-[3px] hidden h-[3px] bg-black sm:block'></motion.span>
         </div>
       </div>
     </div>
