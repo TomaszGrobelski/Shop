@@ -4,6 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 import { ModalDetailProps } from '../../types/ShoeDetailPage/shoeDetailPage.types';
 import PrimaryButton from '../Buttons/PrimaryButton';
+import {
+  ButtonsBox,
+  ModalBackground,
+  ModalBox,
+  ModalContentContainer,
+  ModalHeader,
+  ProductDetails,
+  ProductGender,
+  ProductImage,
+  ProductSelectedSize,
+} from '../../styles/ShoeDetailPage/ModalDetail.styles';
 
 function ModalDetail({ setModalVisible }: ModalDetailProps) {
   const navigate = useNavigate();
@@ -17,55 +28,41 @@ function ModalDetail({ setModalVisible }: ModalDetailProps) {
   if (numberItemsBag > 0) {
     const lastProduct = bagList[numberItemsBag - 1];
     productDetails = (
-      <div className='my-3 flex gap-2'>
-        <img
-          className='w-[100px]'
-          src={lastProduct.img}
-          alt={lastProduct.name}
-        />
+      <ProductDetails>
+        <ProductImage src={lastProduct.img} alt={lastProduct.name} />
         <div>
           <p>{lastProduct.name}</p>
-          <p className='opacity-80'>{lastProduct.gender}</p>
-          <p className='opacity-80'>Size {lastProduct.selectedSize}</p>
+          <ProductGender>{lastProduct.gender}</ProductGender>
+          <ProductSelectedSize>Size {lastProduct.selectedSize}</ProductSelectedSize>
           <p>${lastProduct.price}</p>
         </div>
-      </div>
+      </ProductDetails>
     );
   }
 
   return (
     <div>
-      <div className='fixed right-0 top-0 z-50 h-[250px] w-full bg-white md:w-[400px] '>
+      <ModalContentContainer>
         <div className='p-4'>
-          <div className='flex items-center justify-between'>
-            <h2 className='flex items-center gap-3 font-bold'>
+          <ModalBox>
+            <ModalHeader>
               <BsFillCheckCircleFill className='text-green-600' />
               Added to Bag
-            </h2>
-            <AiOutlineClose
-              size={22}
-              onClick={handleModal}
-              className='cursor-pointer'
-            />
-          </div>
+            </ModalHeader>
+            <AiOutlineClose size={22} onClick={handleModal} className='cursor-pointer' />
+          </ModalBox>
           <div>{productDetails}</div>
-          <div className='flex gap-4'>
-            <PrimaryButton
-              onClick={() => navigate('/bag')}
-              className='w-1/2 bg-white'>
+          <ButtonsBox>
+            <PrimaryButton onClick={() => navigate('/bag')} className='w-1/2 bg-white'>
               View Bag <span>({numberItemsBag})</span>
             </PrimaryButton>
-            <PrimaryButton
-              onClick={() => navigate('/checkout')}
-              className='w-1/2 bg-black text-white'>
+            <PrimaryButton onClick={() => navigate('/checkout')} className='w-1/2 bg-black text-white'>
               Checkout{' '}
             </PrimaryButton>
-          </div>
+          </ButtonsBox>
         </div>
-      </div>
-      <div
-        onClick={handleModal}
-        className='fixed left-0 top-0 h-full w-full bg-gray-900 opacity-80'></div>
+      </ModalContentContainer>
+      <ModalBackground onClick={handleModal}></ModalBackground>
     </div>
   );
 }

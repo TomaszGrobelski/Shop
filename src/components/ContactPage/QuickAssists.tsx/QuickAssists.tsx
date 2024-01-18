@@ -1,16 +1,22 @@
 import AccordionAssists from './AccordionAssists';
+import {
+  AccordionsContainer,
+  QuickAssistsBox,
+  QuickAssistsContainer,
+  QuickAssistsDescription,
+  QuickAssistsTitle,
+} from '../../../styles/ContactPage/QuickAssists.styles';
 
 function QuickAssists() {
   return (
-    <div className='my-16 '>
-      <div className='border-b-[1px] '>
-        <h2 className='pl-6 text-[24px] '>QUICK ASSISTS</h2>
-        <p className='my-2 pl-6 text-[14px]'>
-          Answers to our most frequently asked questions are just one click
-          away.
-        </p>
-      </div>
-      <div className='gap-6 md:grid md:grid-cols-3 md:pl-6'>
+    <QuickAssistsContainer>
+      <QuickAssistsBox>
+        <QuickAssistsTitle>QUICK ASSISTS</QuickAssistsTitle>
+        <QuickAssistsDescription>
+          Answers to our most frequently asked questions are just one click away.
+        </QuickAssistsDescription>
+      </QuickAssistsBox>
+      <AccordionsContainer>
         <AccordionAssists title='SHIPPING & DELIVERY'>
           <p>What are Nika shipping options?</p>
           <p>How do I get free shipping on Nika orders?</p>
@@ -38,12 +44,10 @@ function QuickAssists() {
         <AccordionAssists title='NIKE OFFERS'>
           <p>Does Nika offer a student discount?</p>
           <p>Does Nika offer a military discount?</p>
-          <p>
-            Does Nika offer a first responder and medical professional discount?
-          </p>
+          <p>Does Nika offer a first responder and medical professional discount?</p>
         </AccordionAssists>
-      </div>
-    </div>
+      </AccordionsContainer>
+    </QuickAssistsContainer>
   );
 }
 

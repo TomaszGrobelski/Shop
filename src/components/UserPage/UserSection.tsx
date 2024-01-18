@@ -5,6 +5,9 @@ import ImgUser from './ImgUser';
 import BoxInterests from './Interests/BoxInterests';
 import Interests from './Interests/Interests';
 import ModalInterests from './Interests/Modal/ModalInterests';
+import { UserNameHeader } from '../../styles/UserPage/UserSection.styles';
+import { UserBox } from '../../styles/UserPage/UserSection.styles';
+import { UserSectione } from '../../styles/UserPage/UserSection.styles';
 
 function UserSection() {
   const [interest, setInterest] = useState('Interests');
@@ -16,32 +19,21 @@ function UserSection() {
   const username = email?.split('@')[0];
 
   return (
-    <div className='mt-20 flex flex-col gap-6 p-10'>
-      <div className='flex items-center gap-5'>
+    <UserSectione>
+      <UserBox>
         <ImgUser />
         <div>
-          <h1 className='text-[32px] font-bold'>{username}</h1>
-          <p className=' font-bold text-gray-500'>
-            {time ? `Nika Member Since ${time}` : 'You are not logged in'}
-          </p>
+          <UserNameHeader>{username}</UserNameHeader>
+          <p className=' font-bold text-gray-500'>{time ? `Nika Member Since ${time}` : 'You are not logged in'}</p>
         </div>
-      </div>
+      </UserBox>
       <Interests setInterest={setInterest} />
-      <p className=' '>
-        Add your interests to shop a collection of products that are based on
-        what you're into.
-      </p>
+      <p>Add your interests to shop a collection of products that are based on what you're into.</p>
       <div className='flex gap-4'>
-        <BoxInterests
-          setModalVisibility={setModalVisibility}
-          modalVisibility={modalVisibility}
-          interest={interest}
-        />
-        {modalVisibility && (
-          <ModalInterests setModalVisibility={setModalVisibility} />
-        )}
+        <BoxInterests setModalVisibility={setModalVisibility} modalVisibility={modalVisibility} interest={interest} />
+        {modalVisibility && <ModalInterests setModalVisibility={setModalVisibility} />}
       </div>
-    </div>
+    </UserSectione>
   );
 }
 

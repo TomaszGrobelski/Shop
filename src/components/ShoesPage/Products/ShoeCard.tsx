@@ -1,36 +1,25 @@
 import { ShoeCardProps } from '../../../types/ShoesPage/shoePage.types';
+import { ShoeCardBox, ShoeCardContainer, ShoeCardImage, ShoeGender, ShoeName, ShoePriceBox } from '../../../styles/ShoePage/ShoeCard.styles';
 
-const ShoeCard: React.FC<ShoeCardProps> = ({
-  shoe,
-  key,
-  children,
-  favorite,
-}) => {
+const ShoeCard: React.FC<ShoeCardProps> = ({ shoe, key, children, favorite }) => {
   return (
-    <div key={key} className='mb-10 flex  flex-col'>
-      <div className='relative max-w-[400px]'>
-        <img
-          loading='lazy'
-          className='relative aspect-square object-fill'
-          src={shoe.img}
-          alt={shoe.name}
-          width={400}
-          height={400}
-        />
+    <ShoeCardContainer key={key}>
+      <ShoeCardBox>
+        <ShoeCardImage loading='lazy' src={shoe.img} alt={shoe.name} width={400} height={400} />
         {favorite}
-      </div>
+      </ShoeCardBox>
       <div className='p-2'>
-        <div className='my-2 font-bold opacity-90'>{shoe.name}</div>
-        <div className='my-0 text-gray-500'>{shoe.gender}</div>
-        <div className='flex gap-2'>
-          <span className={'font-bold opacity-90 '}>${shoe.price}</span>
+        <ShoeName>{shoe.name}</ShoeName>
+        <ShoeGender>{shoe.gender}</ShoeGender>
+        <ShoePriceBox>
+          <span className='font-bold '>{shoe.price}</span>
           <span className='font-bold text-gray-500 line-through opacity-90 '>
             {shoe.oldPrice ? `$${shoe.oldPrice}` : null}
           </span>
-        </div>
+        </ShoePriceBox>
         {children}
       </div>
-    </div>
+    </ShoeCardContainer>
   );
 };
 

@@ -1,18 +1,9 @@
 import { SportsData } from '../../../../types/UserPage/userPage.types';
 import { CategoryDivProps } from '../../../../types/UserPage/userPage.types';
-import {
-  athletesList,
-  citiesList,
-  productsList,
-  sportsList,
-  teamsList,
-} from '../../listOfInterests/index';
+import { athletesList, citiesList, productsList, sportsList, teamsList } from '../../listOfInterests/index';
+import { CategoryBox, CategoryItem, CategoryList } from '../../../../styles/UserPage/CategoryDiv.styles';
 
-function CategoryDiv({
-  setCurrentCategory,
-  setSelectedList,
-  currentCategory,
-}: CategoryDivProps) {
+function CategoryDiv({ setCurrentCategory, setSelectedList, currentCategory }: CategoryDivProps) {
   const interestsList: { name: string; data: SportsData[] }[] = [
     { name: 'Sports', data: sportsList },
     { name: 'Products', data: productsList },
@@ -23,29 +14,24 @@ function CategoryDiv({
 
   const handleCategoryChange = (category: string) => {
     setCurrentCategory(category);
-    const newSelectedList =
-      interestsList.find((item) => item.name === category)?.data || [];
+    const newSelectedList = interestsList.find((item) => item.name === category)?.data || [];
     setSelectedList(newSelectedList);
   };
 
   return (
-    <div className='border-b-[1px]'>
-      <ul className='flex gap-5 overflow-x-auto text-[18px]'>
+    <CategoryBox>
+      <CategoryList>
         {interestsList.map((interest, index) => (
-          <li key={index} className='py-2'>
+          <CategoryItem key={index}>
             <button
               onClick={() => handleCategoryChange(interest.name)}
-              className={
-                interest.name === currentCategory
-                  ? 'text-black'
-                  : 'text-gray-400'
-              }>
+              className={interest.name === currentCategory ? 'text-black' : 'text-gray-400'}>
               {interest.name} ({interest.data.length})
             </button>
-          </li>
+          </CategoryItem>
         ))}
-      </ul>
-    </div>
+      </CategoryList>
+    </CategoryBox>
   );
 }
 

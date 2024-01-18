@@ -1,21 +1,18 @@
 import { ModelFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 import modelsList from '../Lists/modelsList';
+import { ModelButton, ModelFilterBox, ModelItem, ModelList } from '../../../../styles/ShoePage/ModelFilter.styles';
 
 const ModelFilter: React.FC<ModelFilterProps> = ({ setFilterType }) => {
   return (
-    <div className='border-b-[1px]  border-t-[1px] border-gray-200 '>
-      <ul className='my-10 flex flex-col gap-4'>
+    <ModelFilterBox>
+      <ModelList>
         {modelsList.map((model, index) => (
-          <li key={index}>
-            <button
-              onClick={() => setFilterType(model.name)}
-              className=' hover:opacity-80'>
-              {model.name}
-            </button>
-          </li>
+          <ModelItem key={index}>
+            <ModelButton onClick={() => setFilterType(model.name)}>{model.name}</ModelButton>
+          </ModelItem>
         ))}
-      </ul>
-    </div>
+      </ModelList>
+    </ModelFilterBox>
   );
 };
 

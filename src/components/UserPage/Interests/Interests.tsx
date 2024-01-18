@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { InterestsProps } from '../../../types/UserPage/userPage.types';
 import interestsList from '../listOfInterests/interestsList';
+import { InterestBox, InterestBoxInside, InterestHeader, InterestList } from '../../../styles/UserPage/Interests.styles';
 
 function Interests({ setInterest }: InterestsProps) {
   const [activeInterest, setActiveInterest] = useState<number | null>(0);
@@ -36,9 +37,7 @@ function Interests({ setInterest }: InterestsProps) {
             setInterest(interest.name);
           }}
           style={{ border: isActive ? '1px solid black' : 'none' }}
-          className={`rounded-xl p-3 font-bold ${
-            isActive ? 'text-black' : 'text-gray-500'
-          }`}>
+          className={`rounded-xl p-3 font-bold ${isActive ? 'text-black' : 'text-gray-500'}`}>
           {interest.name}
         </button>
       </li>
@@ -46,10 +45,10 @@ function Interests({ setInterest }: InterestsProps) {
   });
 
   return (
-    <div className='mt-12 flex flex-col gap-8'>
-      <h2 className='text-[24px] font-bold opacity-90'>Interests</h2>
-      <div className='flex flex-col gap-4'>
-        <ul className='flex flex-wrap gap-4'>{interestsCategory}</ul>
+    <InterestBox>
+      <InterestHeader>Interests</InterestHeader>
+      <InterestBoxInside>
+        <InterestList>{interestsCategory}</InterestList>
         <div className='relative'>
           <p className='border-[1px]'></p>
           <motion.span
@@ -57,8 +56,8 @@ function Interests({ setInterest }: InterestsProps) {
             transition={{ duration: 0.2, type: 'tween' }}
             className='absolute -top-[3px] hidden h-[3px] bg-black sm:block'></motion.span>
         </div>
-      </div>
-    </div>
+      </InterestBoxInside>
+    </InterestBox>
   );
 }
 

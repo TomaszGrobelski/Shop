@@ -1,27 +1,22 @@
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 import { BoxInterestsProps } from '../../../types/UserPage/userPage.types';
+import { InterestBox, InterestButton, InterestContainer } from '../../../styles/UserPage/BoxInterests.styles';
 
-function BoxInterests({
-  interest,
-  modalVisibility,
-  setModalVisibility,
-}: BoxInterestsProps) {
+function BoxInterests({ interest, modalVisibility, setModalVisibility }: BoxInterestsProps) {
   const modalClick = () => {
     setModalVisibility(!modalVisibility);
   };
   return (
     <div>
-      <div className='grid grid-cols-3 sm:grid-cols-5'>
-        <div className='flex  min-h-[170px] min-w-[130px] items-center justify-center gap-3 bg-gray-100'>
-          <button
-            onClick={modalClick}
-            className='flex flex-col items-center gap-3 font-bold  hover:scale-110'>
+      <InterestContainer>
+        <InterestBox>
+          <InterestButton onClick={modalClick}>
             <AiOutlinePlusCircle size={22} />
             <p>Add {interest}</p>
-          </button>
-        </div>
-      </div>
+          </InterestButton>
+        </InterestBox>
+      </InterestContainer>
     </div>
   );
 }

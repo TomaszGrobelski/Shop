@@ -7,13 +7,13 @@ import IconList from './LogOut/IconList';
 import LogOut from './LogOut/LogOut';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
-import { LiNavigation } from './Navbar.styles';
+import { LiNavigation } from '../../styles/Navigation/Navbar.styles';
 import {
   ButtonBurger,
   IconPositioning,
   UlNavBarFlexBox,
-} from './Navbar.styles';
-import { Nav } from './Navbar.styles';
+} from '../../styles/Navigation/Navbar.styles';
+import { Nav } from '../../styles/Navigation/Navbar.styles';
 import navigationLinks from './navigationLinks';
 
 function Navbar() {

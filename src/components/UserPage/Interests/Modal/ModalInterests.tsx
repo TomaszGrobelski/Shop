@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import {
-  InterestData,
-  ModalInterestsProps,
-} from '../../../../types/UserPage/userPage.types';
+import { InterestData, ModalInterestsProps } from '../../../../types/UserPage/userPage.types';
 import PrimaryButton from '../../../Buttons/PrimaryButton';
 import sportsList from '../../listOfInterests/sportsList';
 import CategoryDiv from './CategoryDiv';
 import HeaderModal from './HeaderModal';
+import { ModalBackGround, ModalBox, ModalContainer } from '../../../../styles/UserPage/ModalInterests.styles';
 import SelectedDiv from './SelectedDiv';
 
 function ModalInterests({ setModalVisibility }: ModalInterestsProps) {
@@ -30,12 +28,9 @@ function ModalInterests({ setModalVisibility }: ModalInterestsProps) {
   };
 
   return (
-    <div className='absolute inset-0 z-50 flex items-center justify-center'>
-      <div
-        onClick={modalClick}
-        className='fixed inset-0 bg-gray-200 opacity-80'
-      />
-      <div className='fixed flex h-4/5 w-4/5 max-w-[650px] items-center justify-center rounded-3xl bg-white'>
+    <ModalContainer>
+      <ModalBackGround onClick={modalClick} />
+      <ModalBox>
         <div className='w-4/5'>
           <HeaderModal closeModal={modalClick} />
           <CategoryDiv
@@ -48,15 +43,13 @@ function ModalInterests({ setModalVisibility }: ModalInterestsProps) {
             <PrimaryButton onClick={modalClick} className='h-12 w-24'>
               Cancel
             </PrimaryButton>
-            <PrimaryButton
-              onClick={selectedClick}
-              className='h-12 w-20 bg-black text-white'>
+            <PrimaryButton onClick={selectedClick} className='h-12 w-20 bg-black text-white'>
               Save
             </PrimaryButton>
           </div>
         </div>
-      </div>
-    </div>
+      </ModalBox>
+    </ModalContainer>
   );
 }
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { SliderContainer } from '../../../styles/ShoePage/Slider.styles';
+
 function Slider() {
   const messages = [
     'MEMBER DAYS SALE | 20% OFF SELECT STYLES',
@@ -19,7 +21,7 @@ function Slider() {
   }, [messages.length]);
 
   return (
-    <div className='mb-4 mt-20 flex min-h-[70px] items-center justify-start overflow-hidden border-b-[1px] border-gray-100 bg-customGray font-bold opacity-70'>
+    <SliderContainer>
       <div
         style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
         className='flex items-center justify-center  duration-500 '>
@@ -29,7 +31,7 @@ function Slider() {
           </p>
         ))}
       </div>
-    </div>
+    </SliderContainer>
   );
 }
 

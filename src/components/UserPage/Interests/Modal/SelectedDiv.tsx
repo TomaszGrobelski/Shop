@@ -1,23 +1,19 @@
 import { SelectedDivProps } from '../../../../types/UserPage/userPage.types';
+import { SelectedInput } from '../../../../styles/UserPage/SelectedDiv.styles';
+import { SelectedLabel } from '../../../../styles/UserPage/SelectedDiv.styles';
+import { SelectedList } from '../../../../styles/UserPage/SelectedDiv.styles';
 
 function SelectedDiv({ selectedList }: SelectedDivProps) {
   return (
     <div>
-      <ul className='max-h-60 overflow-y-auto'>
+      <SelectedList>
         {selectedList.map((item, index) => (
-          <label
-            htmlFor={`checkbox-${index}`}
-            key={index}
-            className='mx-10 flex cursor-pointer items-center justify-between border-b-[1px] py-4'>
+          <SelectedLabel htmlFor={`checkbox-${index}`} key={index}>
             <span>{item.name}</span>
-            <input
-              id={`checkbox-${index}`}
-              type='checkbox'
-              className='h-4 w-4 checked:accent-black'
-            />
-          </label>
+            <SelectedInput id={`checkbox-${index}`} type='checkbox' />
+          </SelectedLabel>
         ))}
-      </ul>
+      </SelectedList>
     </div>
   );
 }

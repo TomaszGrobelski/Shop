@@ -6,35 +6,40 @@ import { CheckoutFormProps } from '../../../types/BagPage/bagPage.types';
 const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!stripe || !elements) {
       return;
     }
-    // Dodać isLoading + !!!!!!!!!!!!!!!!!! USUNĄĆ KOM
+
+    setIsLoading(true);
+    setError('');
+
     const cardElement = elements.getElement(CardElement);
+    if (!cardElement) {
+      setError('Card element not found.');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       const { error, paymentMethod } = await stripe.createPaymentMethod({
         type: 'card',
-        card: cardElement!,
+        card: cardElement,
       });
 
       if (error) {
-        if (typeof error.message === 'string') {
-          setError(error.message);
-        } else {
-          setError('smth go wrong');
-        }
-      } else {
-        if (paymentMethod && typeof paymentMethod.id === 'string') {
-          handlePayment(paymentMethod.id);
-        }
+        setError(error.message || 'Something went wrong.');
+      } else if (paymentMethod) {
+        handlePayment(paymentMethod.id);
       }
     } catch (error) {
-      setError('Błąd podczas tworzenia metody płatności. Spróbuj ponownie.');
+      setError('Error while creating payment method. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -42,7 +47,7 @@ const CheckoutForm = ({ totalPrice, handlePayment }: CheckoutFormProps) => {
     <form onSubmit={handleSubmit}>
       <CardElement />
       <button type='submit' disabled={!stripe}>
-        Pay ${totalPrice}
+        {isLoading ? 'Loading...' : `Pay ${totalPrice}`}
       </button>
       {error && <div>{error}</div>}
     </form>

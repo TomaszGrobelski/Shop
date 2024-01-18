@@ -3,6 +3,9 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 import app from '../../config/firebase';
+import { ImageUser } from '../../styles/UserPage/ImgUser.styles';
+import { ImageUserInput } from '../../styles/UserPage/ImgUser.styles';
+import { ImageUserBox } from '../../styles/UserPage/ImgUser.styles';
 
 function ImgUser() {
   const [image, setImage] = useState<string | null>(null);
@@ -39,23 +42,10 @@ function ImgUser() {
   }, [storage, user]);
 
   return (
-    <div className='relative h-24 w-24 overflow-hidden rounded-full bg-gray-300'>
-      <label htmlFor='upload'>
-        {image ? (
-          <img
-            src={image}
-            alt='Profile image'
-            className='h-24 w-24 rounded-full'
-          />
-        ) : null}
-      </label>
-      <input
-        id='upload'
-        type='file'
-        className='absolute -left-10 -top-10 z-30 h-[200px] w-[200px] cursor-pointer opacity-0'
-        onChange={handleImageChange}
-      />
-    </div>
+    <ImageUserBox>
+      <label htmlFor='upload'>{image ? <ImageUser src={image} alt='Profile image' /> : null}</label>
+      <ImageUserInput id='upload' type='file' onChange={handleImageChange} />
+    </ImageUserBox>
   );
 }
 

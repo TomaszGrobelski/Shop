@@ -3,6 +3,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { FaLock } from 'react-icons/fa';
 
 import { PasswordLabelProps } from '../../types/Login&Register/login&register.types';
+import { PasswordLabelBox, PasswordLabelButton, PasswordLabelContainer } from '../../styles/LoginRegister/PasswordLabel.styles';
 
 function PasswordLabel({ children }: PasswordLabelProps) {
   const password = 'password';
@@ -17,19 +18,15 @@ function PasswordLabel({ children }: PasswordLabelProps) {
   });
 
   return (
-    <div className='my-2 flex w-full items-center border-[1px] '>
-      <div className='flex h-8 w-8 items-center justify-center bg-gray-100'>
+    <PasswordLabelContainer>
+      <PasswordLabelBox>
         <FaLock />
-      </div>
+      </PasswordLabelBox>
       {updatedChild}
-      <button type='button' onClick={toggleVisibility} className='pr-2 hover:text-purple-700'>
-        {inputType === password ? (
-          <AiFillEye size={25} />
-        ) : (
-          <AiFillEyeInvisible size={25} />
-        )}
-      </button>
-    </div>
+      <PasswordLabelButton type='button' onClick={toggleVisibility}>
+        {inputType === password ? <AiFillEye size={25} /> : <AiFillEyeInvisible size={25} />}
+      </PasswordLabelButton>
+    </PasswordLabelContainer>
   );
 }
 

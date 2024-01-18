@@ -4,13 +4,15 @@ import { BiSolidChevronDown } from 'react-icons/bi';
 import { PiSlidersHorizontalLight } from 'react-icons/pi';
 
 import { HeaderShoesProps } from '../../../types/ShoesPage/shoePage.types';
+import {
+  ShoeHeader,
+  ShoeHeaderBox,
+  ShoeHeaderContainer,
+  SortByButton,
+  ToggleFiltersButton,
+} from '../../../styles/ShoePage/HeaderShoes.styles';
 
-function HeaderShoes({
-  filterVisible,
-  setFilterVisible,
-  setSortBy,
-  sortBy,
-}: HeaderShoesProps) {
+function HeaderShoes({ filterVisible, setFilterVisible, setSortBy, sortBy }: HeaderShoesProps) {
   const highLow = 'high-low';
   const lowHigh = 'low-high';
   const [sortVisible, setSortVisible] = useState(false);
@@ -33,25 +35,19 @@ function HeaderShoes({
   };
 
   return (
-    <div className=' sticky top-0 z-30 flex items-center justify-between bg-white pl-10'>
-      <h1 className='my-4 text-[20px] font-bold tracking-[2px]'>
-        Lifestyle Shoes
-      </h1>
-      <div className='hidden gap-6 pr-10 font-bold opacity-90 md:flex'>
+    <ShoeHeaderContainer>
+      <ShoeHeader>Lifestyle Shoes</ShoeHeader>
+      <ShoeHeaderBox>
         <nav>
-          <button onClick={visibleClick} className='flex items-center'>
-            {filterVisible ? 'Hide' : 'Show'} Filters{' '}
-            <PiSlidersHorizontalLight size={25} />{' '}
-          </button>
+          <ToggleFiltersButton onClick={visibleClick}>
+            {filterVisible ? 'Hide' : 'Show'} Filters <PiSlidersHorizontalLight size={25} />{' '}
+          </ToggleFiltersButton>
         </nav>
         <div className='relative'>
-          <button onClick={sortVisibleClick} className='flex items-center '>
-            Sort By <span className='opacity-60'>{sortByLabe}</span>{' '}
-            <BiSolidChevronDown size={20} />
-          </button>{' '}
-          <div
-            className='absolute right-0 top-5 w-[150px] overflow-hidden'
-            style={{ height: '90px' }}>
+          <SortByButton onClick={sortVisibleClick}>
+            Sort By <span className='opacity-60'>{sortByLabe}</span> <BiSolidChevronDown size={20} />
+          </SortByButton>{' '}
+          <div className='absolute right-0 top-5 w-[150px] overflow-hidden' style={{ height: '90px' }}>
             <AnimatePresence>
               {sortVisible && (
                 <motion.div
@@ -81,8 +77,8 @@ function HeaderShoes({
             </AnimatePresence>
           </div>
         </div>
-      </div>
-    </div>
+      </ShoeHeaderBox>
+    </ShoeHeaderContainer>
   );
 }
 

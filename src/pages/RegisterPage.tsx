@@ -9,6 +9,7 @@ import WrapperWithFormAndTitle from '../components/LoginRegister/WrapperWithForm
 import { auth } from '../config/firebase';
 import LoginRegisterImg from '../images/LoginRegister/LoginRegisterImg.jpg';
 import { Label } from '../styles/LoginPage.styles';
+import { BackGroundImage, BackToLoginButton, IncorrectPasswordMessage } from '../styles/LoginRegister/RegisterPage.styles';
 
 function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -52,23 +53,15 @@ function RegisterPage() {
             required
           />
         </PasswordLabel>
-        <p className='my-2 opacity-60'>
-          Password should be at least 6 characters
-        </p>
-        <PrimaryButton
-          type='submit'
-          className='my-2 h-12 w-28 font-bold hover:bg-purple-500'>
+        <IncorrectPasswordMessage>Password should be at least 6 characters</IncorrectPasswordMessage>
+        <PrimaryButton type='submit' className='my-2 h-12 w-28 font-bold hover:bg-purple-500'>
           Sign up
         </PrimaryButton>
-        <button type='button' onClick={backToLoginClick} className='mt-6 '>
+        <BackToLoginButton type='button' onClick={backToLoginClick}>
           Back to Login
-        </button>
+        </BackToLoginButton>
       </WrapperWithFormAndTitle>
-      <img
-        className='absolute top-0 -z-10 h-full w-full object-cover'
-        src={LoginRegisterImg}
-        alt='Login image'
-      />
+      <BackGroundImage src={LoginRegisterImg} alt='Login image' />
     </div>
   );
 }

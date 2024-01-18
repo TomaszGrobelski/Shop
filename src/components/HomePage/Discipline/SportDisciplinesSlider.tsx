@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
+import { DisciplineImage, DisciplineName, DisciplineNumberBox } from '../../../styles/HomePage/SportDisciplinesSlider.styles';
 import disciplineList from './disciplineList';
 
 function SportDisciplinesSlider() {
@@ -9,9 +10,7 @@ function SportDisciplinesSlider() {
 
   useEffect(() => {
     if (carousel.current) {
-      setWidth(
-        carousel.current.scrollWidth - (carousel.current.offsetWidth || 0),
-      );
+      setWidth(carousel.current.scrollWidth - (carousel.current.offsetWidth || 0));
     }
   }, []);
 
@@ -25,19 +24,10 @@ function SportDisciplinesSlider() {
           className='flex '>
           {disciplineList.map((disciplin) => {
             return (
-              <motion.div
-                key={disciplin.name}
-                className='relative min-h-[20rem] min-w-[20rem] p-4 font-bold'>
-                <img
-                  loading='lazy'
-                  src={disciplin.img}
-                  alt={disciplin.name}
-                  className='pointer-events-none h-full w-full rounded-xl grayscale'
-                />
-                <p className='p-2'>{disciplin.name}</p>
-                <div className='absolute right-8 top-8 w-10 rounded-2xl border-[1px] border-black bg-white  text-center '>
-                  {disciplin.number}/8
-                </div>
+              <motion.div key={disciplin.name} className='relative min-h-[20rem] min-w-[20rem] p-4 font-bold'>
+                <DisciplineImage loading='lazy' src={disciplin.img} alt={disciplin.name} />
+                <DisciplineName>{disciplin.name}</DisciplineName>
+                <DisciplineNumberBox>{disciplin.number}/8</DisciplineNumberBox>
               </motion.div>
             );
           })}

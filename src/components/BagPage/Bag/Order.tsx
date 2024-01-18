@@ -4,6 +4,18 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 
 import { OrderProps } from '../../../types/BagPage/bagPage.types';
 import { Shoe } from '../../../types/ShoesPage/interfaceShoe';
+import {
+  OldPriceOrder,
+  SelectedSizeOrder,
+  GenderOrder,
+  HeaderOrder,
+  ItemPricingOrder,
+  ItemActionsOrder,
+  ItemDetailsOrder,
+  ImageOrder,
+  ItemOrder,
+  ListOrder
+} from '../../../styles/BagPage/Order.styles';
 
 function Order({ setTotalPrice }: OrderProps) {
   const [itemsList, setItemsList] = useState<Shoe[]>([]);
@@ -13,10 +25,7 @@ function Order({ setTotalPrice }: OrderProps) {
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
       setItemsList(itemsArray);
-      const sum = itemsArray.reduce(
-        (total, current) => total + current.price,
-        0,
-      );
+      const sum = itemsArray.reduce((total, current) => total + current.price, 0);
       setTotalPrice(sum);
     }
   }, [setTotalPrice, setItemsList]);
@@ -29,50 +38,41 @@ function Order({ setTotalPrice }: OrderProps) {
 
     if (storedItems) {
       const itemsArray: Shoe[] = JSON.parse(storedItems);
-      const updatedItemsArray = itemsArray.filter(
-        (item) => item.id !== deletedItem.id,
-      );
+      const updatedItemsArray = itemsArray.filter((item) => item.id !== deletedItem.id);
       localStorage.setItem('bagItems', JSON.stringify(updatedItemsArray));
     }
 
-    const sum = updatedItems.reduce(
-      (total, current) => total + current.price,
-      0,
-    );
+    const sum = updatedItems.reduce((total, current) => total + current.price, 0);
     setTotalPrice(sum);
   };
 
-  const displayOrder = itemsList.map((order, index) => (
-    <li key={index} className='flex gap-10  '>
-      <img src={order.img} alt={order.name} className='max-w-[120px]' />
-      <div className='max-w-[160px]'>
-        <h2>{order.name}</h2>
-        <p className='text-[14px] text-gray-600'>{order.gender}</p>
-        <div className='text-[14px] text-gray-600'>
-          Size: {order.selectedSize}
-        </div>
-        <div className='my-4 flex gap-4  '>
-          <button>
-            <BsSuitHeart size={22} />
-          </button>
-          <button onClick={() => deleteProductClick(index)}>
-            <RiDeleteBin6Line size={22} />
-          </button>
-        </div>
-      </div>
-      <div className='m-2 flex flex-col text-end'>
-        <p className=' text-gray-600 line-through'>
-          {order.oldPrice && order.oldPrice}
-        </p>
-        <p>${order.price}</p>
-      </div>
-    </li>
-  ));
-
   return (
-    <div className='flex'>
-      <ul className='flex flex-col gap-4'>{displayOrder}</ul>
-    </div>
+    <>
+      <ListOrder>
+        {itemsList.map((order, index) => (
+          <ItemOrder key={index}>
+            <ImageOrder src={order.img} alt={order.name} />
+            <ItemDetailsOrder>
+              <HeaderOrder>{order.name}</HeaderOrder>
+              <GenderOrder>{order.gender}</GenderOrder>
+              <SelectedSizeOrder>Size: {order.selectedSize}</SelectedSizeOrder>
+              <ItemActionsOrder>
+                <button>
+                  <BsSuitHeart size={22} />
+                </button>
+                <button onClick={() => deleteProductClick(index)}>
+                  <RiDeleteBin6Line size={22} />
+                </button>
+              </ItemActionsOrder>
+            </ItemDetailsOrder>
+            <ItemPricingOrder>
+              <OldPriceOrder>{order.oldPrice && order.oldPrice}</OldPriceOrder>
+              <p>${order.price}</p>
+            </ItemPricingOrder>
+          </ItemOrder>
+        ))}
+      </ListOrder>
+    </>
   );
 }
 

@@ -10,6 +10,16 @@ import WrapperWithFormAndTitle from '../components/LoginRegister/WrapperWithForm
 import { auth } from '../config/firebase';
 import LoginRegisterImg from '../images/LoginRegister/LoginRegisterImg.jpg';
 import { Label } from '../styles/LoginPage.styles';
+import {
+  BackGroundImage,
+  DemoBox,
+  DemoDetails,
+  DemoEmail,
+  DemoHeader,
+  DemoPassword,
+  LoginPageContainer,
+  RegisterButton,
+} from '../styles/LoginRegister/LoginPage.styles';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -36,7 +46,7 @@ function LoginPage() {
     navigate('/registration');
   };
   return (
-    <div className='flex items-center justify-center '>
+    <LoginPageContainer>
       <WrapperWithFormAndTitle onSubmit={signIn} h1='Login'>
         <EmailLabel>
           <Label
@@ -57,33 +67,24 @@ function LoginPage() {
             required
           />
         </PasswordLabel>
-        <button
-          type='button'
-          onClick={handleRegisterClick}
-          className='mb-5 mt-1 flex items-center gap-1 self-end font-bold hover:text-purple-700'>
+        <RegisterButton type='button' onClick={handleRegisterClick}>
           Register Now <IoCreate />
-        </button>
-        <PrimaryButton
-          type='submit'
-          className='h-12 w-28 font-bold hover:bg-purple-700 hover:text-white'>
+        </RegisterButton>
+        <PrimaryButton type='submit' className='h-12 w-28 font-bold hover:bg-purple-700 hover:text-white'>
           Login
         </PrimaryButton>
-        <div className='mt-8'>
-          <h2>Demo Account:</h2>
-          <div className='mt-4'>
-            Email: <span className='font-bold'>bleniog@wp.pl</span>{' '}
-          </div>
+        <DemoBox>
+          <DemoHeader>Demo Account:</DemoHeader>
+          <DemoDetails>
+            Email: <DemoEmail>bleniog@wp.pl</DemoEmail>{' '}
+          </DemoDetails>
           <div>
-            Password: <span className='font-bold'>tomasz</span>
+            Password: <DemoPassword>tomasz</DemoPassword>
           </div>
-        </div>
+        </DemoBox>
       </WrapperWithFormAndTitle>
-      <img
-        className='absolute left-0 top-0 -z-10 h-full w-full object-cover'
-        src={LoginRegisterImg}
-        alt='Login image'
-      />
-    </div>
+      <BackGroundImage src={LoginRegisterImg} alt='Login image' />
+    </LoginPageContainer>
   );
 }
 

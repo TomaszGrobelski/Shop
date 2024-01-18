@@ -1,13 +1,14 @@
+import { ContactSectionContainer, ContactSectionHeader } from '../../styles/ContactPage/ContactSection.styles';
 import ContactUs from './ContactUs.tsx/ContactUs';
 import QuickAssists from './QuickAssists.tsx/QuickAssists';
 
 function ContactSection() {
   return (
-    <div className='p-4'>
-      <h1 className='text-center text-[32px] font-bold opacity-90'>GET HELP</h1>
+    <ContactSectionContainer>
+      <ContactSectionHeader>GET HELP</ContactSectionHeader>
       <ContactUs />
       <QuickAssists />
-    </div>
+    </ContactSectionContainer>
   );
 }
 

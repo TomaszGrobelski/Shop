@@ -5,6 +5,20 @@ import { Link } from 'react-router-dom';
 import { SummaryProps } from '../../../types/BagPage/bagPage.types';
 import PrimaryButton from '../../Buttons/PrimaryButton';
 import PromoCode from './PromoCode';
+import {
+  CheckoutBox,
+  DiscountBox,
+  DiscountInfoBox,
+  DiscountSection,
+  EstimatedTaxBox,
+  EstimatedTaxFlexBox,
+  ShippingBox,
+  SubtotalBox,
+  SubtotalTitle,
+  SummaryContainer,
+  SummaryTitle,
+  TotalAmountSection,
+} from '../../../styles/BagPage/Summary.styles';
 
 function Summary({ totalPrice, visible = true }: SummaryProps) {
   const [discount, setDiscount] = useState(false);
@@ -15,69 +29,52 @@ function Summary({ totalPrice, visible = true }: SummaryProps) {
   }
 
   return (
-    <div className='flex min-w-[300px] max-w-[660px] flex-col gap-3 font-bold  '>
-      <h2 className='mt-6 text-[24px] '>Summary</h2>
+    <SummaryContainer>
+      <SummaryTitle>Summary</SummaryTitle>
       {visible && <PromoCode setDiscount={setDiscount} />}
-      <div className='flex items-center justify-between py-3'>
-        <div className='flex items-center gap-3 opacity-90'>
-          Subtotal
-          <button className='h-4 w-4 rounded-full bg-black text-[12px] font-bold text-white'>
-            ?
-          </button>
-        </div>
+      <SubtotalBox>
+        <SubtotalTitle>Subtotal</SubtotalTitle>
         <span>
           <BiMinus />
         </span>
-      </div>
-      <div className='flex items-center justify-between py-2'>
+      </SubtotalBox>
+      <ShippingBox>
         <p>Estimated Shipping & Handling</p>
         <span>$0.00</span>
-      </div>
-      <div className='flex flex-col gap-2 border-b-[1px] py-3'>
-        <div className='flex justify-between'>
-          <div>
-            Estimated Tax{' '}
-            <button className='h-4  w-4 rounded-full bg-black text-[12px] font-bold text-white'>
-              ?
-            </button>
-          </div>
-          <div>
-            <BiMinus />
-          </div>
-        </div>
+      </ShippingBox>
+      <EstimatedTaxBox>
+        <EstimatedTaxFlexBox>
+          <div>Estimated Tax</div>
+          <BiMinus />
+        </EstimatedTaxFlexBox>
         {discount && (
-          <div className='flex flex-col gap-1'>
-            <div className='flex justify-between'>
+          <DiscountSection>
+            <DiscountBox>
               <p>Discount Total</p>
               <span>${discountValue}</span>
-            </div>
-            <div className='flex justify-between text-green-700'>
+            </DiscountBox>
+            <DiscountInfoBox>
               <p>MEMBER20 -20% off</p>
               <span>X</span>
-            </div>
-          </div>
+            </DiscountInfoBox>
+          </DiscountSection>
         )}
-      </div>
-      <div className='flex items-center justify-between border-b-[1px] py-3'>
+      </EstimatedTaxBox>
+      <TotalAmountSection>
         <p>Total</p>
-        <span>
-          {totalPrice === 0 ? <BiMinus /> : '$' + totalPrice.toFixed(2)}
-        </span>
-      </div>
-      <div className='min-w-[300px] max-w-[500px] self-center font-bold '>
+        <span>{totalPrice === 0 ? <BiMinus /> : '$' + totalPrice.toFixed(2)}</span>
+      </TotalAmountSection>
+      <CheckoutBox>
         {visible && (
           <Link to='/checkout'>
             <PrimaryButton
-              className={
-                'w-full text-gray-500 ' +
-                (totalPrice === 0 ? 'gr-gray-300' : 'bg-black text-white')
-              }>
+              className={'w-full text-gray-500 ' + (totalPrice === 0 ? 'gr-gray-300' : 'bg-black text-white')}>
               Checkout
             </PrimaryButton>
           </Link>
         )}
-      </div>
-    </div>
+      </CheckoutBox>
+    </SummaryContainer>
   );
 }
 

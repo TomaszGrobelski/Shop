@@ -1,10 +1,8 @@
 import { GenderFilterProps } from '../../../../types/ShoesPage/shoePage.types';
 import genderList from '../Lists/genderList';
+import { GenderContainer, GenderInput, GenderItem, GenderLabel, GenderList, GenderTitle } from '../../../../styles/ShoePage/GenderFilter.styles';
 
-const GenderFilter: React.FC<GenderFilterProps> = ({
-  setGenderFilter,
-  genderFilter,
-}) => {
+const GenderFilter: React.FC<GenderFilterProps> = ({ setGenderFilter, genderFilter }) => {
   const handleCheckboxChange = (genderType: string) => {
     if (genderFilter === genderType) {
       setGenderFilter(null);
@@ -14,30 +12,25 @@ const GenderFilter: React.FC<GenderFilterProps> = ({
   };
 
   return (
-    <div className='border-b-[1px] border-gray-200 py-6 '>
-      <p className='mb-4'>Gender</p>
-      <ul className='flex flex-col gap-3'>
+    <GenderContainer>
+      <GenderTitle>Gender</GenderTitle>
+      <GenderList>
         {genderList.map((sex, index) => {
           const inputId = `gender-${index}`;
           return (
-            <li key={index} className='flex items-center gap-2 '>
-              <input
+            <GenderItem key={index}>
+              <GenderInput
                 id={inputId}
                 type='checkbox'
                 checked={genderFilter === sex.type}
                 onChange={() => handleCheckboxChange(sex.type)}
-                className='h-5 w-5 cursor-pointer  checked:accent-black '
               />
-              <label
-                htmlFor={inputId}
-                className='cursor-pointer hover:opacity-80 '>
-                {sex.type}
-              </label>
-            </li>
+              <GenderLabel htmlFor={inputId}>{sex.type}</GenderLabel>
+            </GenderItem>
           );
         })}
-      </ul>
-    </div>
+      </GenderList>
+    </GenderContainer>
   );
 };
 

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import IconListRightSideNavBar from './IconListRightSideNavBar';
 import LogOut from './LogOut/LogOut';
+import { IconsBox, MobileNavButton, MobileNavContainer, NavButton, NavItem, NavigationList } from '../../styles/Navigation/MobileNav.styles';
 import navigationLinks from './navigationLinks';
 
 interface MobileNavProps {
@@ -23,18 +24,18 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
   }, []);
 
   const navList = navigationLinks.map((link, index) => (
-    <li className='flex items-center justify-between' key={index}>
+    <NavItem key={index}>
       <Link to={link.path}>
-        <button className='flex w-[212px] items-center justify-between'>
+        <NavButton>
           {link.name}
           <FiChevronRight size={20} />
-        </button>
+        </NavButton>
       </Link>
-    </li>
+    </NavItem>
   ));
 
   return (
-    <div className='relative z-50  font-helvetica text-[24px] text-black'>
+    <MobileNavContainer>
       <motion.div
         onClick={visible}
         initial={{ opacity: 0 }}
@@ -50,19 +51,19 @@ function MobileNav({ visible, navVisible }: MobileNavProps) {
           exit={{ x: 260 }}
           transition={{ duration: 0.2 }}
           className=' fixed right-0 top-0 z-20 h-screen w-[260px] border-l-[1px] bg-white p-6 sm:hidden'>
-          <button onClick={visible} className='relative   left-[188px]'>
+          <MobileNavButton onClick={visible}>
             <IoMdClose size={25} />
-          </button>
-          <div className=''>
-            <ul className='flex flex-col  gap-4'>{navList}</ul>
+          </MobileNavButton>
+          <div>
+            <NavigationList>{navList}</NavigationList>
           </div>
-          <div className='my-20 flex flex-col gap-4'>
+          <IconsBox>
             <IconListRightSideNavBar />
             <LogOut title='Logout' />
-          </div>
+          </IconsBox>
         </motion.div>
       )}
-    </div>
+    </MobileNavContainer>
   );
 }
 

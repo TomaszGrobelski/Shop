@@ -3,6 +3,14 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { PiSlidersHorizontal } from 'react-icons/pi';
 
 import { FilterPhoneProps } from '../../../types/ShoesPage/shoePage.types';
+import { ModelList } from '../../../styles/ShoePage/FilterPhone.styles';
+import { ModelResultTitle } from '../../../styles/ShoePage/FilterPhone.styles';
+import { ModelListBox } from '../../../styles/ShoePage/FilterPhone.styles';
+import { CloseButton } from '../../../styles/ShoePage/FilterPhone.styles';
+import { FilterHeader } from '../../../styles/ShoePage/FilterPhone.styles';
+import { FilterModal } from '../../../styles/ShoePage/FilterPhone.styles';
+import { FilterButton } from '../../../styles/ShoePage/FilterPhone.styles';
+import { ModelListContainer } from '../../../styles/ShoePage/FilterPhone.styles';
 import modelsList from './Lists/modelsList';
 import DiscountFilter from './MainFilters/DiscountFilter';
 import GenderFilter from './MainFilters/GenderFilter';
@@ -54,38 +62,28 @@ function FilterPhone({
 
   return (
     <div className='md:hidden '>
-      <div className='border-b-[1px] pb-2 pl-10'>
-        <ul className='flex flex-wrap gap-6 overflow-hidden whitespace-nowrap font-bold opacity-90 '>
-          {models}
-        </ul>
-      </div>
-      <div className='flex items-center justify-between px-10  py-2'>
-        <p className='text-[18px] opacity-80'>Results</p>
-        <button
-          onClick={handleFilter}
-          className='flex items-center gap-2 rounded-full border-[1px] px-4 text-[18px] hover:border-black'>
+      <ModelListContainer>
+        <ModelList>{models}</ModelList>
+      </ModelListContainer>
+      <ModelListBox>
+        <ModelResultTitle>Results</ModelResultTitle>
+        <FilterButton onClick={handleFilter}>
           Filter <PiSlidersHorizontal size={22} />
-        </button>
-      </div>
+        </FilterButton>
+      </ModelListBox>
       {filterVisible && (
-        <div className='fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white p-6'>
+        <FilterModal>
           <div className='text-[18px] '>
-            <h2 className=' border-b-[1px] pb-2'>Filter</h2>
-            <button onClick={handleFilterOut} className='fixed right-6 top-6'>
+            <FilterHeader>Filter</FilterHeader>
+            <CloseButton onClick={handleFilterOut}>
               <AiFillCloseCircle size={35} />
-            </button>
+            </CloseButton>
             <SortFilter sortBy={sortBy} setSortBy={setSortBy} />
-            <GenderFilter
-              genderFilter={genderFilter}
-              setGenderFilter={setGenderFilter}
-            />
+            <GenderFilter genderFilter={genderFilter} setGenderFilter={setGenderFilter} />
             <DiscountFilter setDiscount={setDiscount} />
-            <SizeFilter
-              selectedSize={selectedSize}
-              setSelectedSize={setSelectedSize}
-            />
+            <SizeFilter selectedSize={selectedSize} setSelectedSize={setSelectedSize} />
           </div>
-        </div>
+        </FilterModal>
       )}
     </div>
   );

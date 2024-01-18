@@ -1,28 +1,26 @@
+import {
+  ContactBoxContainer,
+  ContactImage,
+  ContactTitle,
+  ContentContainer,
+  DescriptionText,
+  ImageContainer,
+} from '../../../styles/ContactPage/ContactBoxPattern.styles';
 import { ContactBoxPatternProps } from '../../../types/ContactPage/contactPage.types';
 
-function ContactBoxPattern({
-  image,
-  title,
-  description,
-  times,
-  days,
-}: ContactBoxPatternProps) {
+function ContactBoxPattern({ image, title, description, times, days }: ContactBoxPatternProps) {
   return (
-    <div className='m-4 mt-14 flex items-center md:flex-col'>
-      <div className='flex justify-center'>
-        <img
-          className=' aspect-square w-28 object-fill  '
-          src={image}
-          alt={title}
-        />
-      </div>
-      <div className='flex flex-col gap-2  font-bold opacity-80 md:items-center'>
-        <h3 className=' md:whitespace-nowrap'>{title}</h3>
-        <span className=' md:whitespace-nowrap'>{description}</span>
+    <ContactBoxContainer>
+      <ImageContainer>
+        <ContactImage src={image} alt={title} />
+      </ImageContainer>
+      <ContentContainer>
+        <ContactTitle>{title}</ContactTitle>
+        <DescriptionText>{description}</DescriptionText>
         <span>{times}</span>
         <span>{days}</span>
-      </div>
-    </div>
+      </ContentContainer>
+    </ContactBoxContainer>
   );
 }
 

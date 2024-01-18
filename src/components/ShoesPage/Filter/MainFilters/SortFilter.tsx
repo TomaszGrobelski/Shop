@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { SortFilterProps } from '../../../../types/ShoesPage/shoePage.types';
+import { ButtonsBox, HighLowButton, LowHighButton, SortFilterContainer } from '../../../../styles/ShoePage/SortFilter.styles';
 
 const SortFilter = ({ sortBy, setSortBy }: SortFilterProps) => {
   const highLow = 'high-low';
@@ -15,27 +16,25 @@ const SortFilter = ({ sortBy, setSortBy }: SortFilterProps) => {
   }, [sortBy]);
 
   return (
-    <div className='flex flex-col gap-4 border-b-[1px] py-3'>
+    <SortFilterContainer>
       <p>
         Sort By <span className='opacity-60'>{sortByLabe}</span>
       </p>
-      <div className='flex flex-col'>
-        <button
+      <ButtonsBox>
+        <HighLowButton
           onClick={() => {
             setSortBy(highLow);
-          }}
-          className='whitespace-nowrap text-start hover:opacity-70'>
+          }}>
           Price: High-Low
-        </button>
-        <button
+        </HighLowButton>
+        <LowHighButton
           onClick={() => {
             setSortBy(lowHigh);
-          }}
-          className='whitespace-nowrap text-start hover:opacity-70'>
+          }}>
           Price: Low-High
-        </button>
-      </div>
-    </div>
+        </LowHighButton>
+      </ButtonsBox>
+    </SortFilterContainer>
   );
 };
 
