@@ -22,7 +22,7 @@ function PasswordLabel({ children }: PasswordLabelProps) {
         <FaLock />
       </div>
       {updatedChild}
-      <button type='button' onClick={toggleVisibility} className='pr-2'>
+      <button type='button' onClick={toggleVisibility} className='pr-2 hover:text-purple-700'>
         {inputType === password ? (
           <AiFillEye size={25} />
         ) : (

@@ -9,30 +9,37 @@ function CitiesAPI() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(
-      'http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT',
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Network response was failed');
+    const fetchCities = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          'http://api.geonames.org/searchJSON?username=ksuhiyp&country=pl&maxRows=1000&style=SHORT',
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-        return res.json();
-      })
-      .then((data) => {
+        const data = await response.json();
         const cities = (data.geonames as CityProps[]).map((city) => ({
           name: city.name,
-        })) as CityProps[];
+        }));
+
         setCitiesList(cities);
-        setIsLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
         setError('Error occurred please try again later');
+      } finally {
         setIsLoading(false);
-      });
+      }
+    };
+
+    fetchCities();
   }, []);
 
   if (isLoading) {
     return <LoadingElement />;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
@@ -42,7 +49,6 @@ function CitiesAPI() {
           <li key={index}>{city.name}</li>
         ))}
       </ul>
-      {error}
     </div>
   );
 }

@@ -44,6 +44,7 @@ function LoginPage() {
             placeholder='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete='email'
             required
           />
         </EmailLabel>
@@ -59,12 +60,12 @@ function LoginPage() {
         <button
           type='button'
           onClick={handleRegisterClick}
-          className='mb-5 mt-1 flex items-center gap-1 self-end'>
+          className='mb-5 mt-1 flex items-center gap-1 self-end font-bold hover:text-purple-700'>
           Register Now <IoCreate />
         </button>
         <PrimaryButton
           type='submit'
-          className='h-12 w-28 font-bold hover:bg-purple-500'>
+          className='h-12 w-28 font-bold hover:bg-purple-700 hover:text-white'>
           Login
         </PrimaryButton>
         <div className='mt-8'>

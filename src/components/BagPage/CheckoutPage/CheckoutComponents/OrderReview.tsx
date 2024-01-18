@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react';
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
 
@@ -10,6 +11,7 @@ interface OrderReviewProps {
   validate: () => boolean;
 }
 function OrderReview({ validate }: OrderReviewProps) {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState('');
   let items: ItemsProps[] = [];
   const bagItemsString = localStorage.getItem('bagItems');
@@ -54,8 +56,11 @@ function OrderReview({ validate }: OrderReviewProps) {
 
   const redirectToCheckout = async () => {
     if (!validate()) {
-      return console.log('Not valid');
+      setError('Please enter correct personal details');
+      return;
     }
+    setIsLoading(true);
+    setError('');
     const stripe = await getStripe();
     if (stripe) {
       const result = await stripe.redirectToCheckout(checkoutOptions);
@@ -63,17 +68,22 @@ function OrderReview({ validate }: OrderReviewProps) {
         setError(result.error.message as string);
       }
     } else {
-      setError('Stripe could not be initialized');
+      setIsLoading(false);
+      setError('The payment could not be made');
     }
   };
 
   return (
-    <div className='flex max-w-[660px] justify-end py-10'>
-      <div>{error}</div>
+    <div className='flex max-w-[660px] items-center justify-end gap-4 py-10'>
+      <p className=' font-bold text-red-500'>{error}</p>
       <button
         onClick={redirectToCheckout}
-        className=' rounded-3xl border-2 p-3 px-8 text-[20px] font-bold'>
-        Pay
+        className=' rounded-md border-2 p-3 px-8 text-[20px] font-bold transition-all duration-500 hover:rounded-3xl hover:border-black active:scale-125'>
+        {isLoading ? (
+          <Icon icon='eos-icons:bubble-loading' width={26} />
+        ) : (
+          'Pay'
+        )}
       </button>
     </div>
   );

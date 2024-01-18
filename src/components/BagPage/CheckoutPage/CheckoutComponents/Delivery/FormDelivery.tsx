@@ -1,5 +1,7 @@
 import { ChangeEvent } from 'react';
 
+import { FormWrapper } from './FormDelivery.styles';
+import { FormFlexBox } from './FormDelivery.styles';
 import LabelForm from './LabelForm';
 
 interface FormDeliveryProps {
@@ -21,7 +23,6 @@ function FormDelivery({
   setEmail,
   setPhoneNumber,
 }: FormDeliveryProps) {
-
   const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const numberValue = parseInt(e.target.value, 10);
     if (!isNaN(numberValue)) {
@@ -33,8 +34,8 @@ function FormDelivery({
 
   return (
     <form>
-      <div className='flex flex-col gap-6'>
-        <div className='flex flex-col gap-4 sm:flex-row'>
+      <FormWrapper>
+        <FormFlexBox>
           <LabelForm
             id='firstName'
             title='First Name'
@@ -53,7 +54,7 @@ function FormDelivery({
               setLastName(e.target.value)
             }
           />
-        </div>
+        </FormFlexBox>
         <LabelForm
           id='address'
           title='Address'
@@ -81,7 +82,7 @@ function FormDelivery({
             setPostalCode(e.target.value)
           }
         />
-        <div className='flex flex-col gap-4 sm:flex-row'>
+        <FormFlexBox>
           <LabelForm
             id='email'
             title='Email'
@@ -98,8 +99,8 @@ function FormDelivery({
             autoComplite='tel'
             onChange={handlePhoneNumberChange}
           />
-        </div>
-      </div>
+        </FormFlexBox>
+      </FormWrapper>
     </form>
   );
 }
